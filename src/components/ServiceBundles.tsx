@@ -4,19 +4,19 @@ import Link from "next/link";
 
 const BUNDLES = [
   {
-    tag: "🌐 Websites",
+    tag: "Websites",
     title: "Starter Site Bundle",
     desc: "A professional website that actually converts — built with your brand, SEO-ready, and live in 2 weeks. Includes design, copy, hosting setup and WhatsApp integration.",
     price: "From ₹49,999",
   },
   {
-    tag: "🤖 AI & Automation",
+    tag: "AI & Automation",
     title: "AI + Automation Bundle",
     desc: "Replace your most time-consuming manual work with an AI agent or n8n workflow. From lead qualification bots to invoice automation — fully custom, fully yours.",
     price: "From ₹79,999",
   },
   {
-    tag: "📱 Full Digital",
+    tag: "Full Digital",
     title: "Full Digital Bundle",
     desc: "Complete digital presence — website, mobile app, AI agent, and brand identity. One team, one fixed price, one deadline. Best for businesses launching from zero.",
     price: "From ₹1,49,999",
