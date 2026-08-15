@@ -141,9 +141,6 @@
   * {
     @apply border-border outline-ring/50;
   }
-  @media (pointer: fine) {
-    *, a, button, [role="button"] { cursor: none; }
-  }
   body {
     background: #ffffff;
     color: #010101;
