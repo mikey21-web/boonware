@@ -50,8 +50,7 @@ export function Footer() {
           <div>
             <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Social</div>
             <a href="https://linkedin.com/company/boonware" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none", marginBottom: 10 }}>LinkedIn</a>
-            <a href="https://instagram.com/boonware_agency" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none", marginBottom: 10 }}>Instagram</a>
-            <a href="https://github.com/boonware-agency" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none" }}>GitHub</a>
+            <a href="https://instagram.com/boonware_agency" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none" }}>Instagram</a>
           </div>
         </div>
 

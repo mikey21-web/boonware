@@ -267,14 +267,13 @@ export function MoneyAngles() {
               className="work-card"
               style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
                 background: "rgba(255,255,255,0.03)",
                 border: "1px solid rgba(255,255,255,0.07)",
                 overflow: "hidden",
                 textDecoration: "none",
                 opacity: 0,
                 transition: "border-color 0.3s, box-shadow 0.3s",
-                minHeight: 0,
               }}
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLElement;
@@ -287,13 +286,8 @@ export function MoneyAngles() {
                 el.style.boxShadow = "none";
               }}
             >
-              {/* Image left */}
-              <div style={{
-                position: "relative",
-                width: "45%",
-                flexShrink: 0,
-                overflow: "hidden",
-              }}>
+              {/* Image top */}
+              <div style={{ position: "relative", width: "100%", aspectRatio: "16/9", overflow: "hidden", flexShrink: 0 }}>
                 <Image
                   src={p.img}
                   alt={p.title}
@@ -303,9 +297,16 @@ export function MoneyAngles() {
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "scale(1.06)"}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
                 />
+                {/* Result badge */}
+                <div style={{
+                  position: "absolute", top: 12, left: 12,
+                  background: "rgba(232,100,60,0.92)", color: "#fff",
+                  fontSize: 11, fontWeight: 700, padding: "4px 10px",
+                  borderRadius: 9999, letterSpacing: "0.02em",
+                }}>{p.result}</div>
               </div>
 
-              {/* Info right */}
+              {/* Info */}
               <div style={{ padding: "20px 22px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div>
                   <span style={{
@@ -314,27 +315,29 @@ export function MoneyAngles() {
                   }}>{p.cat}</span>
                   <h3 style={{
                     fontFamily: "'Space Grotesk', sans-serif",
-                    fontSize: "clamp(16px, 1.8vw, 20px)",
+                    fontSize: "clamp(16px, 1.6vw, 19px)",
                     fontWeight: 700, letterSpacing: "-0.03em",
-                    color: "#fff", lineHeight: 1.2, margin: "0 0 8px",
+                    color: "#fff", lineHeight: 1.2, margin: "0 0 10px",
                   }}>{p.title}</h3>
-                  <div style={{
-                    display: "inline-flex", alignItems: "center", gap: 6,
-                    background: "rgba(232,100,60,0.12)",
-                    border: "1px solid rgba(232,100,60,0.25)",
-                    borderRadius: 9999, padding: "3px 10px",
-                    fontSize: 11, fontWeight: 700, color: "#e8643c",
-                    marginBottom: 10,
-                  }}>{p.result}</div>
                   <p style={{
                     fontSize: 13, color: "rgba(255,255,255,0.4)",
                     lineHeight: 1.65, margin: 0,
                   }}>{p.desc}</p>
                 </div>
-                <span style={{
-                  display: "inline-flex", alignItems: "center", gap: 5,
-                  marginTop: 14, fontSize: 12, fontWeight: 700, color: "#e8643c",
-                }}>View project →</span>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 16 }}>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: "#e8643c" }}>
+                    {p.liveUrl ? "Visit live site →" : "View project →"}
+                  </span>
+                  <div style={{
+                    display: "flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    borderRadius: 9999, padding: "4px 10px",
+                  }}>
+                    {p.logo && <img src={p.logo} alt="" width={14} height={14} style={{ borderRadius: 2, flexShrink: 0 }} />}
+                    <span style={{ fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>{p.logoText}</span>
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
