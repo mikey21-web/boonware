@@ -119,7 +119,7 @@ export default function ProjectsPage() {
 
       {/* ── PAGE HEADER ── */}
       <div style={{
-        padding: "140px 24px 64px",
+        padding: "clamp(96px, 16vw, 140px) 24px 64px",
         textAlign: "center",
         borderBottom: "1px solid #e4e4e7",
         background: "#ffffff",

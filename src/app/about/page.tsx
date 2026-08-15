@@ -132,7 +132,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section ref={heroRef} style={{ padding: "140px 24px 100px", borderBottom: "1px solid #e4e4e7", overflow: "hidden" }}>
+      <section ref={heroRef} style={{ padding: "clamp(96px, 16vw, 140px) 24px clamp(72px, 10vw, 100px)", borderBottom: "1px solid #e4e4e7", overflow: "hidden" }}>
         <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
           <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#e8643c", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }} className="hero-line">
             About BoonWare

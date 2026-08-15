@@ -240,9 +240,6 @@ body { overflow-x: hidden; }
   .money-grid      { grid-template-columns: 1fr !important; }
   .money-grid .work-card:first-child { grid-row: auto !important; }
 
-  /* Section padding: cut 104px to ~60px on mobile */
-  section { padding-top: clamp(56px, 12vw, 104px) !important; padding-bottom: clamp(56px, 12vw, 104px) !important; }
-
   /* Ensure nothing clips off screen */
   img, video { max-width: 100%; }
 }

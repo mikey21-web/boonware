@@ -51,7 +51,7 @@ export function Hero() {
   return (
     <section
       style={{
-        padding: "140px 24px 100px",
+        padding: "clamp(96px, 16vw, 160px) clamp(20px, 5vw, 48px) clamp(72px, 10vw, 100px)",
         textAlign: "center",
         borderBottom: "1px solid #e4e4e7",
         overflow: "hidden",
