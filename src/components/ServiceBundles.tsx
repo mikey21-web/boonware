@@ -120,7 +120,7 @@ export function ServiceBundles() {
                 {b.price}
               </div>
               <Link
-                href="https://wa.me/919390739090"
+                href="/services"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 6,
                   marginTop: 20, padding: "10px 18px",
@@ -132,7 +132,7 @@ export function ServiceBundles() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#e8643c"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "#17171c"; }}
               >
-                Get started →
+                View services →
               </Link>
             </div>
           ))}

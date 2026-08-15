@@ -201,6 +201,40 @@
   .cb-grid-logos { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ── GLOBAL MOBILE RESPONSIVENESS ── */
+@media (max-width: 768px) {
+  /* Force all multi-column grids to single column */
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns: repeat(4"],
+  [style*="gridTemplateColumns: repeat(3"],
+  [style*="gridTemplateColumns: repeat(4"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns: 1.5fr 1fr"],
+  [style*="gridTemplateColumns: 1.5fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="gridTemplateColumns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Money grid — stack featured card */
+  .money-grid { grid-template-columns: 1fr !important; }
+  .money-grid .work-card:first-child { grid-row: auto !important; }
+  /* Prevent content overflow */
+  section, div { max-width: 100% !important; overflow-x: hidden; }
+  /* Reduce padding on sections */
+  section[style*="padding: \"104px"] { padding: 60px 20px !important; }
+}
+
+@media (max-width: 480px) {
+  /* Stack all remaining 2-col grids */
+  [style*="grid-template-columns: repeat(2"],
+  [style*="gridTemplateColumns: repeat(2"],
+  [style*="grid-template-columns: 1fr 2fr"],
+  [style*="gridTemplateColumns: 1fr 2fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .text-gradient {
   background: linear-gradient(135deg, #2fe68b, #7df5b1);
   -webkit-background-clip: text;

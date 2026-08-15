@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { QuickContactModal } from "./QuickContactModal";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -160,10 +162,10 @@ export default function Navbar() {
           )}
 
           {/* CTA */}
-          <Link
-            href="/contact"
+          <button
+            onClick={() => setModalOpen(true)}
             style={{
-              background: "#17171c",
+              background: "#e8643c",
               color: "#fff",
               padding: "0 16px",
               borderRadius: 9999,
@@ -174,19 +176,17 @@ export default function Navbar() {
               alignItems: "center",
               marginLeft: 8,
               flexShrink: 0,
-              textDecoration: "none",
-              transition: "background 0.2s, transform 0.2s",
+              border: "none",
+              cursor: "pointer",
+              transition: "background 0.2s",
               whiteSpace: "nowrap",
+              fontFamily: "inherit",
             }}
-            onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = "#e8643c";
-            }}
-            onMouseLeave={e => {
-              (e.target as HTMLElement).style.background = "#17171c";
-            }}
+            onMouseEnter={e => { (e.currentTarget).style.background = "#17171c"; }}
+            onMouseLeave={e => { (e.currentTarget).style.background = "#e8643c"; }}
           >
-            Start a Project →
-          </Link>
+            Get Started →
+          </button>
 
           {/* Mobile hamburger */}
           <button
@@ -263,25 +263,26 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            onClick={() => setMenuOpen(false)}
+          <button
+            onClick={() => { setMenuOpen(false); setModalOpen(true); }}
             style={{
               display: "inline-flex",
               alignItems: "center",
               marginTop: 20,
-              textDecoration: "none",
-              background: "#17171c",
+              background: "#e8643c",
               color: "#fff",
               borderRadius: 9999,
               padding: "0 28px",
               height: 48,
               fontSize: 15,
               fontWeight: 600,
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "inherit",
             }}
           >
-            Start a Project →
-          </Link>
+            Get Started →
+          </button>
         </div>
       )}
 
@@ -291,6 +292,8 @@ export default function Navbar() {
           .bw-hamburger { display: flex !important; }
         }
       `}</style>
+
+      <QuickContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
