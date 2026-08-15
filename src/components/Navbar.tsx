@@ -93,9 +93,9 @@ export default function Navbar() {
             Get Started →
           </button>
 
-          {/* Hamburger */}
+          {/* Hamburger — always pushed to far right on mobile */}
           <button onClick={() => setMenuOpen(v => !v)} className="bw-hamburger" aria-label="Menu"
-            style={{ display: "none", background: "none", border: "none", cursor: "pointer", padding: "6px 8px", marginLeft: 6, flexShrink: 0, alignItems: "center", justifyContent: "center" }}>
+            style={{ display: "none", background: "none", border: "none", cursor: "pointer", padding: "6px 8px", marginLeft: "auto", flexShrink: 0, alignItems: "center", justifyContent: "center" }}>
             <div style={{ width: 22, display: "flex", flexDirection: "column", gap: 5 }}>
               {[0, 1, 2].map(i => (
                 <span key={i} style={{
