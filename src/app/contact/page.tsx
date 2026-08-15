@@ -52,39 +52,51 @@ export default function ContactPage() {
       if (lines?.length) {
         gsap.to(lines, { y: 0, duration: 1.1, ease: "power4.out", stagger: 0.07, delay: 0.1 });
       }
-      gsap.fromTo(
-        heroRef.current?.querySelector(".hero-foot"),
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.5 }
-      );
+      const heroFoot = heroRef.current?.querySelector(".hero-foot") ?? null;
+      if (heroFoot) {
+        gsap.fromTo(
+          heroFoot,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.5 }
+        );
+      }
 
       /* Expect cards */
-      gsap.fromTo(
-        expectRef.current?.querySelectorAll(".exp-card"),
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.1,
-          scrollTrigger: { trigger: expectRef.current, start: "top 78%", once: true },
-        }
-      );
-      gsap.fromTo(
-        expectRef.current?.querySelector(".exp-heading"),
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1, y: 0, duration: 0.7, ease: "power3.out",
-          scrollTrigger: { trigger: expectRef.current, start: "top 80%", once: true },
-        }
-      );
+      const expCards = expectRef.current?.querySelectorAll(".exp-card") ?? [];
+      if (expCards.length) {
+        gsap.fromTo(
+          expCards,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.1,
+            scrollTrigger: { trigger: expectRef.current, start: "top 78%", once: true },
+          }
+        );
+      }
+      const expHeading = expectRef.current?.querySelector(".exp-heading") ?? null;
+      if (expHeading) {
+        gsap.fromTo(
+          expHeading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0, duration: 0.7, ease: "power3.out",
+            scrollTrigger: { trigger: expectRef.current, start: "top 80%", once: true },
+          }
+        );
+      }
 
       /* CTA */
-      gsap.fromTo(
-        ctaRef.current?.querySelector(".cta-inner"),
-        { opacity: 0, y: 32 },
-        {
-          opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
-          scrollTrigger: { trigger: ctaRef.current, start: "top 80%", once: true },
-        }
-      );
+      const ctaInner = ctaRef.current?.querySelector(".cta-inner") ?? null;
+      if (ctaInner) {
+        gsap.fromTo(
+          ctaInner,
+          { opacity: 0, y: 32 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
+            scrollTrigger: { trigger: ctaRef.current, start: "top 80%", once: true },
+          }
+        );
+      }
     };
     run();
   }, []);
