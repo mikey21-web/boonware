@@ -16,22 +16,10 @@ export function Testimonials() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      gsap.fromTo(
-        ref.current?.querySelector(".quote-text"),
-        { opacity: 0, y: 32 },
-        {
-          opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
-          scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
-        }
-      );
-      gsap.fromTo(
-        ref.current?.querySelector(".quote-author"),
-        { opacity: 0, y: 16 },
-        {
-          opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.2,
-          scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
-        }
-      );
+      const quoteText = ref.current?.querySelector(".quote-text") ?? null;
+      if (quoteText) gsap.fromTo(quoteText, { opacity: 0, y: 32 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: ref.current, start: "top 80%", once: true } });
+      const quoteAuthor = ref.current?.querySelector(".quote-author") ?? null;
+      if (quoteAuthor) gsap.fromTo(quoteAuthor, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.2, scrollTrigger: { trigger: ref.current, start: "top 80%", once: true } });
     };
     run();
   }, []);

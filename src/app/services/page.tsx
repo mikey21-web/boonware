@@ -114,15 +114,14 @@ export default function ServicesPage() {
           delay: 0.1,
         });
       }
-      gsap.fromTo(
-        heroRef.current?.querySelector(".hero-sub"),
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.55 }
-      );
+      const heroSub = heroRef.current?.querySelector(".hero-sub") ?? null;
+      if (heroSub) {
+        gsap.fromTo(heroSub, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.55 });
+      }
 
       /* Picker buttons stagger */
       gsap.fromTo(
-        pickerRef.current?.querySelectorAll(".outcome-btn"),
+        pickerRef.current?.querySelectorAll(".outcome-btn") ?? [],
         { opacity: 0, y: 30 },
         {
           opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.07,
@@ -132,7 +131,7 @@ export default function ServicesPage() {
 
       /* Showroom cards */
       gsap.fromTo(
-        showroomRef.current?.querySelectorAll(".show-card"),
+        showroomRef.current?.querySelectorAll(".show-card") ?? [],
         { opacity: 0, y: 50, scale: 0.97 },
         {
           opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out", stagger: 0.15,
@@ -142,7 +141,7 @@ export default function ServicesPage() {
 
       /* Service rows */
       gsap.fromTo(
-        accordionRef.current?.querySelectorAll(".svc-row"),
+        accordionRef.current?.querySelectorAll(".svc-row") ?? [],
         { opacity: 0, x: -20 },
         {
           opacity: 1, x: 0, duration: 0.5, ease: "power3.out", stagger: 0.04,
@@ -152,7 +151,7 @@ export default function ServicesPage() {
 
       /* Proof cards */
       gsap.fromTo(
-        proofRef.current?.querySelectorAll(".proof-card"),
+        proofRef.current?.querySelectorAll(".proof-card") ?? [],
         { opacity: 0, y: 40 },
         {
           opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.12,
@@ -161,14 +160,17 @@ export default function ServicesPage() {
       );
 
       /* CTA */
-      gsap.fromTo(
-        ctaRef.current?.querySelector(".cta-inner"),
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
-          scrollTrigger: { trigger: ctaRef.current, start: "top 80%", once: true },
-        }
-      );
+      const ctaInner = ctaRef.current?.querySelector(".cta-inner") ?? null;
+      if (ctaInner) {
+        gsap.fromTo(
+          ctaInner,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
+            scrollTrigger: { trigger: ctaRef.current, start: "top 80%", once: true },
+          }
+        );
+      }
     };
     run();
   }, []);

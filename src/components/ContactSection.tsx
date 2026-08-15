@@ -11,30 +11,12 @@ export function ContactSection() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      gsap.fromTo(
-        ref.current?.querySelector(".cta-heading"),
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
-          scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
-        }
-      );
-      gsap.fromTo(
-        ref.current?.querySelector(".cta-sub"),
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.15,
-          scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
-        }
-      );
-      gsap.fromTo(
-        ref.current?.querySelector(".cta-btns"),
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1, y: 0, duration: 0.6, ease: "power3.out", delay: 0.3,
-          scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
-        }
-      );
+      const ctaHeading = ref.current?.querySelector(".cta-heading") ?? null;
+      if (ctaHeading) gsap.fromTo(ctaHeading, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: ref.current, start: "top 80%", once: true } });
+      const ctaSub = ref.current?.querySelector(".cta-sub") ?? null;
+      if (ctaSub) gsap.fromTo(ctaSub, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.15, scrollTrigger: { trigger: ref.current, start: "top 80%", once: true } });
+      const ctaBtns = ref.current?.querySelector(".cta-btns") ?? null;
+      if (ctaBtns) gsap.fromTo(ctaBtns, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", delay: 0.3, scrollTrigger: { trigger: ref.current, start: "top 80%", once: true } });
     };
     run();
   }, []);
