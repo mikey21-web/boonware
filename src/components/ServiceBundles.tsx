@@ -32,6 +32,20 @@ export function ServiceBundles() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
+      // Heading clip-path reveal
+      const headingInner = ref.current?.querySelector(".sb-heading-inner") ?? null;
+      if (headingInner) {
+        gsap.fromTo(headingInner,
+          { clipPath: "inset(0 100% 0 0)", opacity: 0 },
+          {
+            clipPath: "inset(0 0% 0 0)", opacity: 1,
+            duration: 0.9, ease: "power4.out",
+            scrollTrigger: { trigger: ref.current, start: "top 82%", once: true },
+          }
+        );
+      }
+
+      // Bundle cards stagger
       gsap.fromTo(
         ref.current?.querySelectorAll(".bundle-card") ?? [],
         { opacity: 0, y: 40 },
@@ -39,6 +53,16 @@ export function ServiceBundles() {
           opacity: 1, y: 0,
           duration: 0.7, stagger: 0.12, ease: "power3.out",
           scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
+        }
+      );
+
+      // Price tags pulse animation on enter
+      gsap.fromTo(
+        ref.current?.querySelectorAll(".bundle-price") ?? [],
+        { scale: 0.85, opacity: 0 },
+        {
+          scale: 1, opacity: 1, duration: 0.55, stagger: 0.12, ease: "back.out(1.7)",
+          scrollTrigger: { trigger: ref.current, start: "top 75%", once: true },
         }
       );
     };
@@ -63,9 +87,11 @@ export function ServiceBundles() {
         }}>
           Service bundles
         </span>
-        <h2 style={{
+        <h2 className="sb-heading-inner" style={{
           fontSize: "clamp(36px, 4.5vw, 60px)", fontWeight: 700,
           letterSpacing: "-1.44px", lineHeight: 1.05, color: "#17171c",
+          opacity: 0,
+          willChange: "clip-path",
         }}>
           Everything you need,<br />
           <span style={{ color: "#71717a" }}>nothing you don't.</span>
@@ -116,7 +142,7 @@ export function ServiceBundles() {
               <p style={{ color: "#71717a", marginTop: 10, fontSize: 14, lineHeight: 1.63, flex: 1 }}>
                 {b.desc}
               </p>
-              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c", marginTop: 16 }}>
+              <div className="bundle-price" style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c", marginTop: 16, willChange: "transform" }}>
                 {b.price}
               </div>
               <Link

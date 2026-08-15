@@ -40,6 +40,8 @@ export default function ContactPage() {
   const TOTAL = 4;
   const pct = (step / TOTAL) * 100;
 
+  const formPanelRef = useRef<HTMLDivElement>(null);
+
   /* GSAP */
   useEffect(() => {
     const run = async () => {
@@ -100,6 +102,19 @@ export default function ContactPage() {
     };
     run();
   }, []);
+
+  // Step flip-in animation when step changes
+  useEffect(() => {
+    if (!formPanelRef.current) return;
+    const run = async () => {
+      const gsap = (await import("gsap")).default;
+      gsap.fromTo(formPanelRef.current,
+        { rotateX: -8, opacity: 0, y: 16 },
+        { rotateX: 0, opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }
+      );
+    };
+    run();
+  }, [step]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -392,11 +407,12 @@ export default function ContactPage() {
                       width: `${pct}%`,
                       height: 2,
                       background: "#e8643c",
-                      transition: "width 0.3s ease",
+                      transition: "width 0.55s cubic-bezier(0.16,1,0.3,1)",
                     }} />
                   </div>
 
                   <form onSubmit={handleSubmit}>
+                  <div ref={formPanelRef} style={{ willChange: "transform" }}>
                     {/* Step 1 */}
                     {step === 1 && (
                       <div>
@@ -609,6 +625,8 @@ export default function ContactPage() {
                         </div>
                       </div>
                     )}
+
+                  </div>{/* end formPanelRef */}
 
                     {/* Navigation */}
                     <div style={{

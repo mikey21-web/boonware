@@ -4,26 +4,31 @@ import { useEffect, useRef } from "react";
 const STEPS = [
   {
     n: "01",
+    num: 1,
     title: "Discovery call",
     desc: "We learn your business, your goals, and what you need built. 30 minutes. No sales pitch.",
   },
   {
     n: "02",
+    num: 2,
     title: "Proposal & scope",
     desc: "Fixed price. Fixed timeline. Exact deliverables. No surprises.",
   },
   {
     n: "03",
+    num: 3,
     title: "Design & build",
     desc: "We design in Figma, build in code, and update you every step of the way.",
   },
   {
     n: "04",
+    num: 4,
     title: "Review & refine",
     desc: "You get unlimited revisions on the agreed scope until it's exactly right.",
   },
   {
     n: "05",
+    num: 5,
     title: "Launch & hand off",
     desc: "We deploy, train your team, and hand you the full source code.",
   },
@@ -32,6 +37,7 @@ const STEPS = [
 // Re-exporting as ProcessSection (TrustedBrands slot now holds this)
 export function TrustedBrands() {
   const ref = useRef<HTMLElement>(null);
+  const numRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
     const run = async () => {
@@ -39,14 +45,34 @@ export function TrustedBrands() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
+      // Step cards stagger from x:-30
       gsap.fromTo(
         ref.current?.querySelectorAll(".step-card") ?? [],
-        { opacity: 0, y: 32 },
+        { opacity: 0, x: -30 },
         {
-          opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out",
+          opacity: 1, x: 0, duration: 0.6, stagger: 0.1, ease: "power3.out",
           scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
         }
       );
+
+      // Step numbers count up from 0
+      numRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const step = STEPS[i];
+        const proxy = { val: 0 };
+        gsap.to(proxy, {
+          val: step.num,
+          duration: 1.2,
+          ease: "power2.out",
+          onUpdate() {
+            if (el) {
+              const v = Math.round(proxy.val);
+              el.textContent = v < 10 ? `0${v}` : `${v}`;
+            }
+          },
+          scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
+        });
+      });
     };
     run();
   }, []);
@@ -91,11 +117,15 @@ export function TrustedBrands() {
                 paddingTop: 12,
                 opacity: 0,
                 transition: "border-color 0.25s",
+                willChange: "transform",
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#e8643c"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#17171c"; }}
             >
-              <span style={{ fontSize: 11, fontWeight: 700, color: "#71717a", letterSpacing: "0.6px" }}>
+              <span
+                ref={el => { numRefs.current[i] = el; }}
+                style={{ fontSize: 11, fontWeight: 700, color: "#71717a", letterSpacing: "0.6px" }}
+              >
                 {s.n}
               </span>
               <h3 style={{

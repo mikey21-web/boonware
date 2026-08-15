@@ -49,6 +49,7 @@ const PROCESS = [
 export default function AboutPage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
+  const storyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const run = async () => {
@@ -56,23 +57,50 @@ export default function AboutPage() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      // hero text
+      // Hero: staggered word-by-word animation
+      const heroWords = heroRef.current?.querySelectorAll(".hero-word") ?? [];
+      if (heroWords.length) {
+        gsap.fromTo(heroWords,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, stagger: 0.04, ease: "power3.out", delay: 0.2 }
+        );
+      }
+
+      // Fallback for hero-line elements
       gsap.from(heroRef.current?.querySelectorAll(".hero-line") ?? [], {
         y: 48, opacity: 0, duration: 0.9, stagger: 0.12, ease: "power4.out", delay: 0.2,
       });
 
-      // team cards
+      // Story: left column slides from left, right column from right
+      const storyLeft = storyRef.current?.querySelector(".story-left") ?? null;
+      const storyRight = storyRef.current?.querySelector(".story-right") ?? null;
+      if (storyLeft) {
+        gsap.fromTo(storyLeft,
+          { x: -50, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+            scrollTrigger: { trigger: storyRef.current, start: "top 80%", once: true } }
+        );
+      }
+      if (storyRight) {
+        gsap.fromTo(storyRight,
+          { x: 50, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+            scrollTrigger: { trigger: storyRef.current, start: "top 80%", once: true } }
+        );
+      }
+
+      // team cards: stagger with rotateY:5
       gsap.fromTo(
         teamRef.current?.querySelectorAll(".team-card") ?? [],
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power3.out",
+        { opacity: 0, y: 40, rotateY: 5 },
+        { opacity: 1, y: 0, rotateY: 0, duration: 0.7, stagger: 0.12, ease: "power3.out",
           scrollTrigger: { trigger: teamRef.current, start: "top 80%", once: true } }
       );
 
-      // value cards
+      // value cards: diagonal stagger
       gsap.fromTo(".val-card",
-        { opacity: 0, y: 32 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.09, ease: "power3.out",
+        { opacity: 0, y: 32, x: 16 },
+        { opacity: 1, y: 0, x: 0, duration: 0.6, stagger: { amount: 0.5, grid: [1, 4], from: "start", axis: "x" }, ease: "power3.out",
           scrollTrigger: { trigger: ".val-grid", start: "top 80%", once: true } }
       );
 
@@ -122,8 +150,8 @@ export default function AboutPage() {
 
       {/* ── STORY ── */}
       <section style={{ padding: "104px 24px", borderBottom: "1px solid #e4e4e7" }}>
-        <div className="about-story-grid" style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
-          <div>
+        <div ref={storyRef} className="about-story-grid" style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
+          <div className="story-left" style={{ willChange: "transform" }}>
             <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#e8643c", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
               Our story
             </span>
@@ -131,7 +159,7 @@ export default function AboutPage() {
               Built to bridge AI<br />and real business.
             </h2>
           </div>
-          <div>
+          <div className="story-right" style={{ willChange: "transform" }}>
             <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, margin: 0 }}>
               BoonWare began as a shared vision between three passionate technologists — not just to build products, but to build the future. From our very first project, we knew we wanted to be more than a software studio.
             </p>
@@ -192,6 +220,7 @@ export default function AboutPage() {
                     src={member.img} alt={member.name} fill
                     style={{ objectFit: "cover", objectPosition: "top", transition: "transform 0.5s cubic-bezier(0.16,1,0.3,1)" }}
                     unoptimized
+                    sizes="(max-width:768px) 100vw, 33vw"
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1.04)"; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
                   />

@@ -31,8 +31,23 @@ export function ContactSection() {
         color: "#fff",
         borderTop: "1px solid rgba(255,255,255,0.05)",
         fontFamily: "'Inter', sans-serif",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {/* Subtle background pulse */}
+      <div style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%,-50%)",
+        width: 600,
+        height: 600,
+        borderRadius: "50%",
+        background: "radial-gradient(circle, rgba(232,100,60,0.08) 0%, transparent 70%)",
+        animation: "cta-pulse 5s ease-in-out infinite",
+        pointerEvents: "none",
+      }} />
       <h2
         className="cta-heading"
         style={{
@@ -119,6 +134,12 @@ export function ContactSection() {
           info@boonware.in
         </Link>
       </div>
+      <style>{`
+        @keyframes cta-pulse {
+          0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+          50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+        }
+      `}</style>
     </section>
   );
 }

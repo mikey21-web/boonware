@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useRef } from "react";
 
 const BASE = "https://boonware.in/assets/";
 
@@ -22,9 +23,31 @@ const BRANDS = [
 
 export function BrandsMarquee() {
   const doubled = [...BRANDS, ...BRANDS];
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const run = async () => {
+      const gsap = (await import("gsap")).default;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+
+      if (sectionRef.current) {
+        gsap.fromTo(sectionRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
+            scrollTrigger: { trigger: sectionRef.current, start: "top 85%", once: true },
+          }
+        );
+      }
+    };
+    run();
+  }, []);
 
   return (
-    <section style={{
+    <section ref={sectionRef} style={{
+      opacity: 0,
+      willChange: "transform",
       background: "#ffffff",
       borderTop: "1px solid #e4e4e7",
       borderBottom: "1px solid #e4e4e7",
@@ -84,15 +107,16 @@ export function BrandsMarquee() {
               <img
                 src={b.img}
                 alt={b.name}
+                loading="lazy"
                 style={{
                   height: 36,
                   maxWidth: 120,
                   objectFit: "contain",
-                  filter: "grayscale(100%) opacity(0.5)",
-                  transition: "filter 0.3s",
+                  filter: "opacity(0.75)",
+                  transition: "filter 0.3s, transform 0.3s",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.filter = "grayscale(0%) opacity(1)")}
-                onMouseLeave={e => (e.currentTarget.style.filter = "grayscale(100%) opacity(0.5)")}
+                onMouseEnter={e => { e.currentTarget.style.filter = "opacity(1)"; e.currentTarget.style.transform = "scale(1.08)"; }}
+                onMouseLeave={e => { e.currentTarget.style.filter = "opacity(0.75)"; e.currentTarget.style.transform = "scale(1)"; }}
               />
             </div>
           ))}

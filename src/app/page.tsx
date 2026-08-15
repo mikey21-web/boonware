@@ -1,16 +1,19 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import Stats from "@/components/Stats";
 import { BrandsMarquee } from "@/components/BrandsMarquee";
-import WhyChoose from "@/components/WhyChoose";
-import { ServiceBundles } from "@/components/ServiceBundles";
-import { MoneyAngles } from "@/components/MoneyAngles";
-import { Testimonials } from "@/components/Testimonials";
-import { TrustedBrands } from "@/components/TrustedBrands";
-import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { SmoothScroll } from "@/components/SmoothScroll";
+
+// Lazy load below-fold components
+const WhyChoose = dynamic(() => import("@/components/WhyChoose"));
+const ServiceBundles = dynamic(() => import("@/components/ServiceBundles").then(m => ({ default: m.ServiceBundles })));
+const MoneyAngles = dynamic(() => import("@/components/MoneyAngles").then(m => ({ default: m.MoneyAngles })));
+const Testimonials = dynamic(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
+const TrustedBrands = dynamic(() => import("@/components/TrustedBrands").then(m => ({ default: m.TrustedBrands })));
+const ContactSection = dynamic(() => import("@/components/ContactSection").then(m => ({ default: m.ContactSection })));
+const WhatsAppFloat = dynamic(() => import("@/components/WhatsAppFloat").then(m => ({ default: m.WhatsAppFloat })));
 
 export default function Home() {
   return (

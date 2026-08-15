@@ -55,6 +55,19 @@ export function MoneyAngles() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
+      // Section heading clip-path text reveal
+      const sectionHeading = ref.current?.querySelector(".section-heading-text") ?? null;
+      if (sectionHeading) {
+        gsap.fromTo(sectionHeading,
+          { clipPath: "inset(0 100% 0 0)", opacity: 0 },
+          {
+            clipPath: "inset(0 0% 0 0)", opacity: 1,
+            duration: 1, ease: "power4.out",
+            scrollTrigger: { trigger: ref.current, start: "top 85%", once: true },
+          }
+        );
+      }
+
       gsap.fromTo(
         ref.current?.querySelector(".section-header") ?? [],
         { opacity: 0, y: 32 },
@@ -107,11 +120,12 @@ export function MoneyAngles() {
               color: "#e8643c", letterSpacing: "1.4px",
               textTransform: "uppercase", marginBottom: 14,
             }}>Selected work</span>
-            <h2 style={{
+            <h2 className="section-heading-text" style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontSize: "clamp(32px, 4.5vw, 58px)",
               fontWeight: 700, letterSpacing: "-0.04em",
               lineHeight: 1.05, color: "#fff", margin: 0,
+              willChange: "clip-path",
             }}>
               We build things that <span style={{ color: "#e8643c" }}>work.</span>
             </h2>
@@ -192,18 +206,25 @@ export function MoneyAngles() {
                 alt={featured.title}
                 fill
                 unoptimized
+                sizes="(max-width:768px) 100vw, 60vw"
                 style={{ objectFit: "cover", transition: "transform 0.7s cubic-bezier(0.16,1,0.3,1)" }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "scale(1.04)"}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
               />
               {/* Result badge */}
-              <div style={{
-                position: "absolute", top: 16, left: 16,
-                background: "#e8643c", color: "#fff",
-                fontSize: 12, fontWeight: 700,
-                padding: "6px 14px", borderRadius: 9999,
-                letterSpacing: "0.02em",
-              }}>{featured.result}</div>
+              <div
+                style={{
+                  position: "absolute", top: 16, left: 16,
+                  background: "#e8643c", color: "#fff",
+                  fontSize: 12, fontWeight: 700,
+                  padding: "6px 14px", borderRadius: 9999,
+                  letterSpacing: "0.02em",
+                  transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)",
+                  cursor: "default",
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1.08)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
+              >{featured.result}</div>
             </div>
 
             {/* Info */}
@@ -293,17 +314,24 @@ export function MoneyAngles() {
                   alt={p.title}
                   fill
                   unoptimized
+                  sizes="(max-width:768px) 100vw, 30vw"
                   style={{ objectFit: "cover", transition: "transform 0.6s cubic-bezier(0.16,1,0.3,1)" }}
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "scale(1.06)"}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
                 />
                 {/* Result badge */}
-                <div style={{
-                  position: "absolute", top: 12, left: 12,
-                  background: "rgba(232,100,60,0.92)", color: "#fff",
-                  fontSize: 11, fontWeight: 700, padding: "4px 10px",
-                  borderRadius: 9999, letterSpacing: "0.02em",
-                }}>{p.result}</div>
+                <div
+                  style={{
+                    position: "absolute", top: 12, left: 12,
+                    background: "rgba(232,100,60,0.92)", color: "#fff",
+                    fontSize: 11, fontWeight: 700, padding: "4px 10px",
+                    borderRadius: 9999, letterSpacing: "0.02em",
+                    transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)",
+                    cursor: "default",
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1.08)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
+                >{p.result}</div>
               </div>
 
               {/* Info */}

@@ -14,7 +14,7 @@ export function Hero() {
     const run = async () => {
       const gsap = (await import("gsap")).default;
 
-      // lines slide up
+      // lines slide up (clip-path reveal)
       gsap.to([line1.current, line2.current, line3.current], {
         y: 0,
         duration: 1,
@@ -23,15 +23,26 @@ export function Hero() {
         delay: 0.2,
       });
 
-      // eyebrow, copy, actions fade up
-      gsap.to([eyebrow.current, copy.current, actions.current], {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.1,
-        delay: 0.6,
-      });
+      // eyebrow: fade + slide from left
+      if (eyebrow.current) {
+        gsap.fromTo(eyebrow.current,
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.55 }
+        );
+      }
+
+      // copy fade up
+      if (copy.current) {
+        gsap.to(copy.current, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.65 });
+      }
+
+      // CTA buttons: scale-up entrance
+      if (actions.current) {
+        gsap.fromTo(actions.current,
+          { scale: 0.92, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(1.4)", delay: 0.8 }
+        );
+      }
     };
 
     run();
@@ -82,7 +93,7 @@ export function Hero() {
           fontFamily: "ui-monospace, monospace",
           letterSpacing: "0.275px",
           opacity: 0,
-          transform: "translateY(20px)",
+          willChange: "transform",
         }}
       >
         <span
@@ -159,7 +170,7 @@ export function Hero() {
           lineHeight: 1.63,
           margin: "24px auto 0",
           opacity: 0,
-          transform: "translateY(20px)",
+          willChange: "transform",
         }}
       >
         BoonWare helps startups and growing businesses{" "}
@@ -180,7 +191,7 @@ export function Hero() {
           justifyContent: "center",
           flexWrap: "wrap",
           opacity: 0,
-          transform: "translateY(20px)",
+          willChange: "transform",
         }}
       >
         <Link

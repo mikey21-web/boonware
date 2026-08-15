@@ -90,11 +90,14 @@ export default function ProjectsPage() {
   useEffect(() => {
     const run = async () => {
       const gsap = (await import("gsap")).default;
-      gsap.fromTo(
-        gridRef.current?.querySelectorAll(".proj-card") ?? [],
-        { opacity: 0, y: 36 },
-        { opacity: 1, y: 0, duration: 0.55, stagger: 0.04, ease: "power3.out" }
-      );
+      const cards = Array.from(gridRef.current?.querySelectorAll(".proj-card") ?? []);
+      // Alternating y:40 and y:60 for visual rhythm
+      cards.forEach((card, i) => {
+        gsap.fromTo(card,
+          { opacity: 0, y: i % 2 === 0 ? 40 : 60 },
+          { opacity: 1, y: 0, duration: 0.55, delay: i * 0.04, ease: "power3.out" }
+        );
+      });
     };
     run();
   }, [filter]);
@@ -197,6 +200,7 @@ export default function ProjectsPage() {
                 overflow: "hidden", cursor: "pointer",
                 display: "flex", flexDirection: "column",
                 opacity: 0,
+                willChange: "transform",
                 transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.25s, box-shadow 0.35s",
               }}
               onMouseEnter={e => {

@@ -91,6 +91,7 @@ export default function Navbar() {
               alt="BoonWare"
               width={28}
               height={28}
+              loading="eager"
               style={{ display: "block", flexShrink: 0 }}
             />
             <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c" }}>

@@ -10,6 +10,8 @@ const STATS = [
 
 export default function Stats() {
   const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const dividerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const run = async () => {
@@ -31,17 +33,30 @@ export default function Stats() {
           scrollTrigger: { trigger: el, start: "top 85%", once: true },
         });
       });
+
+      // Horizontal divider line grows from 0 to 100%
+      if (dividerRef.current) {
+        gsap.fromTo(dividerRef.current,
+          { scaleX: 0, transformOrigin: "left center" },
+          {
+            scaleX: 1, duration: 1.2, ease: "power3.out",
+            scrollTrigger: { trigger: sectionRef.current, start: "top 85%", once: true },
+          }
+        );
+      }
     };
     run();
   }, []);
 
   return (
-    <div style={{
+    <div ref={sectionRef} style={{
       background: "#1d1916",
       color: "#fff",
       padding: "28px 0",
       fontFamily: "'Inter', sans-serif",
     }}>
+      {/* Horizontal divider line */}
+      <div ref={dividerRef} style={{ height: 1, background: "rgba(255,255,255,0.08)", willChange: "transform" }} />
       <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
         <div style={{
           display: "grid",

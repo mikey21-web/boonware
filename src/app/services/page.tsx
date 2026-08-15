@@ -103,7 +103,7 @@ export default function ServicesPage() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      /* Hero lines */
+      /* Hero lines - clip-path reveal */
       const heroLines = heroRef.current?.querySelectorAll(".hero-line-inner");
       if (heroLines?.length) {
         gsap.to(heroLines, {
@@ -113,6 +113,12 @@ export default function ServicesPage() {
           stagger: 0.08,
           delay: 0.1,
         });
+        // Extra: clip-path wipe on the hero heading wrappers
+        const heroWrappers = heroRef.current?.querySelectorAll(".hero-line-wrap") ?? [];
+        gsap.fromTo(heroWrappers,
+          { clipPath: "inset(0 100% 0 0)" },
+          { clipPath: "inset(0 0% 0 0)", duration: 1.1, ease: "power4.out", stagger: 0.08, delay: 0.1 }
+        );
       }
       const heroSub = heroRef.current?.querySelector(".hero-sub") ?? null;
       if (heroSub) {
@@ -215,7 +221,7 @@ export default function ServicesPage() {
         }} />
 
         <div style={{ maxWidth: 1300, margin: "0 auto", position: "relative" }}>
-          <div style={{ overflow: "hidden", marginBottom: 4 }}>
+          <div className="hero-line-wrap" style={{ overflow: "hidden", marginBottom: 4 }}>
             <span className="hero-line-inner" style={{
               display: "block",
               fontFamily: "'Space Grotesk', sans-serif",
@@ -225,11 +231,12 @@ export default function ServicesPage() {
               letterSpacing: "-0.04em",
               lineHeight: 1.0,
               transform: "translateY(110%)",
+              willChange: "transform",
             }}>
               What do you
             </span>
           </div>
-          <div style={{ overflow: "hidden", marginBottom: 4 }}>
+          <div className="hero-line-wrap" style={{ overflow: "hidden", marginBottom: 4 }}>
             <span className="hero-line-inner" style={{
               display: "block",
               fontFamily: "'Space Grotesk', sans-serif",
@@ -238,6 +245,7 @@ export default function ServicesPage() {
               letterSpacing: "-0.04em",
               lineHeight: 1.0,
               transform: "translateY(110%)",
+              willChange: "transform",
               background: "linear-gradient(90deg, #e8643c 0%, #ff9a6c 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -505,6 +513,7 @@ export default function ServicesPage() {
                   boxShadow: "0 4px 32px rgba(0,0,0,0.06)",
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
                   opacity: 0,
+                  willChange: "transform",
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)";
@@ -629,6 +638,7 @@ export default function ServicesPage() {
                   style={{
                     borderBottom: "1px solid rgba(0,0,0,0.08)",
                     opacity: 0,
+                    willChange: "transform",
                   }}
                 >
                   <button
