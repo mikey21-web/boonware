@@ -6,52 +6,50 @@ const GOALS = [
   {
     id: "customers",
     icon: "↗",
-    title: "Get more customers",
-    sub: "Attract, engage, qualify and convert.",
-    solution: "Lead-gen website + AI chatbot + WhatsApp automation",
-    desc: "We build you a high-converting website, add an AI chatbot that qualifies visitors 24/7, and wire up a WhatsApp automation that follows up every lead automatically.",
+    q: "How do I get more customers?",
+    solution: "Lead-gen website + AI chatbot + WhatsApp follow-up",
+    desc: "We build a high-converting website, add an AI chatbot that qualifies visitors 24/7, and wire WhatsApp automation to follow up every lead automatically.",
     tags: ["Website", "AI Chatbot", "WhatsApp Bot", "Lead Funnel"],
-    accent: "#e8643c",
+    color: "#e8643c",
+    bg: "#fff5f2",
   },
   {
     id: "operations",
     icon: "⚡",
-    title: "Reduce manual work",
-    sub: "Automate repetitive operations.",
+    q: "How do I reduce manual work?",
     solution: "n8n workflow automation + AI agents",
-    desc: "We identify your most time-consuming manual tasks and replace them with automated workflows — from invoice processing to customer follow-ups.",
+    desc: "We replace your most time-consuming manual tasks with automated workflows — from invoice processing to customer follow-ups.",
     tags: ["n8n Workflows", "AI Agents", "CRM Integration", "Auto-Reports"],
-    accent: "#7c3aed",
+    color: "#7c3aed",
+    bg: "#f5f2ff",
   },
   {
     id: "build",
     icon: "◆",
-    title: "Build something new",
-    sub: "Launch a product, platform or app.",
-    solution: "Full-stack web app or mobile app",
-    desc: "From MVP to full product — we design, build and launch your app with clean code, fixed price and source code that's yours to keep.",
+    q: "How do I launch my app idea?",
+    solution: "Full-stack web app or mobile app, fixed price",
+    desc: "From MVP to full product — we design, build and launch your app with clean code, fixed price, and source code that's yours to keep.",
     tags: ["Web App", "Mobile App", "API", "Dashboard"],
-    accent: "#0ea5e9",
+    color: "#0ea5e9",
+    bg: "#f0f9ff",
   },
   {
     id: "modernize",
     icon: "⬡",
-    title: "Modernize my business",
-    sub: "Connect systems and add intelligence.",
-    solution: "System integrations + AI upgrade",
+    q: "How do I modernize my business?",
+    solution: "System integrations + AI upgrade layer",
     desc: "Connect your existing tools, migrate legacy systems, and layer AI on top — so your team spends less time copy-pasting and more time growing.",
     tags: ["Integrations", "AI Upgrade", "Data Migration", "Dashboards"],
-    accent: "#10b981",
+    color: "#10b981",
+    bg: "#f0fdf4",
   },
 ];
 
 export default function WhyChoose() {
   const [active, setActive] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const solutionRef = useRef<HTMLDivElement>(null);
-  const autoActivatedRef = useRef(false);
+  const autoActivated = useRef(false);
 
-  // Cards stagger in + auto-activate first card on scroll
   useEffect(() => {
     const run = async () => {
       const gsap = (await import("gsap")).default;
@@ -59,22 +57,19 @@ export default function WhyChoose() {
       gsap.registerPlugin(ScrollTrigger);
 
       const cards = sectionRef.current?.querySelectorAll(".disc-card") ?? [];
-      gsap.fromTo(
-        cards,
-        { opacity: 0, y: 60 },
+      gsap.fromTo(cards,
+        { opacity: 0, y: 50, scale: 0.97 },
         {
-          opacity: 1, y: 0,
-          duration: 0.7,
-          stagger: 0.09,
-          ease: "power3.out",
+          opacity: 1, y: 0, scale: 1,
+          duration: 0.65, stagger: 0.1, ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
+            start: "top 78%",
             once: true,
             onEnter: () => {
-              if (!autoActivatedRef.current) {
-                autoActivatedRef.current = true;
-                setTimeout(() => setActive("customers"), 500);
+              if (!autoActivated.current) {
+                autoActivated.current = true;
+                setTimeout(() => setActive("customers"), 600);
               }
             },
           },
@@ -84,278 +79,149 @@ export default function WhyChoose() {
     run();
   }, []);
 
-  // Spectacular staggered animation on solution panel open
+  // Animate solution reveal per card
   useEffect(() => {
-    if (!active || !solutionRef.current) return;
-    const el = solutionRef.current;
+    if (!active) return;
     const run = async () => {
       const gsap = (await import("gsap")).default;
-
-      const title = el.querySelector(".sol-title") ?? null;
-      const desc = el.querySelector(".sol-desc") ?? null;
-      const tags = el.querySelectorAll(".sol-tag");
-      const cta = el.querySelector(".sol-cta") ?? null;
-      const bar = el.querySelector(".sol-bar") ?? null;
-
+      const panel = document.querySelector(`[data-sol="${active}"]`);
+      if (!panel) return;
+      const tags = panel.querySelectorAll(".sol-tag");
       const tl = gsap.timeline();
-
-      // Panel slides down from 0 height
-      tl.fromTo(el,
-        { height: 0, opacity: 0 },
-        { height: "auto", opacity: 1, duration: 0.4, ease: "power3.out" }
-      );
-
-      // Accent bar sweeps in
-      if (bar) tl.fromTo(bar,
-        { scaleX: 0 },
-        { scaleX: 1, duration: 0.35, ease: "power2.out" },
-        "-=0.15"
-      );
-
-      // Title slides in from left
-      if (title) tl.fromTo(title,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" },
-        "-=0.2"
-      );
-
-      // Description fades up
-      if (desc) tl.fromTo(desc,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
-        "-=0.15"
-      );
-
-      // Tags pop in staggered
-      if (tags.length) tl.fromTo(tags,
-        { opacity: 0, scale: 0.7, y: 8 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.3, stagger: 0.06, ease: "back.out(1.5)" },
-        "-=0.1"
-      );
-
-      // CTA bounces in
-      if (cta) tl.fromTo(cta,
-        { opacity: 0, scale: 0.8, y: 10 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(2)" },
-        "-=0.05"
-      );
+      tl.fromTo(panel, { height: 0, opacity: 0 }, { height: "auto", opacity: 1, duration: 0.38, ease: "power3.out" });
+      tl.fromTo(panel.querySelector(".sol-title"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, "-=0.1");
+      tl.fromTo(panel.querySelector(".sol-desc"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, "-=0.1");
+      if (tags.length) tl.fromTo(tags, { opacity: 0, scale: 0.75 }, { opacity: 1, scale: 1, stagger: 0.05, duration: 0.25, ease: "back.out(2)" }, "-=0.05");
+      tl.fromTo(panel.querySelector(".sol-cta"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.7)" }, "-=0.05");
     };
     run();
   }, [active]);
 
-  const chosen = GOALS.find(g => g.id === active);
-
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        background: "#f7f8f4",
-        borderTop: "1px solid #e4e4e7",
-        borderBottom: "1px solid #e4e4e7",
-        padding: "104px 0",
-        fontFamily: "'Inter', sans-serif",
-      }}
-    >
-      <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
-        <span style={{
-          display: "block", fontSize: 11, fontWeight: 700, color: "#e8643c",
-          letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14,
-        }}>
+    <section ref={sectionRef} style={{ background: "#ffffff", borderTop: "1px solid #e4e4e7", borderBottom: "1px solid #e4e4e7", padding: "96px 0", fontFamily: "'Inter', sans-serif" }}>
+      <div style={{ width: "min(1180px, calc(100% - 40px))", margin: "0 auto" }}>
+
+        <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#e8643c", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
           Start with your goal
         </span>
-        <h2 style={{
-          fontSize: "clamp(30px, 4.5vw, 60px)", fontWeight: 700,
-          letterSpacing: "-1.44px", lineHeight: 1.05, color: "#17171c",
-        }}>
-          What are you trying to <span style={{ color: "#e8643c" }}>improve?</span>
+        <h2 style={{ fontSize: "clamp(28px, 4.5vw, 56px)", fontWeight: 700, letterSpacing: "-1.2px", lineHeight: 1.07, color: "#17171c", maxWidth: 600 }}>
+          What are you trying to <span style={{ color: "#e8643c" }}>fix?</span>
         </h2>
-        <p style={{
-          color: "#71717a", fontSize: 17, lineHeight: 1.63,
-          maxWidth: 560, marginTop: 16,
-        }}>
-          Don't know which service you need? Start with the business outcome.
-          We'll show you what BoonWare can build to get there.
+        <p style={{ color: "#71717a", fontSize: 16, lineHeight: 1.65, maxWidth: 500, marginTop: 14 }}>
+          Pick your goal — we'll show you exactly what to build.
         </p>
 
-        <div className="disc-grid" style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 8,
-          marginTop: 40,
-        }}>
-          {GOALS.map(g => (
-            <button
-              key={g.id}
-              className="disc-card"
-              onClick={() => setActive(active === g.id ? null : g.id)}
-              style={{
-                background: active === g.id ? "#17171c" : "#ffffff",
-                color: active === g.id ? "#fff" : "#17171c",
-                border: active === g.id ? `2px solid ${g.accent}` : "1px solid #e4e4e7",
-                padding: 24,
-                minHeight: 180,
-                textAlign: "left",
-                cursor: "pointer",
-                transition: "border-color 0.22s, transform 0.3s cubic-bezier(0.16,1,0.3,1), background 0.22s, box-shadow 0.3s",
-                opacity: 0,
-                willChange: "transform",
-                position: "relative",
-                overflow: "hidden",
-              }}
-              onMouseEnter={e => {
-                if (active !== g.id) {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "#17171c";
-                  el.style.transform = "translateY(-5px)";
-                  el.style.boxShadow = "0 12px 32px rgba(0,0,0,0.08)";
-                }
-              }}
-              onMouseLeave={e => {
-                if (active !== g.id) {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "#e4e4e7";
-                  el.style.transform = "translateY(0)";
-                  el.style.boxShadow = "none";
-                }
-              }}
-            >
-              {/* Accent dot top-right */}
-              <span style={{
-                position: "absolute", top: 18, right: 18,
-                width: 8, height: 8, borderRadius: "50%",
-                background: active === g.id ? g.accent : "#e4e4e7",
-                transition: "background 0.3s",
-              }} />
-
-              <span style={{
-                fontSize: 24,
-                display: "block",
-                marginBottom: 32,
-                color: active === g.id ? g.accent : "#71717a",
-                transition: "color 0.22s",
-              }}>
-                {g.icon}
-              </span>
-
-              <strong style={{
-                fontSize: 17, fontWeight: 700, letterSpacing: "-0.3px",
-                display: "block", lineHeight: 1.25,
-              }}>
-                {g.title}
-              </strong>
-              <span style={{
-                fontSize: 12,
-                color: active === g.id ? "rgba(255,255,255,0.45)" : "#71717a",
-                display: "block", marginTop: 6,
-                transition: "color 0.22s",
-              }}>
-                {g.sub}
-              </span>
-
-              {/* Active indicator */}
-              {active === g.id && (
-                <span style={{
-                  position: "absolute", bottom: 0, left: 0, right: 0,
-                  height: 3, background: g.accent,
-                }} />
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Solution panel */}
-        {chosen && (
-          <div
-            ref={solutionRef}
-            style={{
-              marginTop: 0,
-              background: "#17171c",
-              color: "#fff",
-              padding: "32px 36px",
-              overflow: "hidden",
-              borderTop: `3px solid ${chosen.accent}`,
-              position: "relative",
-            }}
-          >
-            {/* Animated accent bar */}
-            <div
-              className="sol-bar"
-              style={{
-                position: "absolute", top: 0, left: 0, right: 0, height: 3,
-                background: chosen.accent,
-                transformOrigin: "left",
-              }}
-            />
-
-            <div className="sol-inner" style={{
-              display: "flex",
-              gap: 40,
-              alignItems: "flex-start",
-              flexWrap: "wrap",
-            }}>
-              <div style={{ flex: "1 1 340px", minWidth: 0 }}>
-                <h3
-                  className="sol-title"
-                  style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 700, letterSpacing: "-0.5px", lineHeight: 1.2 }}
-                >
-                  {chosen.solution}
-                </h3>
-                <p
-                  className="sol-desc"
-                  style={{ color: "rgba(255,255,255,0.55)", marginTop: 10, fontSize: 14, lineHeight: 1.7 }}
-                >
-                  {chosen.desc}
-                </p>
-              </div>
-
-              <div style={{ flex: "1 1 260px", display: "flex", flexDirection: "column", gap: 16 }}>
-                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {chosen.tags.map(t => (
-                    <span
-                      key={t}
-                      className="sol-tag"
-                      style={{
-                        border: `1px solid ${chosen.accent}40`,
-                        background: `${chosen.accent}15`,
-                        color: chosen.accent,
-                        padding: "5px 12px", fontSize: 12, fontWeight: 600,
-                        borderRadius: 4,
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href="/contact"
-                  className="sol-cta"
+        <div className="disc-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12, marginTop: 44 }}>
+          {GOALS.map(g => {
+            const isActive = active === g.id;
+            return (
+              <div key={g.id} style={{ display: "flex", flexDirection: "column" }}>
+                {/* Question card */}
+                <button
+                  className="disc-card"
+                  onClick={() => setActive(isActive ? null : g.id)}
                   style={{
-                    display: "inline-flex", alignItems: "center", gap: 6,
-                    padding: "12px 24px",
-                    background: chosen.accent, color: "#fff",
-                    borderRadius: 9999, fontSize: 13, fontWeight: 600,
-                    textDecoration: "none",
-                    alignSelf: "flex-start",
-                    transition: "opacity 0.2s, transform 0.2s",
+                    background: isActive ? g.color : "#fff",
+                    border: `2px solid ${isActive ? g.color : "#e4e4e7"}`,
+                    padding: "24px 24px 20px",
+                    textAlign: "left",
+                    cursor: "pointer",
+                    transition: "background 0.28s, border-color 0.28s, transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.28s",
+                    opacity: 0,
+                    willChange: "transform",
+                    borderRadius: 2,
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 16,
                   }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.85"; (e.currentTarget as HTMLElement).style.transform = "scale(1.04)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1"; (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
+                  onMouseEnter={e => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = g.color;
+                      e.currentTarget.style.transform = "translateY(-3px)";
+                      e.currentTarget.style.boxShadow = `0 8px 28px ${g.color}22`;
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = "#e4e4e7";
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "none";
+                    }
+                  }}
                 >
-                  Get started →
-                </Link>
+                  <span style={{
+                    fontSize: 22, lineHeight: 1, flexShrink: 0, marginTop: 2,
+                    color: isActive ? "#fff" : g.color,
+                    transition: "color 0.28s",
+                  }}>{g.icon}</span>
+                  <div>
+                    <strong style={{
+                      fontSize: "clamp(15px, 2vw, 19px)",
+                      fontWeight: 700, letterSpacing: "-0.3px",
+                      display: "block", lineHeight: 1.3,
+                      color: isActive ? "#fff" : "#17171c",
+                      transition: "color 0.28s",
+                    }}>
+                      {g.q}
+                    </strong>
+                    <span style={{
+                      display: "inline-flex", alignItems: "center", gap: 4, marginTop: 8,
+                      fontSize: 12, fontWeight: 600,
+                      color: isActive ? "rgba(255,255,255,0.7)" : g.color,
+                      transition: "color 0.28s",
+                    }}>
+                      {isActive ? "▲ Hide answer" : "▼ See solution"}
+                    </span>
+                  </div>
+                </button>
+
+                {/* Inline solution panel — colored bg, not black */}
+                <div
+                  data-sol={g.id}
+                  style={{
+                    background: g.bg,
+                    border: `2px solid ${g.color}30`,
+                    borderTop: `3px solid ${g.color}`,
+                    padding: isActive ? "22px 24px 24px" : "0 24px",
+                    overflow: "hidden",
+                    height: isActive ? "auto" : 0,
+                    opacity: isActive ? 1 : 0,
+                    transition: "padding 0.1s",
+                  }}
+                >
+                  <p className="sol-title" style={{ fontSize: 16, fontWeight: 700, color: g.color, letterSpacing: "-0.3px", marginBottom: 8 }}>
+                    {g.solution}
+                  </p>
+                  <p className="sol-desc" style={{ fontSize: 13, color: "#444", lineHeight: 1.7, marginBottom: 14 }}>
+                    {g.desc}
+                  </p>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
+                    {g.tags.map(t => (
+                      <span key={t} className="sol-tag" style={{
+                        background: `${g.color}18`, color: g.color,
+                        border: `1px solid ${g.color}35`,
+                        padding: "4px 10px", fontSize: 11, fontWeight: 600, borderRadius: 4,
+                      }}>{t}</span>
+                    ))}
+                  </div>
+                  <Link href="/contact" className="sol-cta" style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: g.color, color: "#fff",
+                    padding: "10px 20px", borderRadius: 9999,
+                    fontSize: 13, fontWeight: 600, textDecoration: "none",
+                  }}>
+                    Build this for me →
+                  </Link>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            );
+          })}
+        </div>
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
-          .disc-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
           .disc-grid { grid-template-columns: 1fr !important; }
-          .sol-inner { flex-direction: column; gap: 20px; }
         }
       `}</style>
     </section>

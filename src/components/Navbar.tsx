@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { QuickContactModal } from "./QuickContactModal";
 
 const NAV_LINKS = [
@@ -16,7 +16,6 @@ export default function Navbar() {
   const [expanded, setExpanded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -28,27 +27,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // close mobile menu on outside click
+  // Lock body scroll when menu open
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setMenuOpen(false);
-      }
-    };
-    if (menuOpen) document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
   return (
     <>
+      {/* Top bar */}
       <div
-        ref={menuRef}
         style={{
           position: "fixed",
           top: scrolled ? 0 : 16,
           left: 0,
           right: 0,
-          zIndex: 200,
+          zIndex: 300,
           display: "flex",
           justifyContent: "center",
           padding: scrolled ? "0" : "0 24px",
@@ -61,252 +55,122 @@ export default function Navbar() {
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             borderRadius: expanded ? 0 : 9999,
-            padding: expanded ? "0 clamp(20px,4vw,60px)" : "0 6px 0 20px",
+            padding: expanded ? "0 clamp(16px,4vw,60px)" : "0 6px 0 16px",
             display: "flex",
             alignItems: "center",
-            height: expanded ? 62 : 50,
-            width: expanded ? "100%" : "min(780px, 100%)",
+            height: expanded ? 62 : 52,
+            width: expanded ? "100%" : "min(780px, calc(100% - 0px))",
             boxShadow: "0 2px 24px rgba(0,0,0,0.10)",
             borderBottom: expanded ? "1px solid rgba(0,0,0,0.06)" : "none",
             border: expanded ? "none" : "1px solid rgba(0,0,0,0.08)",
-            transition:
-              "border-radius 0.5s cubic-bezier(0.16,1,0.3,1), width 0.5s cubic-bezier(0.16,1,0.3,1), height 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.5s cubic-bezier(0.16,1,0.3,1)",
+            transition: "border-radius 0.5s cubic-bezier(0.16,1,0.3,1), width 0.5s cubic-bezier(0.16,1,0.3,1), height 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.5s cubic-bezier(0.16,1,0.3,1)",
             overflow: "hidden",
             fontFamily: "'Inter', sans-serif",
           }}
         >
           {/* Logo */}
-          <Link
-            href="/"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              textDecoration: "none",
-              flexShrink: 0,
-            }}
-          >
-            <img
-              src="/assets/icon_logo-CTOVYnVL.png"
-              alt="BoonWare"
-              width={28}
-              height={28}
-              loading="eager"
-              style={{ display: "block", flexShrink: 0 }}
-            />
-            <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c" }}>
-              BoonWare
-            </span>
+          <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none", flexShrink: 0 }}>
+            <img src="/assets/icon_logo-CTOVYnVL.png" alt="BoonWare" width={28} height={28} loading="eager" style={{ display: "block" }} />
+            <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c" }}>BoonWare</span>
           </Link>
 
-          {/* Primary nav links (shown when not expanded) */}
-          {!expanded && (
-            <div
-              style={{
-                display: "flex",
-                gap: 4,
-                marginLeft: "auto",
-              }}
-              className="bw-nav-links"
-            >
-              {NAV_LINKS.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 500,
-                    color: "rgba(0,0,0,0.5)",
-                    padding: "6px 12px",
-                    borderRadius: 9999,
-                    textDecoration: "none",
-                    transition: "color 0.2s, background 0.2s",
-                    whiteSpace: "nowrap",
-                  }}
-                  onMouseEnter={e => {
-                    (e.target as HTMLElement).style.color = "#17171c";
-                    (e.target as HTMLElement).style.background = "rgba(0,0,0,0.04)";
-                  }}
-                  onMouseLeave={e => {
-                    (e.target as HTMLElement).style.color = "rgba(0,0,0,0.5)";
-                    (e.target as HTMLElement).style.background = "transparent";
-                  }}
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* Expanded: secondary row */}
-          {expanded && (
-            <div style={{ display: "flex", gap: 4, marginLeft: "auto" }}>
-              {NAV_LINKS.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 500,
-                    color: "rgba(0,0,0,0.45)",
-                    padding: "6px 11px",
-                    borderRadius: 9999,
-                    textDecoration: "none",
-                    transition: "color 0.2s, background 0.2s",
-                    whiteSpace: "nowrap",
-                  }}
-                  onMouseEnter={e => {
-                    (e.target as HTMLElement).style.color = "#17171c";
-                    (e.target as HTMLElement).style.background = "rgba(0,0,0,0.04)";
-                  }}
-                  onMouseLeave={e => {
-                    (e.target as HTMLElement).style.color = "rgba(0,0,0,0.45)";
-                    (e.target as HTMLElement).style.background = "transparent";
-                  }}
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
-          )}
+          {/* Desktop nav links */}
+          <div className="bw-nav-links" style={{ display: "flex", gap: 4, marginLeft: "auto" }}>
+            {NAV_LINKS.map(({ href, label }) => (
+              <Link key={href} href={href} style={{ fontSize: 13, fontWeight: 500, color: "rgba(0,0,0,0.5)", padding: "6px 12px", borderRadius: 9999, textDecoration: "none", transition: "color 0.2s, background 0.2s", whiteSpace: "nowrap" }}
+                onMouseEnter={e => { (e.target as HTMLElement).style.color = "#17171c"; (e.target as HTMLElement).style.background = "rgba(0,0,0,0.04)"; }}
+                onMouseLeave={e => { (e.target as HTMLElement).style.color = "rgba(0,0,0,0.5)"; (e.target as HTMLElement).style.background = "transparent"; }}>
+                {label}
+              </Link>
+            ))}
+          </div>
 
           {/* CTA */}
-          <button
-            onClick={() => setModalOpen(true)}
-            style={{
-              background: "#e8643c",
-              color: "#fff",
-              padding: "0 16px",
-              borderRadius: 9999,
-              fontSize: 13,
-              fontWeight: 600,
-              height: 38,
-              display: "inline-flex",
-              alignItems: "center",
-              marginLeft: 8,
-              flexShrink: 0,
-              border: "none",
-              cursor: "pointer",
-              transition: "background 0.2s",
-              whiteSpace: "nowrap",
-              fontFamily: "inherit",
-            }}
-            onMouseEnter={e => { (e.currentTarget).style.background = "#17171c"; }}
-            onMouseLeave={e => { (e.currentTarget).style.background = "#e8643c"; }}
-          >
+          <button onClick={() => setModalOpen(true)} className="bw-cta-btn"
+            style={{ background: "#e8643c", color: "#fff", padding: "0 16px", borderRadius: 9999, fontSize: 13, fontWeight: 600, height: 38, display: "inline-flex", alignItems: "center", marginLeft: 8, flexShrink: 0, border: "none", cursor: "pointer", transition: "background 0.2s", whiteSpace: "nowrap", fontFamily: "inherit" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#17171c"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "#e8643c"; }}>
             Get Started →
           </button>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMenuOpen(v => !v)}
-            style={{
-              display: "none",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              padding: 8,
-              marginLeft: 8,
-              flexShrink: 0,
-            }}
-            className="bw-hamburger"
-            aria-label="Menu"
-          >
-            <div style={{ width: 20, display: "flex", flexDirection: "column", gap: 5 }}>
+          {/* Hamburger */}
+          <button onClick={() => setMenuOpen(v => !v)} className="bw-hamburger" aria-label="Menu"
+            style={{ display: "none", background: "none", border: "none", cursor: "pointer", padding: "6px 8px", marginLeft: 6, flexShrink: 0, alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 22, display: "flex", flexDirection: "column", gap: 5 }}>
               {[0, 1, 2].map(i => (
-                <span
-                  key={i}
-                  style={{
-                    display: "block",
-                    height: 1.5,
-                    background: "#17171c",
-                    transition: "transform 0.3s ease, opacity 0.2s ease",
-                    transformOrigin: "center",
-                    transform:
-                      menuOpen && i === 0
-                        ? "rotate(45deg) translate(4.5px, 4.5px)"
-                        : menuOpen && i === 2
-                        ? "rotate(-45deg) translate(4.5px, -4.5px)"
-                        : "none",
-                    opacity: menuOpen && i === 1 ? 0 : 1,
-                  }}
-                />
+                <span key={i} style={{
+                  display: "block", height: 2, borderRadius: 2, background: "#17171c",
+                  transition: "transform 0.32s cubic-bezier(0.16,1,0.3,1), opacity 0.2s ease, width 0.3s ease",
+                  transformOrigin: "center",
+                  width: menuOpen && i === 1 ? "0%" : i === 2 && !menuOpen ? "70%" : "100%",
+                  transform: menuOpen && i === 0 ? "rotate(45deg) translate(5px, 5px)" : menuOpen && i === 2 ? "rotate(-45deg) translate(5px, -5px)" : "none",
+                  opacity: menuOpen && i === 1 ? 0 : 1,
+                }} />
               ))}
             </div>
           </button>
         </div>
       </div>
 
-      {/* Mobile menu — always rendered, slide in/out via CSS */}
-      <div
-        style={{
-          position: "fixed",
-          top: scrolled ? 62 : 74,
-          left: 0,
-          right: 0,
-          zIndex: 199,
-          background: "#fff",
-          borderBottom: "1px solid rgba(0,0,0,0.07)",
-          padding: menuOpen ? "20px 24px 28px" : "0 24px",
-          fontFamily: "'Inter', sans-serif",
-          boxShadow: menuOpen ? "0 8px 32px rgba(0,0,0,0.08)" : "none",
-          maxHeight: menuOpen ? "100vh" : "0",
-          overflow: "hidden",
-          transition: "max-height 0.38s cubic-bezier(0.16,1,0.3,1), padding 0.3s ease, box-shadow 0.3s ease",
-          pointerEvents: menuOpen ? "auto" : "none",
-        }}
-      >
-        {NAV_LINKS.map(({ href, label }, i) => (
-          <Link
-            key={href}
-            href={href}
-            onClick={() => setMenuOpen(false)}
-            style={{
+      {/* Mobile full-screen overlay */}
+      <div style={{
+        position: "fixed", inset: 0, zIndex: 290,
+        background: "#17171c",
+        display: "flex", flexDirection: "column",
+        padding: "100px 32px 48px",
+        fontFamily: "'Inter', sans-serif",
+        transform: menuOpen ? "translateX(0)" : "translateX(100%)",
+        transition: "transform 0.45s cubic-bezier(0.16,1,0.3,1)",
+        pointerEvents: menuOpen ? "auto" : "none",
+      }} className="bw-mobile-overlay">
+        {/* Nav links */}
+        <nav style={{ flex: 1 }}>
+          {NAV_LINKS.map(({ href, label }, i) => (
+            <Link key={href} href={href} onClick={() => setMenuOpen(false)} style={{
               display: "block",
-              fontSize: 20,
-              fontWeight: 500,
-              color: "#17171c",
+              fontSize: "clamp(32px, 8vw, 52px)",
+              fontWeight: 700,
+              color: "#fff",
               textDecoration: "none",
-              padding: "13px 0",
-              borderBottom: "1px solid rgba(0,0,0,0.06)",
-              letterSpacing: "-0.3px",
+              padding: "12px 0",
+              letterSpacing: "-1px",
+              lineHeight: 1.15,
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
               opacity: menuOpen ? 1 : 0,
-              transform: menuOpen ? "translateY(0)" : "translateY(-8px)",
-              transition: `opacity 0.3s ease ${i * 0.05 + 0.1}s, transform 0.3s ease ${i * 0.05 + 0.1}s`,
+              transform: menuOpen ? "translateX(0)" : "translateX(40px)",
+              transition: `opacity 0.4s ease ${i * 0.06 + 0.15}s, transform 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 0.06 + 0.15}s`,
             }}
-          >
-            {label}
-          </Link>
-        ))}
-        <button
-          onClick={() => { setMenuOpen(false); setModalOpen(true); }}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            marginTop: 20,
-            background: "#e8643c",
-            color: "#fff",
-            borderRadius: 9999,
-            padding: "0 28px",
-            height: 48,
-            fontSize: 15,
-            fontWeight: 600,
-            border: "none",
-            cursor: "pointer",
-            fontFamily: "inherit",
-            opacity: menuOpen ? 1 : 0,
-            transform: menuOpen ? "translateY(0)" : "translateY(-8px)",
-            transition: `opacity 0.3s ease 0.35s, transform 0.3s ease 0.35s`,
-          }}
-        >
-          Get Started →
-        </button>
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#e8643c"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "#fff"; }}>
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Bottom area */}
+        <div style={{
+          opacity: menuOpen ? 1 : 0,
+          transform: menuOpen ? "translateY(0)" : "translateY(20px)",
+          transition: `opacity 0.4s ease 0.45s, transform 0.4s ease 0.45s`,
+        }}>
+          <button onClick={() => { setMenuOpen(false); setModalOpen(true); }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#e8643c", color: "#fff", borderRadius: 9999, padding: "0 32px", height: 56, fontSize: 16, fontWeight: 700, border: "none", cursor: "pointer", fontFamily: "inherit", letterSpacing: "-0.3px", width: "100%", justifyContent: "center" }}>
+            Get Started →
+          </button>
+          <p style={{ color: "rgba(255,255,255,0.25)", fontSize: 12, marginTop: 20, textAlign: "center" }}>
+            info@boonware.in · +91 90762 69629
+          </p>
+        </div>
       </div>
 
       <style>{`
         @media (max-width: 700px) {
           .bw-nav-links { display: none !important; }
+          .bw-cta-btn { display: none !important; }
           .bw-hamburger { display: flex !important; }
+        }
+        @media (min-width: 701px) {
+          .bw-mobile-overlay { display: none !important; }
         }
       `}</style>
 

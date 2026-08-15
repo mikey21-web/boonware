@@ -125,7 +125,7 @@ export function BrandsMarquee() {
 
       <style>{`
         .bw-marquee-track {
-          animation: bw-marquee 30s linear infinite;
+          animation: bw-marquee 16s linear infinite;
         }
         .bw-marquee-track:hover {
           animation-play-state: paused;

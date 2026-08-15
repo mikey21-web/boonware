@@ -202,12 +202,34 @@
 }
 
 /* ── GLOBAL MOBILE RESPONSIVENESS ── */
+
+/* About / Projects / Contact: 3-col → 1-col */
+.about-team-grid { grid-template-columns: repeat(3,1fr); }
+.val-grid        { grid-template-columns: repeat(4,1fr); }
+.proc-grid       { grid-template-columns: repeat(4,1fr); }
+
+/* Stats 4-col */
+.stats-grid      { grid-template-columns: repeat(4,1fr); }
+
+/* Process 5-col */
+.steps-grid      { grid-template-columns: repeat(5,1fr); }
+
+@media (max-width: 900px) {
+  .about-team-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .val-grid        { grid-template-columns: repeat(2,1fr) !important; }
+  .proc-grid       { grid-template-columns: repeat(2,1fr) !important; }
+  .steps-grid      { grid-template-columns: repeat(3,1fr) !important; }
+  .stats-grid      { grid-template-columns: repeat(2,1fr) !important; }
+}
+
 @media (max-width: 768px) {
   /* Force all multi-column grids to single column */
   [style*="grid-template-columns: repeat(3"],
   [style*="grid-template-columns: repeat(4"],
+  [style*="grid-template-columns: repeat(5"],
   [style*="gridTemplateColumns: repeat(3"],
-  [style*="gridTemplateColumns: repeat(4"] {
+  [style*="gridTemplateColumns: repeat(4"],
+  [style*="gridTemplateColumns: repeat(5"] {
     grid-template-columns: 1fr !important;
   }
   [style*="grid-template-columns: 1.5fr 1fr"],
@@ -216,23 +238,28 @@
   [style*="gridTemplateColumns: 1fr 1fr"] {
     grid-template-columns: 1fr !important;
   }
-  /* Money grid — stack featured card */
+  .about-team-grid { grid-template-columns: 1fr !important; }
+  .val-grid        { grid-template-columns: repeat(2,1fr) !important; }
+  .proc-grid       { grid-template-columns: repeat(2,1fr) !important; }
+  .steps-grid      { grid-template-columns: repeat(2,1fr) !important; }
+  .stats-grid      { grid-template-columns: repeat(2,1fr) !important; }
+  /* Money grid — stack */
   .money-grid { grid-template-columns: 1fr !important; }
   .money-grid .work-card:first-child { grid-row: auto !important; }
-  /* Prevent content overflow */
-  section, div { max-width: 100% !important; overflow-x: hidden; }
-  /* Reduce padding on sections */
-  section[style*="padding: \"104px"] { padding: 60px 20px !important; }
+  /* Prevent overflow */
+  body { overflow-x: hidden; }
 }
 
-@media (max-width: 480px) {
-  /* Stack all remaining 2-col grids */
+@media (max-width: 500px) {
   [style*="grid-template-columns: repeat(2"],
   [style*="gridTemplateColumns: repeat(2"],
   [style*="grid-template-columns: 1fr 2fr"],
   [style*="gridTemplateColumns: 1fr 2fr"] {
     grid-template-columns: 1fr !important;
   }
+  .val-grid  { grid-template-columns: 1fr !important; }
+  .proc-grid { grid-template-columns: 1fr !important; }
+  .steps-grid { grid-template-columns: 1fr !important; }
 }
 
 .text-gradient {
