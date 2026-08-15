@@ -79,15 +79,23 @@ export default function Navbar() {
           <Link
             href="/"
             style={{
-              fontSize: 16,
-              fontWeight: 700,
-              letterSpacing: "-0.4px",
-              color: "#17171c",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
               textDecoration: "none",
               flexShrink: 0,
             }}
           >
-            BoonWare
+            <img
+              src="https://boonware.in/assets/icon_logo-CTOVYnVL.png"
+              alt="BoonWare"
+              width={28}
+              height={28}
+              style={{ display: "block", flexShrink: 0 }}
+            />
+            <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c" }}>
+              BoonWare
+            </span>
           </Link>
 
           {/* Primary nav links (shown when not expanded) */}
