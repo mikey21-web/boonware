@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import Stats from "@/components/Stats";
+import { BrandsMarquee } from "@/components/BrandsMarquee";
 import WhyChoose from "@/components/WhyChoose";
 import { ServiceBundles } from "@/components/ServiceBundles";
 import { MoneyAngles } from "@/components/MoneyAngles";
@@ -22,6 +23,9 @@ export default function Home() {
 
         {/* Proof bar: animated counters */}
         <Stats />
+
+        {/* Trusted brands: animated logo marquee */}
+        <BrandsMarquee />
 
         {/* Discovery: 4 goal cards → solution reveal */}
         <WhyChoose />
