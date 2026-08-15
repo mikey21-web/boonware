@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const BASE = "https://boonware.in/assets/";
+const BASE = "/assets/";
 
 const BRANDS = [
   { name: "Braai Boys", img: `${BASE}braai_boys-DxurLl5E.png` },

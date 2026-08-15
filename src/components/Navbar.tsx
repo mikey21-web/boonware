@@ -87,7 +87,7 @@ export default function Navbar() {
             }}
           >
             <img
-              src="https://boonware.in/assets/icon_logo-CTOVYnVL.png"
+              src="/assets/icon_logo-CTOVYnVL.png"
               alt="BoonWare"
               width={28}
               height={28}
@@ -237,63 +237,71 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: scrolled ? 62 : 74,
-            left: 0,
-            right: 0,
-            zIndex: 199,
-            background: "#fff",
-            borderBottom: "1px solid rgba(0,0,0,0.07)",
-            padding: "20px 24px 28px",
-            fontFamily: "'Inter', sans-serif",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
-          }}
-        >
-          {NAV_LINKS.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                display: "block",
-                fontSize: 20,
-                fontWeight: 500,
-                color: "#17171c",
-                textDecoration: "none",
-                padding: "13px 0",
-                borderBottom: "1px solid rgba(0,0,0,0.06)",
-                letterSpacing: "-0.3px",
-              }}
-            >
-              {label}
-            </Link>
-          ))}
-          <button
-            onClick={() => { setMenuOpen(false); setModalOpen(true); }}
+      {/* Mobile menu — always rendered, slide in/out via CSS */}
+      <div
+        style={{
+          position: "fixed",
+          top: scrolled ? 62 : 74,
+          left: 0,
+          right: 0,
+          zIndex: 199,
+          background: "#fff",
+          borderBottom: "1px solid rgba(0,0,0,0.07)",
+          padding: menuOpen ? "20px 24px 28px" : "0 24px",
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: menuOpen ? "0 8px 32px rgba(0,0,0,0.08)" : "none",
+          maxHeight: menuOpen ? "100vh" : "0",
+          overflow: "hidden",
+          transition: "max-height 0.38s cubic-bezier(0.16,1,0.3,1), padding 0.3s ease, box-shadow 0.3s ease",
+          pointerEvents: menuOpen ? "auto" : "none",
+        }}
+      >
+        {NAV_LINKS.map(({ href, label }, i) => (
+          <Link
+            key={href}
+            href={href}
+            onClick={() => setMenuOpen(false)}
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              marginTop: 20,
-              background: "#e8643c",
-              color: "#fff",
-              borderRadius: 9999,
-              padding: "0 28px",
-              height: 48,
-              fontSize: 15,
-              fontWeight: 600,
-              border: "none",
-              cursor: "pointer",
-              fontFamily: "inherit",
+              display: "block",
+              fontSize: 20,
+              fontWeight: 500,
+              color: "#17171c",
+              textDecoration: "none",
+              padding: "13px 0",
+              borderBottom: "1px solid rgba(0,0,0,0.06)",
+              letterSpacing: "-0.3px",
+              opacity: menuOpen ? 1 : 0,
+              transform: menuOpen ? "translateY(0)" : "translateY(-8px)",
+              transition: `opacity 0.3s ease ${i * 0.05 + 0.1}s, transform 0.3s ease ${i * 0.05 + 0.1}s`,
             }}
           >
-            Get Started →
-          </button>
-        </div>
-      )}
+            {label}
+          </Link>
+        ))}
+        <button
+          onClick={() => { setMenuOpen(false); setModalOpen(true); }}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            marginTop: 20,
+            background: "#e8643c",
+            color: "#fff",
+            borderRadius: 9999,
+            padding: "0 28px",
+            height: 48,
+            fontSize: 15,
+            fontWeight: 600,
+            border: "none",
+            cursor: "pointer",
+            fontFamily: "inherit",
+            opacity: menuOpen ? 1 : 0,
+            transform: menuOpen ? "translateY(0)" : "translateY(-8px)",
+            transition: `opacity 0.3s ease 0.35s, transform 0.3s ease 0.35s`,
+          }}
+        >
+          Get Started →
+        </button>
+      </div>
 
       <style>{`
         @media (max-width: 700px) {

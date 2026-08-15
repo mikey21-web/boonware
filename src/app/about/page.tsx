@@ -9,7 +9,7 @@ const TEAM = [
   {
     name: "Suzanne Ansari",
     role: "Co-Founder & CEO",
-    img: "https://boonware.in/assets/suzanne1-j5b959xL.jpeg",
+    img: "/assets/suzanne1-j5b959xL.jpeg",
     bio: "Drives strategy, client relationships, and business growth. Suzanne ensures every project delivers measurable ROI.",
     linkedin: "https://linkedin.com/in/suzanne16/",
     instagram: "https://instagram.com/boonware_agency/",
@@ -17,7 +17,7 @@ const TEAM = [
   {
     name: "Mohammed Ishaque Inamdar",
     role: "Co-Founder & Founding Engineer",
-    img: "https://boonware.in/assets/ishaque-RBoHBDVo.jpeg",
+    img: "/assets/ishaque-RBoHBDVo.jpeg",
     bio: "Full-stack architect behind BoonWare's core builds. Ishaque leads technical decisions and product architecture.",
     linkedin: "https://linkedin.com/in/mohammed-ishaque-inamdar-22b6b622b/",
     instagram: "https://instagram.com/ishaque_inamdar8291/",
@@ -25,7 +25,7 @@ const TEAM = [
   {
     name: "Shabaan Sayed",
     role: "Co-Founder & COO",
-    img: "https://boonware.in/assets/shabaan-CbrrHu3f.jpeg",
+    img: "/assets/shabaan-CbrrHu3f.jpeg",
     bio: "Keeps operations tight and delivery on schedule. Shabaan bridges client expectations with engineering execution.",
     linkedin: "https://linkedin.com/in/shabaan-sayed-51513b1a4/",
     instagram: "https://instagram.com/shabaansayed11/",

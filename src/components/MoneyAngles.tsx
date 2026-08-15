@@ -6,7 +6,7 @@ import Image from "next/image";
 /* ─── Top 3 picks: range of categories, strongest visual + business story ── */
 const PROJECTS = [
   {
-    img: "https://boonware.in/assets/drinking_branding-CzKQPBLP.jpg",
+    img: "/assets/drinking_branding-CzKQPBLP.jpg",
     cat: "Branding & Packaging",
     title: "Luxury Vodka Brand",
     result: "Award-winning identity",
@@ -19,7 +19,7 @@ const PROJECTS = [
     featured: true,
   },
   {
-    img: "https://boonware.in/assets/pokhrajjewellers-Dlp82dqa.png",
+    img: "/assets/pokhrajjewellers-Dlp82dqa.png",
     cat: "E-Commerce",
     title: "Pokhraj Jewellers",
     result: "3× enquiries in 45 days",
@@ -32,7 +32,7 @@ const PROJECTS = [
     featured: false,
   },
   {
-    img: "https://boonware.in/assets/bombay_design_banner_og-CxLx1u4Y.png",
+    img: "/assets/bombay_design_banner_og-CxLx1u4Y.png",
     cat: "Custom Website",
     title: "Bombay Design Studio",
     result: "Premium interactive experience",
