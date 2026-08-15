@@ -11,8 +11,6 @@ export function Hero() {
   const actions = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx: { revert: () => void } | null = null;
-
     const run = async () => {
       const gsap = (await import("gsap")).default;
 
@@ -37,7 +35,6 @@ export function Hero() {
     };
 
     run();
-    return () => { if (ctx) ctx.revert(); };
   }, []);
 
   return (
