@@ -146,7 +146,7 @@ export default function ServiceDetailPage() {
               }}>{svc.tagline}</p>
 
               <div className="hd-sub" style={{ display: "flex", gap: 10, flexWrap: "wrap", opacity: 0 }}>
-                <a href="https://wa.me/919390739090" style={{
+                <a href="https://wa.me/919076269629" style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   background: "#e8643c", color: "#fff",
                   borderRadius: 9999, padding: "14px 30px",
@@ -156,7 +156,7 @@ export default function ServiceDetailPage() {
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.85"}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
                 >Get a quote →</a>
-                <a href="https://wa.me/919390739090" style={{
+                <a href="https://wa.me/919076269629" style={{
                   display: "inline-flex", alignItems: "center",
                   border: "1px solid rgba(255,255,255,0.15)",
                   color: "rgba(255,255,255,0.6)", borderRadius: 9999,
@@ -218,7 +218,7 @@ export default function ServiceDetailPage() {
             color: "rgba(255,255,255,0.65)",
           }}>{svc.price.note}</span>
         </div>
-        <a href="https://wa.me/919390739090" style={{
+        <a href="https://wa.me/919076269629" style={{
           display: "inline-flex", alignItems: "center",
           background: "#fff", color: "#17171c",
           borderRadius: 9999, padding: "12px 28px",
@@ -609,7 +609,7 @@ export default function ServiceDetailPage() {
                 We scope every project before taking a rupee. You know exactly what you&apos;re getting, when you&apos;re getting it, and what it costs — before we start.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <a href="https://wa.me/919390739090" style={{
+                <a href="https://wa.me/919076269629" style={{
                   display: "inline-flex", alignItems: "center", justifyContent: "center",
                   background: "#e8643c", color: "#fff",
                   borderRadius: 9999, padding: "16px 32px",
@@ -619,7 +619,7 @@ export default function ServiceDetailPage() {
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.85"}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
                 >Start this project on WhatsApp →</a>
-                <a href="mailto:team@boonware.in" style={{
+                <a href="mailto:info@boonware.in" style={{
                   display: "inline-flex", alignItems: "center", justifyContent: "center",
                   background: "transparent", color: "#17171c",
                   border: "1px solid #e4e4e7",

@@ -350,7 +350,7 @@ export default function ContactPage() {
                   }}>
                     We reply within 4 hours on weekdays. For urgent projects, WhatsApp us directly.
                   </p>
-                  <a href="https://wa.me/919390739090" style={{
+                  <a href="https://wa.me/919076269629" style={{
                     display: "inline-flex",
                     alignItems: "center",
                     marginTop: 28,

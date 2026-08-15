@@ -13,7 +13,7 @@ export function Footer() {
               Technology that pays for itself. Fixed price, source code yours.
             </p>
           </div>
-          <a href="https://wa.me/919390739090" style={{
+          <a href="https://wa.me/919076269629" style={{
             textDecoration: "none", background: "#ffffff", color: "#010101",
             borderRadius: 9999, padding: "0 28px", height: 48,
             display: "inline-flex", alignItems: "center", fontSize: 14, fontWeight: 600,
@@ -36,8 +36,8 @@ export function Footer() {
           </div>
           <div>
             <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Contact</div>
-            <a href="mailto:team@boonware.in" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none", marginBottom: 10 }}>team@boonware.in</a>
-            <a href="https://wa.me/919390739090" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none", marginBottom: 10 }}>+91 93907 39090</a>
+            <a href="mailto:info@boonware.in" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none", marginBottom: 10 }}>info@boonware.in</a>
+            <a href="https://wa.me/919076269629" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none", marginBottom: 10 }}>+91 90762 69629</a>
             <a href="https://wa.me/918291393581" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none" }}>+91 82913 93581</a>
           </div>
           <div>
@@ -50,7 +50,8 @@ export function Footer() {
           <div>
             <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Social</div>
             <a href="https://linkedin.com/company/boonware" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none", marginBottom: 10 }}>LinkedIn</a>
-            <a href="https://instagram.com/boonware_agency" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none" }}>Instagram</a>
+            <a href="https://instagram.com/boonware_agency" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none", marginBottom: 10 }}>Instagram</a>
+            <a href="https://github.com/boonware-agency" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.6)", fontSize: 14, textDecoration: "none" }}>GitHub</a>
           </div>
         </div>
 

@@ -76,7 +76,7 @@ export function ContactSection() {
         }}
       >
         <Link
-          href="https://wa.me/919390739090"
+          href="https://wa.me/919076269629"
           style={{
             display: "inline-flex", alignItems: "center", gap: 6,
             padding: "14px 28px", borderRadius: 9999,
@@ -97,7 +97,7 @@ export function ContactSection() {
           WhatsApp us
         </Link>
         <Link
-          href="mailto:team@boonware.in"
+          href="mailto:info@boonware.in"
           style={{
             display: "inline-flex", alignItems: "center", gap: 6,
             padding: "14px 28px", borderRadius: 9999,
@@ -116,7 +116,7 @@ export function ContactSection() {
             (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.18)";
           }}
         >
-          team@boonware.in
+          info@boonware.in
         </Link>
       </div>
     </section>

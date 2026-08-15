@@ -381,7 +381,7 @@ export default function ServicesPage() {
               </div>
 
               <a
-                href="https://wa.me/919390739090"
+                href="https://wa.me/919076269629"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -598,7 +598,7 @@ export default function ServicesPage() {
                 Click any service to see exactly what we build, what tech we use, and starting prices.
               </p>
               <a
-                href="https://wa.me/919390739090"
+                href="https://wa.me/919076269629"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -726,7 +726,7 @@ export default function ServicesPage() {
                       </div>
                       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                         <a
-                          href="https://wa.me/919390739090"
+                          href="https://wa.me/919076269629"
                           style={{
                             display: "inline-flex",
                             alignItems: "center",
@@ -981,7 +981,7 @@ export default function ServicesPage() {
 
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <a
-              href="https://wa.me/919390739090"
+              href="https://wa.me/919076269629"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -1002,7 +1002,7 @@ export default function ServicesPage() {
               WhatsApp us
             </a>
             <a
-              href="mailto:team@boonware.in"
+              href="mailto:info@boonware.in"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -1027,7 +1027,7 @@ export default function ServicesPage() {
                 (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)";
               }}
             >
-              team@boonware.in
+              info@boonware.in
             </a>
           </div>
         </div>

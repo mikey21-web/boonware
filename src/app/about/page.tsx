@@ -11,24 +11,24 @@ const TEAM = [
     role: "Co-Founder & CEO",
     img: "https://boonware.in/assets/suzanne1-j5b959xL.jpeg",
     bio: "Drives strategy, client relationships, and business growth. Suzanne ensures every project delivers measurable ROI.",
-    linkedin: "https://linkedin.com/in/suzanne-ansari",
-    instagram: "https://instagram.com/boonware_agency",
+    linkedin: "https://linkedin.com/in/suzanne16/",
+    instagram: "https://instagram.com/boonware_agency/",
   },
   {
     name: "Mohammed Ishaque Inamdar",
     role: "Co-Founder & Founding Engineer",
     img: "https://boonware.in/assets/ishaque-RBoHBDVo.jpeg",
     bio: "Full-stack architect behind BoonWare's core builds. Ishaque leads technical decisions and product architecture.",
-    linkedin: "https://linkedin.com/in/mohammed-ishaque-inamdar",
-    instagram: "https://instagram.com/boonware_agency",
+    linkedin: "https://linkedin.com/in/mohammed-ishaque-inamdar-22b6b622b/",
+    instagram: "https://instagram.com/ishaque_inamdar8291/",
   },
   {
     name: "Shabaan Sayed",
     role: "Co-Founder & COO",
     img: "https://boonware.in/assets/shabaan-CbrrHu3f.jpeg",
     bio: "Keeps operations tight and delivery on schedule. Shabaan bridges client expectations with engineering execution.",
-    linkedin: "https://linkedin.com/in/shabaan-sayed",
-    instagram: "https://instagram.com/boonware_agency",
+    linkedin: "https://linkedin.com/in/shabaan-sayed-51513b1a4/",
+    instagram: "https://instagram.com/shabaansayed11/",
   },
 ];
 
@@ -338,7 +338,7 @@ export default function AboutPage() {
             >
               Start a project →
             </Link>
-            <Link href="https://wa.me/919390739090" style={{
+            <Link href="https://wa.me/919076269629" style={{
               display: "inline-flex", alignItems: "center", gap: 6,
               padding: "13px 24px", background: "transparent", color: "#17171c",
               border: "1px solid #e4e4e7", borderRadius: 9999, fontSize: 14, fontWeight: 500, textDecoration: "none",
@@ -353,7 +353,7 @@ export default function AboutPage() {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20, marginTop: 24, flexWrap: "wrap" }}>
             <a href="tel:+919076269629" style={{ fontSize: 13, color: "#71717a", textDecoration: "none" }}>📞 +91 9076269629</a>
             <span style={{ color: "#e4e4e7" }}>·</span>
-            <a href="mailto:team@boonware.in" style={{ fontSize: 13, color: "#71717a", textDecoration: "none" }}>✉️ team@boonware.in</a>
+            <a href="mailto:info@boonware.in" style={{ fontSize: 13, color: "#71717a", textDecoration: "none" }}>✉️ info@boonware.in</a>
             <span style={{ color: "#e4e4e7" }}>·</span>
             <a href="https://instagram.com/boonware_agency" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "#71717a", textDecoration: "none" }}>Instagram</a>
             <span style={{ color: "#e4e4e7" }}>·</span>

@@ -29,7 +29,7 @@ export function QuickContactModal({ open, onClose }: Props) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const msg = encodeURIComponent(`Hi BoonWare! I'm ${name}. My number is ${phone}. Please get back to me.`);
-    window.open(`https://wa.me/919390739090?text=${msg}`, "_blank");
+    window.open(`https://wa.me/919076269629?text=${msg}`, "_blank");
     setSent(true);
   };
 
