@@ -1,0 +1,355 @@
+{
+  "title": "BoonWare",
+  "fonts": [
+    [
+      "Inter",
+      385
+    ]
+  ],
+  "colors": [
+    [
+      "rgb(2, 8, 23)",
+      226
+    ],
+    [
+      "rgb(255, 255, 255)",
+      61
+    ],
+    [
+      "rgb(77, 182, 172)",
+      34
+    ],
+    [
+      "rgb(100, 116, 139)",
+      32
+    ],
+    [
+      "rgb(0, 0, 0)",
+      26
+    ],
+    [
+      "rgb(33, 33, 33)",
+      8
+    ],
+    [
+      "rgb(0, 112, 96)",
+      7
+    ],
+    [
+      "rgb(248, 250, 252)",
+      6
+    ],
+    [
+      "rgb(15, 23, 42)",
+      5
+    ],
+    [
+      "rgb(209, 213, 219)",
+      5
+    ],
+    [
+      "rgb(59, 130, 246)",
+      5
+    ],
+    [
+      "rgb(75, 85, 99)",
+      4
+    ],
+    [
+      "rgb(17, 24, 39)",
+      4
+    ],
+    [
+      "rgb(158, 158, 158)",
+      4
+    ],
+    [
+      "rgb(249, 250, 251)",
+      2
+    ],
+    [
+      "rgb(55, 65, 81)",
+      1
+    ],
+    [
+      "rgb(107, 114, 128)",
+      1
+    ],
+    [
+      "rgb(243, 244, 246)",
+      1
+    ],
+    [
+      "rgb(37, 211, 102)",
+      1
+    ],
+    [
+      "rgb(2, 6, 23)",
+      1
+    ]
+  ],
+  "images": [
+    {
+      "src": "https://boonware.in/assets/icon_logo-CTOVYnVL.png",
+      "alt": "BoonWare Logo",
+      "width": 500,
+      "height": 500,
+      "parentClass": "w-8 h-8 rounded-lg flex items-center justify-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/BoonWare_icon-DaJz79lM.png",
+      "alt": "BoonWare Logo",
+      "width": 500,
+      "height": 108,
+      "parentClass": "flex items-center space-x-2",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/aventodesign-C1q_UmoP.jpeg",
+      "alt": "aventodesign",
+      "width": 1245,
+      "height": 602,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/83d_network_logo-CIX5qxdy.png",
+      "alt": "dnetwork",
+      "width": 200,
+      "height": 200,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/sivas-BqIVLJmo.jpeg",
+      "alt": "sivas",
+      "width": 300,
+      "height": 181,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/Medifee-BK9IjXwz.jpeg",
+      "alt": "medifee",
+      "width": 700,
+      "height": 213,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/trippytour-DwdFzO-D.png",
+      "alt": "trippytour",
+      "width": 600,
+      "height": 340,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/magical%20hands-F-Qin0ls.jpeg",
+      "alt": "magicalhands",
+      "width": 400,
+      "height": 273,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/braai_boys-DxurLl5E.png",
+      "alt": "braaiboys",
+      "width": 225,
+      "height": 225,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/aventodesign-C1q_UmoP.jpeg",
+      "alt": "aventodesign",
+      "width": 1245,
+      "height": 602,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/83d_network_logo-CIX5qxdy.png",
+      "alt": "dnetwork",
+      "width": 200,
+      "height": 200,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/sivas-BqIVLJmo.jpeg",
+      "alt": "sivas",
+      "width": 300,
+      "height": 181,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/Medifee-BK9IjXwz.jpeg",
+      "alt": "medifee",
+      "width": 700,
+      "height": 213,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/trippytour-DwdFzO-D.png",
+      "alt": "trippytour",
+      "width": 600,
+      "height": 340,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/magical%20hands-F-Qin0ls.jpeg",
+      "alt": "magicalhands",
+      "width": 400,
+      "height": 273,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/braai_boys-DxurLl5E.png",
+      "alt": "braaiboys",
+      "width": 225,
+      "height": 225,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/Ammorada_new_Logo-D34n8gQr.png",
+      "alt": "ammarada",
+      "width": 1000,
+      "height": 250,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/smokey%20charlie-DVjj1GTf.png",
+      "alt": "smokeycharlie",
+      "width": 326,
+      "height": 154,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/logo-bombaydesign-BW9fKecq-BW9fKecq.png",
+      "alt": "bombaydesign",
+      "width": 500,
+      "height": 500,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/dhoom-YYD2M81F.jpeg",
+      "alt": "dhoom",
+      "width": 1536,
+      "height": 1024,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/prodigy-hxb4lkIk.jpeg",
+      "alt": "prodigy",
+      "width": 913,
+      "height": 517,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/too%20yumm-BNVkXW67.png",
+      "alt": "tooyumm",
+      "width": 259,
+      "height": 194,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/Ammorada_new_Logo-D34n8gQr.png",
+      "alt": "ammarada",
+      "width": 1000,
+      "height": 250,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/smokey%20charlie-DVjj1GTf.png",
+      "alt": "smokeycharlie",
+      "width": 326,
+      "height": 154,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/logo-bombaydesign-BW9fKecq-BW9fKecq.png",
+      "alt": "bombaydesign",
+      "width": 500,
+      "height": 500,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/dhoom-YYD2M81F.jpeg",
+      "alt": "dhoom",
+      "width": 1536,
+      "height": 1024,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/prodigy-hxb4lkIk.jpeg",
+      "alt": "prodigy",
+      "width": 913,
+      "height": 517,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/too%20yumm-BNVkXW67.png",
+      "alt": "tooyumm",
+      "width": 259,
+      "height": 194,
+      "parentClass": "flex items-center",
+      "position": "static"
+    },
+    {
+      "src": "https://boonware.in/assets/icon_logo-CTOVYnVL.png",
+      "alt": "BoonWare Logo",
+      "width": 500,
+      "height": 500,
+      "parentClass": "w-8 h-8 rounded-lg flex items-center justify-center",
+      "position": "static"
+    }
+  ],
+  "backgroundImages": [
+    {
+      "url": "linear-gradient(to right bottom, rgb(239, 246, 255), rgb(224, 231, 255))",
+      "tag": "SECTION.bg-gradient-to-br"
+    },
+    {
+      "url": "linear-gradient(135deg, rgb(0, 112, 96), rgb(77, 182, 172))",
+      "tag": "SPAN.text-gradient"
+    },
+    {
+      "url": "linear-gradient(to right, rgb(0, 112, 96), rgb(77, 182, 172))",
+      "tag": "DIV.w-24"
+    }
+  ],
+  "videos": [],
+  "svgCount": 23,
+  "linkTags": [
+    {
+      "rel": "stylesheet",
+      "href": "https://boonware.in/assets/index-cynGpskM.css"
+    }
+  ],
+  "scriptTags": [
+    "https://boonware.in/assets/index-GCR6UMh4.js"
+  ],
+  "bodyClasses": "",
+  "htmlClasses": "light",
+  "scrollHeight": 4391,
+  "hasLenis": false,
+  "hasLocomotive": false
+}

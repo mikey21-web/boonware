@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoonWare — Build the Technology Your Business Needs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<style>
+:root{
+  --white:#ffffff;
+  --off:#f7f8f4;
+  --off2:#f4f4f5;
+  --ink:#17171c;
+  --ink2:#1d1916;
+  --mute:#71717a;
+  --mute2:#a1a1aa;
+  --line:#e4e4e7;
+  --orange:#e8643c;
+  --orange2:#d07a54;
+  --nav-bg:#282522;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none}
+::selection{background:var(--ink);color:#fff}
+.container{width:min(1180px,calc(100% - 48px));margin:auto}
+
+/* ── NAV floating pill ── */
+.nav-wrap{
+  position:fixed;top:16px;left:0;right:0;z-index:200;
+  display:flex;justify-content:center;padding:0 24px;
+  transition:top 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-wrap.scrolled{top:0}
+.nav-pill{
+  background:var(--nav-bg);border-radius:9999px;
+  padding:0 6px 0 20px;
+  display:flex;align-items:center;
+  height:50px;width:min(780px,100%);
+  box-shadow:0 2px 24px rgba(0,0,0,0.18);overflow:hidden;
+  transition:border-radius 0.5s cubic-bezier(0.16,1,0.3,1),
+             width 0.5s cubic-bezier(0.16,1,0.3,1),
+             height 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-wrap.expanded .nav-pill{border-radius:0;width:100%;height:62px}
+.logo{font-size:16px;font-weight:700;letter-spacing:-0.4px;color:#fff;flex-shrink:0}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.55);padding:6px 12px;border-radius:9999px;transition:color 0.2s,background 0.2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.07)}
+.nav-cta{background:var(--white);color:var(--ink);padding:0 16px;border-radius:9999px;font-size:13px;font-weight:600;height:38px;display:inline-flex;align-items:center;margin-left:8px;flex-shrink:0;transition:background 0.2s,transform 0.2s}
+.nav-cta:hover{background:var(--off);transform:scale(0.98)}
+.nav-secondary-row{display:none;gap:0;margin-left:auto}
+.nav-wrap.expanded .nav-secondary-row{display:flex}
+.nav-wrap.expanded .nav-links{display:none}
+.nav-secondary-row a{font-size:12px;font-weight:500;color:rgba(255,255,255,0.5);padding:6px 11px;border-radius:9999px;transition:color 0.2s,background 0.2s}
+.nav-secondary-row a:hover{color:#fff;background:rgba(255,255,255,0.07)}
+@media(max-width:700px){.nav-links,.nav-secondary-row{display:none!important}.nav-pill{width:100%;padding:0 6px 0 16px}}
+
+/* ── REVEAL SETUP — all animated elements start hidden ── */
+.reveal{opacity:0;transform:translateY(40px)}
+.reveal-left{opacity:0;transform:translateX(-40px)}
+.reveal-scale{opacity:0;transform:scale(0.92)}
+
+/* ── HERO ── */
+.hero{padding:140px 24px 100px;text-align:center;border-bottom:1px solid var(--line);overflow:hidden;position:relative}
+.hero-bg-blob{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:500px;
+  background:radial-gradient(ellipse at center, rgba(232,100,60,0.06) 0%, transparent 70%);
+  pointer-events:none;
+  animation:pulse-blob 6s ease-in-out infinite;
+}
+@keyframes pulse-blob{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.12)}}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--off2);border:1px solid var(--line);border-radius:9999px;padding:5px 13px;font-size:12px;font-weight:600;color:var(--mute);margin-bottom:32px;font-family:ui-monospace,monospace;letter-spacing:0.275px}
+.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);display:inline-block;flex-shrink:0;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.35}}
+.hero h1{font-size:clamp(56px,8vw,96px);font-weight:700;line-height:1.02;letter-spacing:-2.4px;max-width:900px;margin:0 auto}
+.hero h1 .line1{color:var(--ink);display:block}
+.hero h1 .line2{color:var(--mute);display:block}
+.hero h1 .line3{color:var(--orange);display:block}
+/* clip mask for h1 line-by-line reveal */
+.h1-mask{overflow:hidden;display:block}
+.h1-inner{display:block;transform:translateY(110%)}
+.hero-copy{font-size:17px;font-weight:400;color:var(--mute);max-width:580px;line-height:1.63;margin:24px auto 0}
+.hero-copy b{color:var(--ink);font-weight:600}
+.actions{display:flex;gap:10px;margin-top:32px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:13px 22px;border-radius:9999px;font-size:14px;font-weight:600;border:1px solid var(--line);transition:background 0.22s,color 0.22s,border-color 0.22s,transform 0.22s;cursor:pointer;position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.12);opacity:0;transition:opacity 0.2s}
+.btn:hover::after{opacity:1}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(0.98)}
+.btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-orange{background:var(--orange);color:#fff;border-color:var(--orange)}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-outline:hover{border-color:var(--ink)}
+
+/* ── PROOF ── */
+.proof{background:var(--ink2);color:#fff;padding:28px 0}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.proof-item{border-left:1px solid rgba(255,255,255,0.07);padding-left:28px}
+.proof-item:first-child{border:0;padding-left:0}
+.proof-num{font-size:38px;font-weight:700;letter-spacing:-1px;line-height:1}
+.proof-text{font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;font-weight:500}
+
+/* ── SECTION GENERIC ── */
+section{padding:104px 0}
+.label{display:block;font-size:11px;font-weight:700;color:var(--mute2);letter-spacing:1.1px;text-transform:uppercase;margin-bottom:14px}
+h2{font-size:clamp(36px,4.5vw,60px);font-weight:700;letter-spacing:-1.44px;line-height:1.05}
+h2 .hl{color:var(--orange)}
+h2 .dim{color:var(--mute)}
+.section-intro{color:var(--mute);font-size:17px;font-weight:400;line-height:1.63;max-width:560px;margin-top:16px}
+
+/* ── DISCOVERY ── */
+.discovery{background:var(--off);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.discovery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:40px}
+.discovery-card{background:var(--white);border:1px solid var(--line);padding:24px;min-height:190px;text-align:left;transition:border-color 0.22s,transform 0.3s cubic-bezier(0.16,1,0.3,1),background 0.22s,box-shadow 0.3s;cursor:pointer}
+.discovery-card:hover{border-color:var(--ink);transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,0.08)}
+.discovery-card.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.discovery-card.active span{color:rgba(255,255,255,0.45)}
+.discovery-card strong{font-size:19px;font-weight:700;letter-spacing:-0.4px;display:block;margin-top:46px;line-height:1.2}
+.discovery-card span{font-size:13px;color:var(--mute);display:block;margin-top:6px}
+.solution-output{display:none;margin-top:14px;background:var(--ink);color:#fff;padding:28px;animation:slide-down 0.4s cubic-bezier(0.16,1,0.3,1)}
+@keyframes slide-down{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+.solution-output.show{display:block}
+.solution-output h3{font-size:26px;font-weight:700;letter-spacing:-0.64px}
+.solution-output p{color:rgba(255,255,255,0.45);margin-top:6px;font-size:14px;line-height:1.63}
+.solution-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.solution-tags span{border:1px solid rgba(255,255,255,0.12);padding:5px 12px;font-size:12px;font-weight:500}
+
+/* ── BEFORE / AFTER ── */
+.transform-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:48px}
+.transform{border:1px solid var(--line);padding:32px}
+.transform.after{background:var(--ink);color:#fff;border-color:var(--ink)}
+.transform h3{font-size:24px;font-weight:700;letter-spacing:-0.64px}
+.transform ul{list-style:none;margin-top:24px}
+.transform li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--mute);transition:color 0.2s,padding-left 0.3s}
+.transform li:hover{padding-left:8px;color:var(--ink)}
+.transform.after li{border-color:rgba(255,255,255,0.07);color:rgba(255,255,255,0.45)}
+.transform.after li:hover{color:#fff}
+
+/* ── AI DEMOS ── */
+.ai-section{background:var(--off);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:48px}
+.demo{background:var(--white);border:1px solid var(--line);padding:24px;min-height:310px;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.3s}
+.demo:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.08)}
+.demo-top{display:flex;justify-content:space-between;color:var(--mute2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.1px}
+.demo h3{font-size:22px;font-weight:700;letter-spacing:-0.64px;margin-top:44px}
+.demo p{color:var(--mute);font-size:13px;margin-top:6px;line-height:1.63}
+.demo-flow{margin-top:20px;border-top:1px solid var(--line)}
+.flow-step{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--mute);transition:color 0.2s,padding-left 0.25s}
+.flow-step:hover{color:var(--ink);padding-left:6px}
+.flow-step b{color:var(--ink);margin-right:8px;font-weight:700;font-size:11px;letter-spacing:0.6px}
+
+/* ── STACK BUILDER ── */
+.stack-builder{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stack-options,.stack-result{border:1px solid var(--line);padding:28px}
+.stack-options h3,.stack-result h3{font-size:22px;font-weight:700;letter-spacing:-0.64px}
+.check-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:20px}
+.check{border:1px solid var(--line);padding:11px;font-size:13px;font-weight:500;color:var(--mute);transition:background 0.18s,color 0.18s,border-color 0.18s,transform 0.18s;cursor:pointer}
+.check:hover{border-color:var(--ink);color:var(--ink);transform:scale(1.02)}
+.check.selected{background:var(--ink);color:#fff;border-color:var(--ink)}
+.stack-result{background:var(--ink2);color:#fff}
+.stack-result p{color:rgba(255,255,255,0.35);margin-top:6px;font-size:14px}
+.stack-output{display:flex;gap:6px;flex-wrap:wrap;margin-top:24px;min-height:40px}
+.stack-output span{border:1px solid rgba(255,255,255,0.12);padding:6px 12px;font-size:12px;font-weight:500;animation:pop-in 0.3s cubic-bezier(0.16,1,0.3,1)}
+@keyframes pop-in{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+.stack-cta{margin-top:24px}
+
+/* ── BUNDLES — all white cards ── */
+.bundles-section{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.bundle{
+  background:var(--white);border:1px solid var(--line);
+  padding:32px;min-height:280px;
+  display:flex;flex-direction:column;
+  transition:border-color 0.25s,transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s;
+}
+.bundle:hover{border-color:var(--ink);transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.09)}
+.bundle-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:700;letter-spacing:1.1px;
+  text-transform:uppercase;color:var(--orange);margin-bottom:20px;
+}
+.bundle h3{font-size:26px;font-weight:700;letter-spacing:-0.72px;line-height:1.15}
+.bundle p{color:var(--mute);margin-top:10px;font-size:14px;line-height:1.63;flex:1}
+.bundle-price{font-size:18px;font-weight:700;letter-spacing:-0.4px;color:var(--ink);margin-top:16px}
+.bundle-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:20px;padding:10px 18px;
+  background:var(--ink);color:#fff;border-radius:9999px;
+  font-size:13px;font-weight:600;
+  transition:background 0.22s,transform 0.22s;
+  align-self:flex-start;
+}
+.bundle-cta:hover{background:var(--orange);transform:scale(1.03)}
+.bundles-footer{
+  margin-top:40px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:32px;border-top:1px solid var(--line);
+}
+.bundles-footer p{color:var(--mute);font-size:15px;max-width:500px;line-height:1.6}
+.bundles-footer a{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--ink);color:#fff;padding:13px 24px;border-radius:9999px;
+  font-size:14px;font-weight:600;flex-shrink:0;
+  transition:background 0.22s,transform 0.22s;
+}
+.bundles-footer a:hover{background:var(--orange);transform:translateY(-2px)}
+
+/* ── ROI ── */
+.roi-bg{background:var(--off);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.calculator{margin-top:40px;background:var(--white);border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.field input{width:100%;padding:10px 12px;border:1px solid var(--line);background:var(--off2);font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);outline:none;transition:border-color 0.18s}
+.field input:focus{border-color:var(--ink)}
+.calc-result{background:var(--ink);color:#fff;padding:32px}
+.calc-result small{font-size:11px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1.1px}
+.calc-number{font-size:52px;font-weight:700;letter-spacing:-1.3px;line-height:1;margin-top:8px;color:var(--orange);transition:all 0.3s}
+.calc-result p{color:rgba(255,255,255,0.4);margin-top:10px;font-size:14px;line-height:1.63}
+
+/* ── WORK / PROJECTS ── */
+.work-section{background:var(--ink);color:#fff}
+.work-section h2{color:#fff}
+.work-copy{color:rgba(255,255,255,0.4);max-width:520px;margin-top:12px;font-size:16px;line-height:1.63}
+
+/* filter pills */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px}
+.filter-btn{
+  padding:8px 16px;border-radius:9999px;
+  font-size:13px;font-weight:500;
+  border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.5);
+  background:transparent;cursor:pointer;
+  transition:background 0.2s,color 0.2s,border-color 0.2s;
+}
+.filter-btn:hover{color:#fff;border-color:rgba(255,255,255,0.3)}
+.filter-btn.active{background:#fff;color:var(--ink);border-color:#fff}
+
+/* project grid */
+.proj-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;margin-top:24px;
+}
+.proj-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  overflow:hidden;cursor:pointer;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),
+             border-color 0.25s,box-shadow 0.35s;
+  display:flex;flex-direction:column;
+}
+.proj-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,255,255,0.18);
+  box-shadow:0 20px 48px rgba(0,0,0,0.4);
+}
+.proj-card.hidden{display:none}
+.proj-thumb{
+  width:100%;aspect-ratio:16/10;overflow:hidden;
+  position:relative;
+}
+.proj-thumb img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.proj-card:hover .proj-thumb img{transform:scale(1.06)}
+.proj-info{padding:20px;flex:1;display:flex;flex-direction:column}
+.proj-cat{
+  font-size:11px;font-weight:700;
+  color:var(--orange);letter-spacing:1.1px;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.proj-info h3{font-size:18px;font-weight:700;letter-spacing:-0.4px;color:#fff;line-height:1.2}
+.proj-info p{font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.6;flex:1}
+.proj-techs{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px}
+.proj-tech{
+  font-size:11px;font-weight:500;
+  border:1px solid rgba(255,255,255,0.1);
+  padding:3px 9px;color:rgba(255,255,255,0.4);
+}
+.proj-link{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:14px;font-size:12px;font-weight:600;
+  color:var(--orange);letter-spacing:0.2px;
+  transition:gap 0.2s;
+}
+.proj-card:hover .proj-link{gap:8px}
+
+/* ── TEAM ── */
+.team-section{border-top:1px solid var(--line)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.team-card{border:1px solid var(--line);overflow:hidden;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.3s}
+.team-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.08)}
+.team-photo{width:100%;aspect-ratio:3/4;overflow:hidden}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)}
+.team-card:hover .team-photo img{transform:scale(1.04)}
+.team-info{padding:20px}
+.team-info h3{font-size:18px;font-weight:700;letter-spacing:-0.4px}
+.team-info p{font-size:13px;color:var(--mute);margin-top:4px}
+
+/* ── TESTIMONIAL ── */
+.testimonial{padding:104px 0;text-align:center;border-top:1px solid var(--line)}
+.quote{font-size:clamp(24px,3.2vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.2;max-width:780px;margin:auto}
+.author{margin-top:22px;color:var(--mute);font-size:14px;font-weight:500}
+.author strong{color:var(--ink);font-weight:700}
+
+/* ── PROCESS ── */
+.process-section{background:var(--off);border-top:1px solid var(--line)}
+.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:48px}
+.step{border-top:2px solid var(--ink);padding-top:12px;transition:border-color 0.25s}
+.step:hover{border-color:var(--orange)}
+.step span{font-size:11px;font-weight:700;color:var(--mute2);letter-spacing:0.6px}
+.step h3{font-size:18px;font-weight:700;letter-spacing:-0.4px;margin-top:24px}
+.step p{color:var(--mute);font-size:13px;margin-top:6px;line-height:1.63}
+
+/* ── CTA ── */
+.cta-section{text-align:center;padding:120px 24px;background:var(--ink);color:#fff;border-top:1px solid rgba(255,255,255,0.05)}
+.cta-section h2{color:#fff;max-width:700px;margin:0 auto}
+.cta-section p{max-width:480px;margin:18px auto 28px;color:rgba(255,255,255,0.4);font-size:17px;line-height:1.63}
+
+/* ── FOOTER ── */
+footer{background:var(--ink2);padding:36px 0;border-top:1px solid rgba(255,255,255,0.05)}
+.footer{display:flex;justify-content:space-between;color:rgba(255,255,255,0.28);font-size:13px}
+.footer strong{color:rgba(255,255,255,0.75);font-weight:700;letter-spacing:-0.35px}
+
+/* ── MOBILE ── */
+@media(max-width:850px){
+  .hero{padding:110px 20px 72px}
+  .transform-grid,.stack-builder,.calculator{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .proof-item:nth-child(3){border:0;padding-left:0}
+  .discovery-grid,.demo-grid,.bundle-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .process-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .bundles-footer{flex-direction:column;gap:16px}
+  .footer{flex-direction:column;gap:10px}
+}
+@media(max-width:560px){
+  .process-grid,.check-options,.proj-grid,.team-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING PILL NAV -->
+<div class="nav-wrap" id="navWrap">
+  <div class="nav-pill">
+    <a class="logo" href="#">BoonWare</a>
+    <div class="nav-links">
+      <a href="#discovery">Solutions</a>
+      <a href="#ai">AI</a>
+      <a href="#stack">Stack</a>
+      <a href="#work">Work</a>
+    </div>
+    <div class="nav-secondary-row">
+      <a href="#discovery">Find my solution</a>
+      <a href="#ai">AI demos</a>
+      <a href="#stack">Build stack</a>
+      <a href="#work">Case studies</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Start a Project →</a>
+  </div>
+</div>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-blob"></div>
+
+  <div class="eyebrow" id="heroEyebrow">
+    <span class="eyebrow-dot"></span>
+    AI · Automation · Software · Digital
+  </div>
+
+  <h1 id="heroTitle">
+    <span class="h1-mask"><span class="h1-inner line1">Build the technology</span></span>
+    <span class="h1-mask"><span class="h1-inner line2">your business actually</span></span>
+    <span class="h1-mask"><span class="h1-inner line3">needs.</span></span>
+  </h1>
+
+  <p class="hero-copy" id="heroCopy">
+    BoonWare helps startups and growing businesses <b>build, automate and improve</b>
+    the technology behind their operations — AI assistants, calling agents,
+    software, mobile apps and e-commerce.
+  </p>
+
+  <div class="actions" id="heroActions">
+    <a class="btn btn-dark" href="#discovery">Find My Solution →</a>
+    <a class="btn btn-outline" href="#work">See Our Work</a>
+  </div>
+</section>
+
+
+<!-- PROOF -->
+<div class="proof">
+<div class="container">
+  <div class="proof-grid">
+    <div class="proof-item"><div class="proof-num" data-target="243" data-suffix="+">0</div><div class="proof-text">Projects delivered</div></div>
+    <div class="proof-item"><div class="proof-num" data-target="100" data-suffix="+">0</div><div class="proof-text">Businesses powered</div></div>
+    <div class="proof-item"><div class="proof-num" data-target="10" data-suffix="+">0</div><div class="proof-text">Industries served</div></div>
+    <div class="proof-item"><div class="proof-num" data-target="5" data-suffix="">0</div><div class="proof-text">Countries active</div></div>
+  </div>
+</div>
+</div>
+
+
+<!-- DISCOVERY -->
+<section class="discovery" id="discovery">
+<div class="container">
+  <span class="label reveal">Start with your goal</span>
+  <h2 class="reveal">What are you trying to <span class="hl">improve?</span></h2>
+  <p class="section-intro reveal">
+    Don't know which service you need? Start with the business outcome.
+    We'll show you what BoonWare can build to get there.
+  </p>
+  <div class="discovery-grid" style="margin-top:40px">
+    <button class="discovery-card reveal" onclick="showSolution('customers',this)" style="transition-delay:0s">
+      <strong>Get more customers</strong>
+      <span>Attract, engage, qualify and convert.</span>
+    </button>
+    <button class="discovery-card reveal" onclick="showSolution('operations',this)" style="transition-delay:0.07s">
+      <strong>Reduce manual work</strong>
+      <span>Automate repetitive operations.</span>
+    </button>
+    <button class="discovery-card reveal" onclick="showSolution('build',this)" style="transition-delay:0.14s">
+      <strong>Build something new</strong>
+      <span>Launch a product, platform or app.</span>
+    </button>
+    <button class="discovery-card reveal" onclick="showSolution('modernize',this)" style="transition-delay:0.21s">
+      <strong>Modernize my business</strong>
+      <span>Connect systems and add intelligence.</span>
+    </button>
+  </div>
+  <div class="solution-output" id="solutionOutput">
+    <h3 id="solutionTitle"></h3>
+    <p id="solutionText"></p>
+    <div class="solution-tags" id="solutionTags"></div>
+  </div>
+</div>
+</section>
+
+
+<!-- BEFORE / AFTER -->
+<section>
+<div class="container">
+  <span class="label reveal">The transformation</span>
+  <h2 class="reveal">Don't just buy software.<br><span class="hl">Change how the business works.</span></h2>
+  <p class="section-intro reveal">Technology shouldn't add another login. It should remove friction from how your team works every day.</p>
+  <div class="transform-grid">
+    <div class="transform reveal-left">
+      <h3>Before</h3>
+      <ul>
+        <li>Manual lead follow-ups eating hours</li>
+        <li>Customers waiting for answers</li>
+        <li>Repetitive data entry</li>
+        <li>Disconnected tools, duplicated effort</li>
+        <li>Phone calls handled entirely by people</li>
+        <li>Information scattered across systems</li>
+      </ul>
+    </div>
+    <div class="transform after reveal">
+      <h3>With the right system</h3>
+      <ul>
+        <li>Automated follow-ups, zero drop-off</li>
+        <li>AI-assisted conversations 24/7</li>
+        <li>Connected workflows, one source of truth</li>
+        <li>AI calling and intelligent assistants</li>
+        <li>Centralized data, instant access</li>
+        <li>Software built around your actual process</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- AI IN ACTION -->
+<section class="ai-section" id="ai">
+<div class="container">
+  <span class="label reveal">See the technology working</span>
+  <h2 class="reveal">AI should do something <span class="hl">useful</span><br>for your business.</h2>
+  <p class="section-intro reveal">Not "we build AI" — here is what an AI-powered workflow actually looks like inside a real business.</p>
+  <div class="demo-grid">
+    <div class="demo reveal" style="transition-delay:0s">
+      <div class="demo-top"><span>AI Sales</span><span>01</span></div>
+      <h3>AI Sales Assistant</h3>
+      <p>From a new enquiry to a qualified opportunity.</p>
+      <div class="demo-flow">
+        <div class="flow-step"><b>01</b> Lead arrives via web or WhatsApp</div>
+        <div class="flow-step"><b>02</b> AI responds within seconds</div>
+        <div class="flow-step"><b>03</b> Qualification questions run</div>
+        <div class="flow-step"><b>04</b> Automated follow-up sequence</div>
+        <div class="flow-step"><b>05</b> Appointment booked to calendar</div>
+      </div>
+    </div>
+    <div class="demo reveal" style="transition-delay:0.1s">
+      <div class="demo-top"><span>Voice AI</span><span>02</span></div>
+      <h3>AI Calling Agent</h3>
+      <p>Inbound and outbound calls handled at scale.</p>
+      <div class="demo-flow">
+        <div class="flow-step"><b>01</b> Customer calls your number</div>
+        <div class="flow-step"><b>02</b> AI understands their intent</div>
+        <div class="flow-step"><b>03</b> Natural conversation continues</div>
+        <div class="flow-step"><b>04</b> Action executed in real time</div>
+        <div class="flow-step"><b>05</b> Human escalation if needed</div>
+      </div>
+    </div>
+    <div class="demo reveal" style="transition-delay:0.2s">
+      <div class="demo-top"><span>Automation</span><span>03</span></div>
+      <h3>Business Automation</h3>
+      <p>Turn repetitive workflows into connected systems.</p>
+      <div class="demo-flow">
+        <div class="flow-step"><b>01</b> Trigger: form, email or event</div>
+        <div class="flow-step"><b>02</b> Data captured and enriched</div>
+        <div class="flow-step"><b>03</b> System decides next action</div>
+        <div class="flow-step"><b>04</b> Workflow executes automatically</div>
+        <div class="flow-step"><b>05</b> Team notified, records updated</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- STACK BUILDER -->
+<section id="stack">
+<div class="container">
+  <span class="label reveal">Interactive solution builder</span>
+  <h2 class="reveal">Build the <span class="hl">technology stack</span><br>your business needs.</h2>
+  <p class="section-intro reveal">Select capabilities. See how BoonWare's services work together.</p>
+  <div class="stack-builder">
+    <div class="stack-options reveal-left">
+      <h3>Choose capabilities</h3>
+      <div class="check-options">
+        <div class="check" onclick="toggleStack(this,'Website')">Website</div>
+        <div class="check" onclick="toggleStack(this,'E-commerce')">E-commerce</div>
+        <div class="check" onclick="toggleStack(this,'AI Assistant')">AI Assistant</div>
+        <div class="check" onclick="toggleStack(this,'AI Calling')">AI Calling</div>
+        <div class="check" onclick="toggleStack(this,'Automation')">Automation</div>
+        <div class="check" onclick="toggleStack(this,'Mobile App')">Mobile App</div>
+        <div class="check" onclick="toggleStack(this,'Custom Software')">Custom Software</div>
+        <div class="check" onclick="toggleStack(this,'Digital Marketing')">Digital Marketing</div>
+      </div>
+    </div>
+    <div class="stack-result reveal">
+      <h3>Your BoonWare Stack</h3>
+      <p>Choose what your business needs above.</p>
+      <div class="stack-output" id="stackOutput"><span>Your selections appear here</span></div>
+      <div class="stack-cta"><a class="btn btn-orange" href="#contact">Discuss This Stack →</a></div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- BUNDLES — all 3 white cards + footer link to services -->
+<section class="bundles-section" id="solutions">
+<div class="container">
+  <span class="label reveal">Packaged solutions</span>
+  <h2 class="reveal">Start with a <span class="hl">ready-made</span> solution.</h2>
+  <p class="section-intro reveal">Three packages built for common business needs. Pick one as a starting point or build something custom.</p>
+
+  <div class="bundle-grid">
+    <div class="bundle reveal" style="transition-delay:0s">
+      <div class="bundle-tag">Restaurant</div>
+      <h3>Restaurant Automation</h3>
+      <p>QR ordering, kitchen display, POS billing and full restaurant digitization. Pays for itself in 90 days.</p>
+      <div class="bundle-price">Starting ₹55,000</div>
+      <a class="bundle-cta" href="https://wa.me/919390739090">Get started →</a>
+    </div>
+    <div class="bundle reveal" style="transition-delay:0.1s">
+      <div class="bundle-tag">AI / ML</div>
+      <h3>AI & ML Bundle</h3>
+      <p>Recommendations, smart chatbots and intelligent features. From lead bots to full AI pipelines.</p>
+      <div class="bundle-price">Starting ₹55,000</div>
+      <a class="bundle-cta" href="https://wa.me/919390739090">Get started →</a>
+    </div>
+    <div class="bundle reveal" style="transition-delay:0.2s">
+      <div class="bundle-tag">E-Commerce</div>
+      <h3>E-Commerce Bundle</h3>
+      <p>Complete marketplace for customers, sellers and admins. Built to sell from day one.</p>
+      <div class="bundle-price">Starting ₹49,999</div>
+      <a class="bundle-cta" href="https://wa.me/919390739090">Get started →</a>
+    </div>
+  </div>
+
+  <div class="bundles-footer reveal">
+    <p>Need something custom? We build across 9 service areas — web, mobile, AI, automation, e-commerce, design and more.</p>
+    <a href="/services">See all services →</a>
+  </div>
+</div>
+</section>
+
+
+<!-- ROI -->
+<section class="roi-bg">
+<div class="container">
+  <span class="label reveal">Think in business terms</span>
+  <h2 class="reveal">How much is your team spending on <span class="hl">work that could be automated?</span></h2>
+  <p class="section-intro reveal">A simple illustration of the cost of manual work.</p>
+  <div class="calculator reveal-scale">
+    <div>
+      <div class="field">
+        <label>People doing the task</label>
+        <input id="people" type="number" value="5" min="1" oninput="calculate()">
+      </div>
+      <div class="field">
+        <label>Hours per person / week</label>
+        <input id="hours" type="number" value="10" min="0" oninput="calculate()">
+      </div>
+      <div class="field">
+        <label>Approx. hourly cost (₹)</label>
+        <input id="rate" type="number" value="300" min="0" oninput="calculate()">
+      </div>
+    </div>
+    <div class="calc-result">
+      <small>Illustrative monthly workload cost</small>
+      <div class="calc-number" id="calcNumber">₹60,000</div>
+      <p>If part of this can be automated, this is your starting point for the business case.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- WORK TEASER — 3 featured, links to projects page -->
+<section class="work-section" id="work">
+<div class="container">
+  <span class="label reveal" style="color:rgba(255,255,255,0.28)">Real work</span>
+  <h2 class="reveal">243+ projects. <span class="hl">Real results.</span></h2>
+  <p class="work-copy reveal">Websites, AI systems, mobile apps and branding — built for businesses in India, Dubai, UK, US and Australia.</p>
+
+  <div class="proj-grid" id="projGrid" style="margin-top:36px">
+    <div class="proj-card">
+      <div class="proj-thumb"><img src="https://boonware.in/assets/pokhrajjewellers-Dlp82dqa.png" alt="Pokhraj Jewellers" loading="lazy"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>Pokhraj Jewellers</h3>
+        <p>Premium Shopify jewellery store with luxury branding and high-conversion shopping experience.</p>
+        <div class="proj-techs"><span class="proj-tech">Shopify</span><span class="proj-tech">Liquid</span><span class="proj-tech">HTML/CSS/JS</span></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=375&fit=crop" alt="AI Calling Agent" loading="lazy"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI & Automation</div>
+        <h3>AI Calling Agent</h3>
+        <p>AI-powered voice assistant for customer recovery, follow-ups, and client communication at scale.</p>
+        <div class="proj-techs"><span class="proj-tech">Python</span><span class="proj-tech">RASA</span><span class="proj-tech">Twilio</span></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-thumb"><img src="https://boonware.in/assets/drinking_branding-CzKQPBLP.jpg" alt="Luxury Beverage Branding" loading="lazy"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Graphics & Branding</div>
+        <h3>Luxury Beverage Branding</h3>
+        <p>Premium branding and packaging for a luxury vodka brand. Minimalism, elegance, global appeal.</p>
+        <div class="proj-techs"><span class="proj-tech">Illustrator</span><span class="proj-tech">Photoshop</span><span class="proj-tech">Figma</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px">
+    <a href="projects.html" class="btn btn-outline reveal" style="color:#fff;border-color:rgba(255,255,255,0.2)">See all 40+ projects →</a>
+  </div>
+</div>
+</section>
+
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+<div class="container">
+  <div class="quote reveal">"BoonWare brought clarity, creativity, and technical excellence to the table."</div>
+  <div class="author reveal"><strong>Feroz</strong> · Founder, Bombay Design</div>
+</div>
+</section>
+
+
+<!-- TEAM -->
+<section class="team-section">
+<div class="container">
+  <span class="label reveal">The people behind the work</span>
+  <h2 class="reveal">Three founders. <span class="hl">Zero middlemen.</span></h2>
+  <p class="section-intro reveal">Co-founders who built everything from scratch and still write the code, run the calls, and own the outcomes.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-photo"><img src="https://boonware.in/assets/ishaque-RBoHBDVo.jpeg" alt="Mohammed Ishaque Inamdar"></div>
+      <div class="team-info">
+        <h3>Mohammed Ishaque</h3>
+        <p>Co-Founder & Founding Engineer</p>
+      </div>
+    </div>
+    <div class="team-card" style="transition-delay:0.1s">
+      <div class="team-photo"><img src="https://boonware.in/assets/suzanne1-j5b959xL.jpeg" alt="Suzanne Ansari"></div>
+      <div class="team-info">
+        <h3>Suzanne Ansari</h3>
+        <p>Co-Founder & CEO</p>
+      </div>
+    </div>
+    <div class="team-card" style="transition-delay:0.2s">
+      <div class="team-photo"><img src="https://boonware.in/assets/shabaan-CbrrHu3f.jpeg" alt="Shabaan Sayed"></div>
+      <div class="team-info">
+        <h3>Shabaan Sayed</h3>
+        <p>Co-Founder & COO</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- PROCESS -->
+<section class="process-section">
+<div class="container">
+  <span class="label reveal">How it works</span>
+  <h2 class="reveal">From <span class="hl">"I need this"</span> to a working system.</h2>
+  <div class="process-grid">
+    <div class="step reveal" style="transition-delay:0s"><span>01</span><h3>Tell us</h3><p>Explain the business problem in plain language.</p></div>
+    <div class="step reveal" style="transition-delay:0.07s"><span>02</span><h3>Understand</h3><p>We map your workflow and actual requirements.</p></div>
+    <div class="step reveal" style="transition-delay:0.14s"><span>03</span><h3>Plan</h3><p>Right technology, fixed-price scope.</p></div>
+    <div class="step reveal" style="transition-delay:0.21s"><span>04</span><h3>Build</h3><p>Design, develop, integrate and deploy in 2–4 weeks.</p></div>
+    <div class="step reveal" style="transition-delay:0.28s"><span>05</span><h3>Support</h3><p>30 days free fixes included.</p></div>
+  </div>
+</div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+<div class="container">
+  <span class="label reveal" style="color:rgba(255,255,255,0.28)">Ready?</span>
+  <h2 class="reveal">Let's build what your<br><span class="hl">business actually needs.</span></h2>
+  <p class="reveal">Tell us what you're trying to improve, automate or launch.</p>
+  <a class="btn btn-orange reveal" href="mailto:info@boonware.in">Talk to BoonWare →</a>
+</div>
+</section>
+
+
+<footer>
+<div class="container">
+  <div class="footer">
+    <div><strong>BoonWare</strong> — AI, automation and software for growing businesses.</div>
+    <div>+91 9076269629 · info@boonware.in</div>
+  </div>
+</div>
+</footer>
+
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── HERO: staggered line reveal ── */
+gsap.to('#heroEyebrow', {opacity:1, y:0, duration:0.8, ease:'power3.out', delay:0.1});
+gsap.to('.h1-inner', {
+  y:0, duration:1, ease:'power4.out',
+  stagger:0.12, delay:0.3
+});
+gsap.to('#heroCopy',  {opacity:1, y:0, duration:0.9, ease:'power3.out', delay:0.75});
+gsap.to('#heroActions',{opacity:1, y:0, duration:0.9, ease:'power3.out', delay:0.95});
+
+/* set initial state for hero elements (eyebrow + copy + actions) */
+gsap.set('#heroEyebrow', {opacity:0, y:20});
+gsap.set('#heroCopy',    {opacity:0, y:24});
+gsap.set('#heroActions', {opacity:0, y:24});
+/* re-run after set */
+gsap.to('#heroEyebrow', {opacity:1, y:0, duration:0.8, ease:'power3.out', delay:0.15});
+gsap.to('#heroCopy',    {opacity:1, y:0, duration:0.9, ease:'power3.out', delay:0.8});
+gsap.to('#heroActions', {opacity:1, y:0, duration:0.9, ease:'power3.out', delay:1.0});
+
+/* ── SCROLL REVEAL — .reveal ── */
+gsap.utils.toArray('.reveal').forEach(el => {
+  gsap.fromTo(el,
+    {opacity:0, y:44},
+    {opacity:1, y:0, duration:0.85, ease:'power3.out',
+     scrollTrigger:{trigger:el, start:'top 88%', toggleActions:'play none none none'},
+     delay: parseFloat(el.style.transitionDelay)||0
+    }
+  );
+});
+
+gsap.utils.toArray('.reveal-left').forEach(el => {
+  gsap.fromTo(el,
+    {opacity:0, x:-48},
+    {opacity:1, x:0, duration:0.9, ease:'power3.out',
+     scrollTrigger:{trigger:el, start:'top 88%', toggleActions:'play none none none'}}
+  );
+});
+
+gsap.utils.toArray('.reveal-scale').forEach(el => {
+  gsap.fromTo(el,
+    {opacity:0, scale:0.93},
+    {opacity:1, scale:1, duration:0.9, ease:'power3.out',
+     scrollTrigger:{trigger:el, start:'top 88%', toggleActions:'play none none none'}}
+  );
+});
+
+/* ── PROOF COUNTERS ── */
+const counters = document.querySelectorAll('.proof-num[data-target]');
+let counted = false;
+ScrollTrigger.create({
+  trigger:'.proof', start:'top 90%',
+  onEnter:() => {
+    if(counted) return; counted = true;
+    counters.forEach(el => {
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix||'';
+      gsap.to({v:0},{v:target, duration:1.6, ease:'power2.out',
+        onUpdate:function(){ el.textContent = Math.round(this.targets()[0].v) + suffix; }
+      });
+    });
+  }
+});
+
+/* ── NAV scroll ── */
+const navWrap = document.getElementById('navWrap');
+let lastY = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return; ticking = true;
+  requestAnimationFrame(() => {
+    const y = window.scrollY;
+    navWrap.classList.toggle('scrolled', y > 80);
+    navWrap.classList.toggle('expanded', y > 220);
+    lastY = y; ticking = false;
+  });
+});
+
+/* ── DISCOVERY ── */
+const solutions = {
+  customers:{title:"Build a stronger customer acquisition system.",text:"Combine web, e-commerce, AI assistants, calling and marketing around the customer journey.",tags:["Web Development","E-Commerce","AI Assistant","AI Calling","Digital Marketing"]},
+  operations:{title:"Turn repetitive work into automated workflows.",text:"Connect software, AI and automation so your team spends less time moving information around.",tags:["AI & Automation","Custom Software","AI Assistant","AI Calling"]},
+  build:{title:"Turn an idea into a working digital product.",text:"Web apps, mobile, custom software and e-commerce — built around your actual requirements.",tags:["Web Development","Mobile App","Custom Software","E-Commerce"]},
+  modernize:{title:"Connect the systems behind your business.",text:"Combine software, AI, automation and digital channels to modernize operations.",tags:["Custom Software","AI & Automation","AI Assistant","Web Development","Mobile App"]}
+};
+function showSolution(key,el){
+  document.querySelectorAll('.discovery-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  const d=solutions[key];
+  document.getElementById('solutionTitle').textContent=d.title;
+  document.getElementById('solutionText').textContent=d.text;
+  document.getElementById('solutionTags').innerHTML=d.tags.map(x=>`<span>${x}</span>`).join('');
+  document.getElementById('solutionOutput').classList.add('show');
+}
+
+/* ── STACK ── */
+let stack=[];
+function toggleStack(el,name){
+  if(stack.includes(name)){stack=stack.filter(x=>x!==name);el.classList.remove('selected')}
+  else{stack.push(name);el.classList.add('selected')}
+  const out=document.getElementById('stackOutput');
+  out.innerHTML=stack.length?stack.map(x=>`<span>${x}</span>`).join(''):'<span>Your selections appear here</span>';
+}
+
+/* ── PROJECT GRID STAGGER ── */
+gsap.fromTo('#projGrid .proj-card',
+  {opacity:0, y:50},
+  {opacity:1, y:0, duration:0.7, ease:'power3.out', stagger:0.08,
+   scrollTrigger:{trigger:'#projGrid', start:'top 85%', toggleActions:'play none none none'}}
+);
+
+gsap.fromTo('.team-grid .team-card',
+  {opacity:0, y:50},
+  {opacity:1, y:0, duration:0.7, ease:'power3.out', stagger:0.12,
+   scrollTrigger:{trigger:'.team-grid', start:'top 85%', toggleActions:'play none none none'}}
+);
+
+/* ── PROJECT FILTER ── */
+function filterProj(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.proj-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+/* ── ROI ── */
+function calculate(){
+  const p=+document.getElementById('people').value||0;
+  const h=+document.getElementById('hours').value||0;
+  const r=+document.getElementById('rate').value||0;
+  document.getElementById('calcNumber').textContent='₹'+(p*h*r*4).toLocaleString('en-IN');
+}
+calculate();
+</script>
+</body>
+</html>

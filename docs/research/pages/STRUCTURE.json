@@ -1,0 +1,353 @@
+{
+  "about.html": [
+    {
+      "n": 0,
+      "class": " class=\"py-16 lg:py-24 bg-background pt-24\"",
+      "heading": "About BoonWare"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-16 lg:py-24 bg-muted\"",
+      "heading": "Our Story"
+    },
+    {
+      "n": 2,
+      "class": " id=\"team\" class=\"py-20 bg-background\"",
+      "heading": "Meet Our Team"
+    },
+    {
+      "n": 3,
+      "class": " class=\"py-20\"",
+      "heading": "Client-Centric Approach"
+    },
+    {
+      "n": 4,
+      "class": " id=\"process\" class=\"py-20 bg-muted\"",
+      "heading": "Our Process"
+    },
+    {
+      "n": 5,
+      "class": " id=\"how-we-work\" class=\"py-20\"",
+      "heading": "How We Work"
+    },
+    {
+      "n": 6,
+      "class": " class=\"py-20 bg-gradient-to-br from-primary/5 to-primary-light/5 dark:from-primary/10 dark:to-primary-light/10 border b",
+      "heading": "Let's Connect"
+    }
+  ],
+  "ai-calling-agent.html": [
+    {
+      "n": 0,
+      "class": " class=\"relative overflow-hidden py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5\"",
+      "heading": "AI Calling Agents for Scalable, Cost-Efficient Outreach"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-20 px-4 bg-card\"",
+      "heading": "Why Choose AI vs Human Agents?"
+    },
+    {
+      "n": 2,
+      "class": " class=\"py-20 px-4 bg-gradient-to-br from-primary/5 to-accent/5\"",
+      "heading": "Calculate Your Savings"
+    },
+    {
+      "n": 3,
+      "class": " id=\"pricing\" class=\"py-20 px-4 bg-background\"",
+      "heading": "Pricing Tiers"
+    },
+    {
+      "n": 4,
+      "class": " class=\"py-20 px-4 bg-gradient-to-br from-primary/10 via-background to-accent/10\"",
+      "heading": "Ready to scale your outreach with AI?"
+    }
+  ],
+  "appointment.html": [
+    {
+      "n": 0,
+      "class": " class=\"py-16 lg:py-24 bg-background pt-24\"",
+      "heading": "Book Your Consultation"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-16 lg:py-24 bg-muted\"",
+      "heading": "Personal Details"
+    }
+  ],
+  "bundles.html": [
+    {
+      "n": 0,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "Service Bundles"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-20\"",
+      "heading": "Restaurant Automation Bundle"
+    },
+    {
+      "n": 2,
+      "class": " class=\"py-20 bg-muted\"",
+      "heading": "Why Choose Our Bundles?"
+    },
+    {
+      "n": 3,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "Need a Custom Bundle?"
+    }
+  ],
+  "bundles_ai-ml.html": [
+    {
+      "n": 0,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "AI/ML Bundle"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-20\"",
+      "heading": "System Components"
+    },
+    {
+      "n": 2,
+      "class": " class=\"py-20 bg-muted\"",
+      "heading": "Key Benefits"
+    },
+    {
+      "n": 3,
+      "class": " class=\"py-20\"",
+      "heading": "How It Works"
+    },
+    {
+      "n": 4,
+      "class": " class=\"py-20 bg-muted\"",
+      "heading": "Pricing Bundles"
+    },
+    {
+      "n": 5,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "Ready to Get Started?"
+    }
+  ],
+  "bundles_ecommerce.html": [
+    {
+      "n": 0,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "E-Commerce Bundle"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-20\"",
+      "heading": "System Components"
+    },
+    {
+      "n": 2,
+      "class": " class=\"py-20 bg-muted\"",
+      "heading": "Key Benefits"
+    },
+    {
+      "n": 3,
+      "class": " class=\"py-20\"",
+      "heading": "How It Works"
+    },
+    {
+      "n": 4,
+      "class": " class=\"py-20 bg-muted\"",
+      "heading": "Pricing Bundles"
+    },
+    {
+      "n": 5,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "Ready to Get Started?"
+    }
+  ],
+  "bundles_restaurant.html": [
+    {
+      "n": 0,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "Restaurant Automation Bundle"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-20\"",
+      "heading": "System Components"
+    },
+    {
+      "n": 2,
+      "class": " class=\"py-20 bg-muted\"",
+      "heading": "Key Benefits"
+    },
+    {
+      "n": 3,
+      "class": " class=\"py-20\"",
+      "heading": "How It Works"
+    },
+    {
+      "n": 4,
+      "class": " class=\"py-20 bg-muted\"",
+      "heading": "Pricing Bundles"
+    },
+    {
+      "n": 5,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "Ready to Get Started?"
+    }
+  ],
+  "contact.html": [
+    {
+      "n": 0,
+      "class": " class=\"py-16 lg:py-24 bg-background pt-24\"",
+      "heading": "Get In Touch"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-16 lg:py-24 bg-muted\"",
+      "heading": "Send us a Message"
+    }
+  ],
+  "privacy-policy.html": [
+    {
+      "n": 0,
+      "class": "",
+      "heading": "1. Information We Collect"
+    },
+    {
+      "n": 1,
+      "class": "",
+      "heading": "2. How We Use Your Information"
+    },
+    {
+      "n": 2,
+      "class": "",
+      "heading": "3. Code Authority &amp; Data Security"
+    },
+    {
+      "n": 3,
+      "class": "",
+      "heading": "4. Cookies"
+    },
+    {
+      "n": 4,
+      "class": "",
+      "heading": "5. Third-Party Links"
+    },
+    {
+      "n": 5,
+      "class": "",
+      "heading": "6. Contact Us"
+    }
+  ],
+  "projects.html": [
+    {
+      "n": 0,
+      "class": " class=\"bg-gradient-to-br from-primary/5 to-primary/10 py-20\"",
+      "heading": "Our Projects &amp; Case Studies"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-10 border-b border-border\"",
+      "heading": null
+    },
+    {
+      "n": 2,
+      "class": " class=\"py-16\"",
+      "heading": "Pokhraj Jewellers"
+    },
+    {
+      "n": 3,
+      "class": " class=\"py-20 bg-primary/5\"",
+      "heading": "Ready to Build Something Amazing?"
+    }
+  ],
+  "refund-policy.html": [
+    {
+      "n": 0,
+      "class": "",
+      "heading": null
+    },
+    {
+      "n": 1,
+      "class": "",
+      "heading": "1. No Refund Policy"
+    },
+    {
+      "n": 2,
+      "class": "",
+      "heading": "2. Service Commitment"
+    },
+    {
+      "n": 3,
+      "class": "",
+      "heading": "3. Project Execution"
+    },
+    {
+      "n": 4,
+      "class": "",
+      "heading": "4. Third-Party Services"
+    },
+    {
+      "n": 5,
+      "class": "",
+      "heading": "5. Project Cancellation"
+    },
+    {
+      "n": 6,
+      "class": "",
+      "heading": "6. Agreement Acceptance"
+    },
+    {
+      "n": 7,
+      "class": "",
+      "heading": "7. Contact Information"
+    }
+  ],
+  "services.html": [
+    {
+      "n": 0,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "Our Services"
+    },
+    {
+      "n": 1,
+      "class": " class=\"py-20\"",
+      "heading": "Web Development"
+    },
+    {
+      "n": 2,
+      "class": " class=\"py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800\"",
+      "heading": "Ready to Get Started?"
+    }
+  ],
+  "terms-and-conditions.html": [
+    {
+      "n": 0,
+      "class": "",
+      "heading": "1. Introduction"
+    },
+    {
+      "n": 1,
+      "class": "",
+      "heading": "2. Services &amp; Delivery"
+    },
+    {
+      "n": 2,
+      "class": "",
+      "heading": "3. Intellectual Property"
+    },
+    {
+      "n": 3,
+      "class": "",
+      "heading": "4. Payment Terms"
+    },
+    {
+      "n": 4,
+      "class": "",
+      "heading": "5. Limitation of Liability"
+    },
+    {
+      "n": 5,
+      "class": "",
+      "heading": "6. Contact Us"
+    }
+  ]
+}

@@ -1,0 +1,1722 @@
+[
+  {
+    "tag": "script",
+    "id": "",
+    "cls": "",
+    "childCount": 0,
+    "rect": {
+      "w": 0,
+      "h": 0
+    },
+    "hasBg": false,
+    "bgColor": "rgba(0, 0, 0, 0)",
+    "textSample": "!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localSto",
+    "children": []
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "cls": "",
+    "childCount": 1,
+    "rect": {
+      "w": 1440,
+      "h": 0
+    },
+    "hasBg": false,
+    "bgColor": "rgba(0, 0, 0, 0)",
+    "textSample": "",
+    "children": [
+      {
+        "tag": "ol",
+        "id": "",
+        "cls": "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto",
+        "childCount": 0,
+        "rect": {
+          "w": 420,
+          "h": 32
+        },
+        "hasBg": false,
+        "bgColor": "rgba(0, 0, 0, 0)",
+        "textSample": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "cls": "min-h-screen flex flex-col",
+    "childCount": 4,
+    "rect": {
+      "w": 1440,
+      "h": 4391
+    },
+    "hasBg": false,
+    "bgColor": "rgba(0, 0, 0, 0)",
+    "textSample": "HomeAboutServicesAI Calling AgentBundlesProjectsContactProductsRequest DemoMastering Innovation, Sim",
+    "children": [
+      {
+        "tag": "nav",
+        "id": "",
+        "cls": "sticky top-0 z-50 bg-background dark:bg-[#10281a] shadow-sm border-b border-border dark:border-[#1e3",
+        "childCount": 1,
+        "rect": {
+          "w": 1440,
+          "h": 65
+        },
+        "hasBg": true,
+        "bgColor": "rgb(255, 255, 255)",
+        "textSample": "HomeAboutServicesAI Calling AgentBundlesProjectsContactProductsRequest Demo",
+        "children": [
+          {
+            "tag": "div",
+            "id": "",
+            "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+            "childCount": 1,
+            "rect": {
+              "w": 1280,
+              "h": 64
+            },
+            "hasBg": false,
+            "bgColor": "rgba(0, 0, 0, 0)",
+            "textSample": "HomeAboutServicesAI Calling AgentBundlesProjectsContactProductsRequest Demo",
+            "children": [
+              {
+                "tag": "div",
+                "id": "",
+                "cls": "flex justify-between items-center h-16",
+                "childCount": 3,
+                "rect": {
+                  "w": 1216,
+                  "h": 64
+                },
+                "hasBg": false,
+                "bgColor": "rgba(0, 0, 0, 0)",
+                "textSample": "HomeAboutServicesAI Calling AgentBundlesProjectsContactProductsRequest Demo",
+                "children": [
+                  {
+                    "tag": "a",
+                    "id": "",
+                    "cls": "flex items-center space-x-2",
+                    "childCount": 2,
+                    "rect": {
+                      "w": 225,
+                      "h": 40
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "",
+                    "children": [
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "w-8 h-8 rounded-lg flex items-center justify-center",
+                        "childCount": 1,
+                        "rect": {
+                          "w": 32,
+                          "h": 32
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "",
+                        "children": [
+                          {
+                            "tag": "img",
+                            "id": "",
+                            "cls": "h-10 w-auto logo",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 32,
+                              "h": 40
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "img",
+                        "id": "",
+                        "cls": "h-10 w-auto namelogo",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 185,
+                          "h": 40
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "hidden md:flex items-center space-x-8",
+                    "childCount": 9,
+                    "rect": {
+                      "w": 833,
+                      "h": 40
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "HomeAboutServicesAI Calling AgentBundlesProjectsContactProductsRequest Demo",
+                    "children": [
+                      {
+                        "tag": "a",
+                        "id": "",
+                        "cls": "text-sm font-medium hover:text-primary-light transition-colors text-primary-light",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 37,
+                          "h": 20
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Home",
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "relative",
+                        "childCount": 1,
+                        "rect": {
+                          "w": 57,
+                          "h": 20
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "About",
+                        "children": [
+                          {
+                            "tag": "button",
+                            "id": "",
+                            "cls": "flex items-center space-x-1 text-sm font-medium text-foreground hover:text-primary-light transition-",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 57,
+                              "h": 20
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "About",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "a",
+                        "id": "",
+                        "cls": "text-sm font-medium hover:text-primary-light transition-colors text-foreground hover:text-primary",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 54,
+                          "h": 20
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Services",
+                        "children": []
+                      },
+                      {
+                        "tag": "a",
+                        "id": "",
+                        "cls": "text-sm font-medium hover:text-primary-light transition-colors text-foreground hover:text-primary",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 100,
+                          "h": 20
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "AI Calling Agent",
+                        "children": []
+                      },
+                      {
+                        "tag": "a",
+                        "id": "",
+                        "cls": "text-sm font-medium hover:text-primary-light transition-colors text-foreground hover:text-primary",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 51,
+                          "h": 20
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Bundles",
+                        "children": []
+                      },
+                      {
+                        "tag": "a",
+                        "id": "",
+                        "cls": "text-sm font-medium transition-colors text-foreground hover:text-primary",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 51,
+                          "h": 20
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Projects",
+                        "children": []
+                      },
+                      {
+                        "tag": "a",
+                        "id": "",
+                        "cls": "text-sm font-medium hover:text-primary-light transition-colors text-foreground hover:text-primary",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 48,
+                          "h": 20
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Contact",
+                        "children": []
+                      },
+                      {
+                        "tag": "span",
+                        "id": "",
+                        "cls": "text-sm font-medium text-muted-foreground cursor-not-allowed",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 55,
+                          "h": 20
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Products",
+                        "children": []
+                      },
+                      {
+                        "tag": "a",
+                        "id": "",
+                        "cls": "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 125,
+                          "h": 40
+                        },
+                        "hasBg": true,
+                        "bgColor": "rgb(0, 112, 96)",
+                        "textSample": "Request Demo",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "button",
+                    "id": "",
+                    "cls": "md:hidden p-2 rounded-md text-foreground hover:bg-muted dark:hover:bg-slate-900",
+                    "childCount": 1,
+                    "rect": {
+                      "w": 0,
+                      "h": 0
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "",
+                    "children": [
+                      {
+                        "tag": "svg",
+                        "id": "",
+                        "cls": "[object SVGAnimatedString]",
+                        "childCount": 3,
+                        "rect": {
+                          "w": 0,
+                          "h": 0
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "",
+                        "children": [
+                          {
+                            "tag": "line",
+                            "id": "",
+                            "cls": "[object SVGAnimatedString]",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 0,
+                              "h": 0
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          },
+                          {
+                            "tag": "line",
+                            "id": "",
+                            "cls": "[object SVGAnimatedString]",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 0,
+                              "h": 0
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          },
+                          {
+                            "tag": "line",
+                            "id": "",
+                            "cls": "[object SVGAnimatedString]",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 0,
+                              "h": 0
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "main",
+        "id": "",
+        "cls": "flex-1",
+        "childCount": 1,
+        "rect": {
+          "w": 1440,
+          "h": 3945
+        },
+        "hasBg": false,
+        "bgColor": "rgba(0, 0, 0, 0)",
+        "textSample": "Mastering Innovation, Simplifying SuccessComplete service bundles for startups and growing businesse",
+        "children": [
+          {
+            "tag": "div",
+            "id": "",
+            "cls": "min-h-screen bg-white dark:bg-slate-900",
+            "childCount": 8,
+            "rect": {
+              "w": 1440,
+              "h": 3945
+            },
+            "hasBg": true,
+            "bgColor": "rgb(255, 255, 255)",
+            "textSample": "Mastering Innovation, Simplifying SuccessComplete service bundles for startups and growing businesse",
+            "children": [
+              {
+                "tag": "section",
+                "id": "",
+                "cls": "bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 py-20",
+                "childCount": 1,
+                "rect": {
+                  "w": 1440,
+                  "h": 463
+                },
+                "hasBg": true,
+                "bgColor": "rgba(0, 0, 0, 0)",
+                "textSample": "Mastering Innovation, Simplifying SuccessComplete service bundles for startups and growing businesse",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                    "childCount": 1,
+                    "rect": {
+                      "w": 1280,
+                      "h": 303
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Mastering Innovation, Simplifying SuccessComplete service bundles for startups and growing businesse",
+                    "children": [
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "text-center",
+                        "childCount": 4,
+                        "rect": {
+                          "w": 1216,
+                          "h": 303
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Mastering Innovation, Simplifying SuccessComplete service bundles for startups and growing businesse",
+                        "children": [
+                          {
+                            "tag": "h1",
+                            "id": "",
+                            "cls": "text-4xl lg:text-6xl font-bold text-neutral-dark dark:text-white mb-6",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 1216,
+                              "h": 120
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Mastering Innovation, Simplifying Success",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "w-24 h-1 gradient-border mx-auto mb-6",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 96,
+                              "h": 3
+                            },
+                            "hasBg": true,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          },
+                          {
+                            "tag": "p",
+                            "id": "",
+                            "cls": "text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 768,
+                              "h": 56
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Complete service bundles for startups and growing businesses. Get AI, automation, and software solut",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "flex flex-col sm:flex-row gap-4 justify-center",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 1216,
+                              "h": 44
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Request DemoView Bundles",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "section",
+                "id": "",
+                "cls": "py-20 bg-white dark:bg-slate-900",
+                "childCount": 1,
+                "rect": {
+                  "w": 1440,
+                  "h": 488
+                },
+                "hasBg": true,
+                "bgColor": "rgb(255, 255, 255)",
+                "textSample": "Why Choose BoonWare?Lightning Fast DeliveryGet your projects completed in record time with our strea",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                    "childCount": 2,
+                    "rect": {
+                      "w": 1280,
+                      "h": 328
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Why Choose BoonWare?Lightning Fast DeliveryGet your projects completed in record time with our strea",
+                    "children": [
+                      {
+                        "tag": "h2",
+                        "id": "",
+                        "cls": "text-3xl font-bold text-center text-gray-900 dark:text-white mb-12",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 1216,
+                          "h": 36
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Why Choose BoonWare?",
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8",
+                        "childCount": 4,
+                        "rect": {
+                          "w": 1216,
+                          "h": 244
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Lightning Fast DeliveryGet your projects completed in record time with our streamlined processes and",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rounded-lg border bg-card text-card-foreground shadow-sm text-center hover:shadow-lg transition-shad",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 280,
+                              "h": 244
+                            },
+                            "hasBg": true,
+                            "bgColor": "rgb(255, 255, 255)",
+                            "textSample": "Lightning Fast DeliveryGet your projects completed in record time with our streamlined processes and",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rounded-lg border bg-card text-card-foreground shadow-sm text-center hover:shadow-lg transition-shad",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 280,
+                              "h": 244
+                            },
+                            "hasBg": true,
+                            "bgColor": "rgb(255, 255, 255)",
+                            "textSample": "Enterprise-Grade SecurityYour data and applications are protected with industry-leading security mea",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rounded-lg border bg-card text-card-foreground shadow-sm text-center hover:shadow-lg transition-shad",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 280,
+                              "h": 244
+                            },
+                            "hasBg": true,
+                            "bgColor": "rgb(255, 255, 255)",
+                            "textSample": "Scale Ready SolutionsBuild for today, scale for tomorrow. Our solutions grow with your business.",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rounded-lg border bg-card text-card-foreground shadow-sm text-center hover:shadow-lg transition-shad",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 280,
+                              "h": 244
+                            },
+                            "hasBg": true,
+                            "bgColor": "rgb(255, 255, 255)",
+                            "textSample": "24/7 SupportRound-the-clock support to ensure your business never misses a beat.",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "section",
+                "id": "",
+                "cls": "py-20 bg-gray-50 dark:bg-slate-800",
+                "childCount": 1,
+                "rect": {
+                  "w": 1440,
+                  "h": 316
+                },
+                "hasBg": true,
+                "bgColor": "rgb(249, 250, 251)",
+                "textSample": "Projects Completed243+Happy Clients250+Projects Successfully Delivered97%Client Satisfaction",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                    "childCount": 2,
+                    "rect": {
+                      "w": 1280,
+                      "h": 156
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Projects Completed243+Happy Clients250+Projects Successfully Delivered97%Client Satisfaction",
+                    "children": [
+                      {
+                        "tag": "h2",
+                        "id": "",
+                        "cls": "text-3xl font-bold text-center text-gray-900 dark:text-white mb-12",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 1216,
+                          "h": 36
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Projects Completed",
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "grid grid-cols-1 md:grid-cols-3 gap-8 text-center",
+                        "childCount": 3,
+                        "rect": {
+                          "w": 1216,
+                          "h": 72
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "243+Happy Clients250+Projects Successfully Delivered97%Client Satisfaction",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 384,
+                              "h": 72
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "243+Happy Clients",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 384,
+                              "h": 72
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "250+Projects Successfully Delivered",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 384,
+                              "h": 72
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "97%Client Satisfaction",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "section",
+                "id": "",
+                "cls": "py-10 bg-white dark:bg-slate-900 overflow-hidden",
+                "childCount": 1,
+                "rect": {
+                  "w": 1440,
+                  "h": 340
+                },
+                "hasBg": true,
+                "bgColor": "rgb(255, 255, 255)",
+                "textSample": "Trusted By Brands",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                    "childCount": 3,
+                    "rect": {
+                      "w": 1280,
+                      "h": 260
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Trusted By Brands",
+                    "children": [
+                      {
+                        "tag": "h2",
+                        "id": "",
+                        "cls": "text-3xl font-bold text-center text-gray-900 dark:text-white mb-10",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 1216,
+                          "h": 36
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Trusted By Brands",
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "rfm-marquee-container mb-6",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 1216,
+                          "h": 80
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rfm-marquee",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 1315,
+                              "h": 80
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rfm-marquee",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 1315,
+                              "h": 80
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "rfm-marquee-container ",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 1216,
+                          "h": 80
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rfm-marquee",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 1225,
+                              "h": 80
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rfm-marquee",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 1225,
+                              "h": 80
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "section",
+                "id": "",
+                "cls": "py-20 bg-white dark:bg-slate-900",
+                "childCount": 1,
+                "rect": {
+                  "w": 1440,
+                  "h": 534
+                },
+                "hasBg": true,
+                "bgColor": "rgb(255, 255, 255)",
+                "textSample": "Our Service BundlesRestaurant AutomationComplete restaurant digitization from QR ordering to POS bil",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                    "childCount": 2,
+                    "rect": {
+                      "w": 1280,
+                      "h": 374
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Our Service BundlesRestaurant AutomationComplete restaurant digitization from QR ordering to POS bil",
+                    "children": [
+                      {
+                        "tag": "h2",
+                        "id": "",
+                        "cls": "text-3xl font-bold text-center text-gray-900 dark:text-white mb-12",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 1216,
+                          "h": 36
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Our Service Bundles",
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "grid grid-cols-1 md:grid-cols-3 gap-8",
+                        "childCount": 3,
+                        "rect": {
+                          "w": 1216,
+                          "h": 290
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Restaurant AutomationComplete restaurant digitization from QR ordering to POS billingStarting at ₹55",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rounded-lg text-card-foreground shadow-sm hover:shadow-lg transition-shadow cursor-pointer bg-white ",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 384,
+                              "h": 290
+                            },
+                            "hasBg": true,
+                            "bgColor": "rgb(255, 255, 255)",
+                            "textSample": "Restaurant AutomationComplete restaurant digitization from QR ordering to POS billingStarting at ₹55",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rounded-lg text-card-foreground shadow-sm hover:shadow-lg transition-shadow cursor-pointer bg-white ",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 384,
+                              "h": 290
+                            },
+                            "hasBg": true,
+                            "bgColor": "rgb(255, 255, 255)",
+                            "textSample": "AI/ML BundleIntelligent features like recommendations and smart chatbotsStarting at ₹55,000Learn Mor",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "rounded-lg text-card-foreground shadow-sm hover:shadow-lg transition-shadow cursor-pointer bg-white ",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 384,
+                              "h": 290
+                            },
+                            "hasBg": true,
+                            "bgColor": "rgb(255, 255, 255)",
+                            "textSample": "E-Commerce BundleComplete multi-role marketplace with user, seller, and admin systemsStarting at ₹49",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "section",
+                "id": "",
+                "cls": "py-16 bg-white dark:bg-slate-900",
+                "childCount": 1,
+                "rect": {
+                  "w": 1440,
+                  "h": 505
+                },
+                "hasBg": true,
+                "bgColor": "rgb(255, 255, 255)",
+                "textSample": "What OurClients Say\"Partnering with BoonWare has been an incredibly smooth and rewarding experience.",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                    "childCount": 1,
+                    "rect": {
+                      "w": 1280,
+                      "h": 377
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "What OurClients Say\"Partnering with BoonWare has been an incredibly smooth and rewarding experience.",
+                    "children": [
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "grid grid-cols-1 lg:grid-cols-2 gap-10 items-start",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 1216,
+                          "h": 377
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "What OurClients Say\"Partnering with BoonWare has been an incredibly smooth and rewarding experience.",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 588,
+                              "h": 96
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "What OurClients Say",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 588,
+                              "h": 377
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "\"Partnering with BoonWare has been an incredibly smooth and rewarding experience. As a brand rooted ",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "section",
+                "id": "",
+                "cls": "py-16 lg:py-24 bg-gray-100 dark:bg-slate-800",
+                "childCount": 1,
+                "rect": {
+                  "w": 1440,
+                  "h": 797
+                },
+                "hasBg": true,
+                "bgColor": "rgb(243, 244, 246)",
+                "textSample": "Ready to Get Started?Tell us about your project and we'll get back to you within 24 hours.Send us a ",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "container mx-auto px-4 sm:px-6 lg:px-8",
+                    "childCount": 1,
+                    "rect": {
+                      "w": 1400,
+                      "h": 605
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Ready to Get Started?Tell us about your project and we'll get back to you within 24 hours.Send us a ",
+                    "children": [
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-lg p-8 border border-gray-200 dark:border-slate",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 896,
+                          "h": 605
+                        },
+                        "hasBg": true,
+                        "bgColor": "rgb(255, 255, 255)",
+                        "textSample": "Ready to Get Started?Tell us about your project and we'll get back to you within 24 hours.Send us a ",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "text-center mb-12",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 830,
+                              "h": 84
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Ready to Get Started?Tell us about your project and we'll get back to you within 24 hours.",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "grid grid-cols-1 lg:grid-cols-2 gap-8",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 830,
+                              "h": 407
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Send us a messageNameEmailMessageSend MessageOr reach out directlyPhone+91 9076269629Emailinfo@boonw",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "section",
+                "id": "",
+                "cls": "py-16 bg-gray-50 dark:bg-slate-900",
+                "childCount": 1,
+                "rect": {
+                  "w": 1440,
+                  "h": 502
+                },
+                "hasBg": true,
+                "bgColor": "rgb(249, 250, 251)",
+                "textSample": "Frequently AskedQuestionsWhat makes BoonWare different from other service providers?How long does it",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                    "childCount": 1,
+                    "rect": {
+                      "w": 1280,
+                      "h": 374
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Frequently AskedQuestionsWhat makes BoonWare different from other service providers?How long does it",
+                    "children": [
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "grid grid-cols-1 lg:grid-cols-2 gap-10 items-start",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 1216,
+                          "h": 374
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Frequently AskedQuestionsWhat makes BoonWare different from other service providers?How long does it",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 588,
+                              "h": 96
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Frequently AskedQuestions",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 588,
+                              "h": 374
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "What makes BoonWare different from other service providers?How long does it take to complete a typic",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "fixed bottom-5 right-5 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 trans",
+        "childCount": 1,
+        "rect": {
+          "w": 56,
+          "h": 56
+        },
+        "hasBg": true,
+        "bgColor": "rgb(37, 211, 102)",
+        "textSample": "",
+        "children": [
+          {
+            "tag": "svg",
+            "id": "",
+            "cls": "[object SVGAnimatedString]",
+            "childCount": 1,
+            "rect": {
+              "w": 24,
+              "h": 24
+            },
+            "hasBg": false,
+            "bgColor": "rgba(0, 0, 0, 0)",
+            "textSample": "",
+            "children": [
+              {
+                "tag": "path",
+                "id": "",
+                "cls": "[object SVGAnimatedString]",
+                "childCount": 0,
+                "rect": {
+                  "w": 21,
+                  "h": 21
+                },
+                "hasBg": false,
+                "bgColor": "rgba(0, 0, 0, 0)",
+                "textSample": "",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "footer",
+        "id": "",
+        "cls": "bg-slate-950 dark:bg-[#10281a] text-white",
+        "childCount": 1,
+        "rect": {
+          "w": 1440,
+          "h": 381
+        },
+        "hasBg": true,
+        "bgColor": "rgb(2, 6, 23)",
+        "textSample": "BoonWareAI, automation, and software service bundles for startups and growing businesses.Working wit",
+        "children": [
+          {
+            "tag": "div",
+            "id": "",
+            "cls": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12",
+            "childCount": 2,
+            "rect": {
+              "w": 1280,
+              "h": 381
+            },
+            "hasBg": false,
+            "bgColor": "rgba(0, 0, 0, 0)",
+            "textSample": "BoonWareAI, automation, and software service bundles for startups and growing businesses.Working wit",
+            "children": [
+              {
+                "tag": "div",
+                "id": "",
+                "cls": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8",
+                "childCount": 4,
+                "rect": {
+                  "w": 1216,
+                  "h": 200
+                },
+                "hasBg": false,
+                "bgColor": "rgba(0, 0, 0, 0)",
+                "textSample": "BoonWareAI, automation, and software service bundles for startups and growing businesses.Working wit",
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "",
+                    "childCount": 4,
+                    "rect": {
+                      "w": 280,
+                      "h": 200
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "BoonWareAI, automation, and software service bundles for startups and growing businesses.Working wit",
+                    "children": [
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "flex items-center space-x-2 mb-4",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 280,
+                          "h": 36
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "BoonWare",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "w-8 h-8 rounded-lg flex items-center justify-center",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 32,
+                              "h": 32
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          },
+                          {
+                            "tag": "span",
+                            "id": "",
+                            "cls": "text-3xl font-bold text-primary",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 149,
+                              "h": 36
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "BoonWare",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "p",
+                        "id": "",
+                        "cls": "text-muted-foreground text-sm mb-4",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 280,
+                          "h": 40
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "AI, automation, and software service bundles for startups and growing businesses.",
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "flex space-x-3",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 280,
+                          "h": 16
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "",
+                        "children": [
+                          {
+                            "tag": "a",
+                            "id": "",
+                            "cls": "text-muted-foreground hover:text-primary-light transition-colors",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 16,
+                              "h": 16
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "flex space-x-4",
+                            "childCount": 3,
+                            "rect": {
+                              "w": 80,
+                              "h": 16
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "p",
+                        "id": "",
+                        "cls": "text-sm mt-4 text-gray-300",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 280,
+                          "h": 60
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Working with clients across Dubai, UK, US, UAE, Australia, India, and Canada",
+                        "children": [
+                          {
+                            "tag": "br",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 0,
+                              "h": 16
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "",
+                            "children": []
+                          },
+                          {
+                            "tag": "span",
+                            "id": "",
+                            "cls": "text-white font-medium",
+                            "childCount": 0,
+                            "rect": {
+                              "w": 258,
+                              "h": 36
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Dubai, UK, US, UAE, Australia, India, and Canada",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "",
+                    "childCount": 2,
+                    "rect": {
+                      "w": 280,
+                      "h": 200
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Quick LinksHomeAbout UsServicesBundles",
+                    "children": [
+                      {
+                        "tag": "h3",
+                        "id": "",
+                        "cls": "text-lg font-semibold mb-4 text-white",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 280,
+                          "h": 28
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Quick Links",
+                        "children": []
+                      },
+                      {
+                        "tag": "ul",
+                        "id": "",
+                        "cls": "space-y-2",
+                        "childCount": 4,
+                        "rect": {
+                          "w": 280,
+                          "h": 120
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "HomeAbout UsServicesBundles",
+                        "children": [
+                          {
+                            "tag": "li",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 280,
+                              "h": 24
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Home",
+                            "children": []
+                          },
+                          {
+                            "tag": "li",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 280,
+                              "h": 24
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "About Us",
+                            "children": []
+                          },
+                          {
+                            "tag": "li",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 280,
+                              "h": 24
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Services",
+                            "children": []
+                          },
+                          {
+                            "tag": "li",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 280,
+                              "h": 24
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Bundles",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "",
+                    "childCount": 2,
+                    "rect": {
+                      "w": 280,
+                      "h": 200
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "More ResourcesTerms & ConditionsPrivacy PolicyRefund Policy",
+                    "children": [
+                      {
+                        "tag": "h3",
+                        "id": "",
+                        "cls": "text-lg font-semibold mb-4 text-white",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 280,
+                          "h": 28
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "More Resources",
+                        "children": []
+                      },
+                      {
+                        "tag": "ul",
+                        "id": "",
+                        "cls": "space-y-2",
+                        "childCount": 3,
+                        "rect": {
+                          "w": 280,
+                          "h": 88
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Terms & ConditionsPrivacy PolicyRefund Policy",
+                        "children": [
+                          {
+                            "tag": "li",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 280,
+                              "h": 24
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Terms & Conditions",
+                            "children": []
+                          },
+                          {
+                            "tag": "li",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 280,
+                              "h": 24
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Privacy Policy",
+                            "children": []
+                          },
+                          {
+                            "tag": "li",
+                            "id": "",
+                            "cls": "",
+                            "childCount": 1,
+                            "rect": {
+                              "w": 280,
+                              "h": 24
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "Refund Policy",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "div",
+                    "id": "",
+                    "cls": "",
+                    "childCount": 2,
+                    "rect": {
+                      "w": 280,
+                      "h": 200
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "Contact Info+91 9076269629+91 8291393581info@boonware.in",
+                    "children": [
+                      {
+                        "tag": "h3",
+                        "id": "",
+                        "cls": "text-lg font-semibold mb-4 text-white",
+                        "childCount": 0,
+                        "rect": {
+                          "w": 280,
+                          "h": 28
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "Contact Info",
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "id": "",
+                        "cls": "space-y-3",
+                        "childCount": 2,
+                        "rect": {
+                          "w": 280,
+                          "h": 84
+                        },
+                        "hasBg": false,
+                        "bgColor": "rgba(0, 0, 0, 0)",
+                        "textSample": "+91 9076269629+91 8291393581info@boonware.in",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "flex items-center space-x-3",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 280,
+                              "h": 48
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "+91 9076269629+91 8291393581",
+                            "children": []
+                          },
+                          {
+                            "tag": "div",
+                            "id": "",
+                            "cls": "flex items-center space-x-3",
+                            "childCount": 2,
+                            "rect": {
+                              "w": 280,
+                              "h": 24
+                            },
+                            "hasBg": false,
+                            "bgColor": "rgba(0, 0, 0, 0)",
+                            "textSample": "info@boonware.in",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "id": "",
+                "cls": "border-t border-border dark:border-[#1e3a24] mt-8 pt-8 text-center",
+                "childCount": 1,
+                "rect": {
+                  "w": 1216,
+                  "h": 53
+                },
+                "hasBg": false,
+                "bgColor": "rgba(0, 0, 0, 0)",
+                "textSample": "© 2026 BoonWare. All rights reserved.",
+                "children": [
+                  {
+                    "tag": "p",
+                    "id": "",
+                    "cls": "text-muted-foreground text-sm",
+                    "childCount": 0,
+                    "rect": {
+                      "w": 1216,
+                      "h": 20
+                    },
+                    "hasBg": false,
+                    "bgColor": "rgba(0, 0, 0, 0)",
+                    "textSample": "© 2026 BoonWare. All rights reserved.",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

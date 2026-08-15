@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoonWare — All Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<style>
+:root{
+  --white:#ffffff;
+  --off:#f7f8f4;
+  --off2:#f4f4f5;
+  --ink:#17171c;
+  --ink2:#1d1916;
+  --mute:#71717a;
+  --mute2:#a1a1aa;
+  --line:#e4e4e7;
+  --orange:#e8643c;
+  --orange2:#d07a54;
+  --nav-bg:#282522;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none}
+::selection{background:var(--orange);color:#fff}
+.container{width:min(1180px,calc(100% - 48px));margin:auto}
+
+/* ── NAV ── */
+.nav-wrap{
+  position:fixed;top:16px;left:0;right:0;z-index:200;
+  display:flex;justify-content:center;padding:0 24px;
+  transition:top 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-wrap.scrolled{top:0}
+.nav-pill{
+  background:var(--nav-bg);border-radius:9999px;
+  padding:0 6px 0 20px;
+  display:flex;align-items:center;
+  height:50px;width:min(780px,100%);
+  box-shadow:0 2px 24px rgba(0,0,0,0.18);overflow:hidden;
+  transition:border-radius 0.5s cubic-bezier(0.16,1,0.3,1),
+             width 0.5s cubic-bezier(0.16,1,0.3,1),
+             height 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-wrap.expanded .nav-pill{border-radius:0;width:100%;height:62px}
+.logo{font-size:16px;font-weight:700;letter-spacing:-0.4px;color:#fff;flex-shrink:0}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.55);padding:6px 12px;border-radius:9999px;transition:color 0.2s,background 0.2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.07)}
+.nav-links a.active{color:#fff}
+.nav-cta{background:var(--white);color:var(--ink);padding:0 16px;border-radius:9999px;font-size:13px;font-weight:600;height:38px;display:inline-flex;align-items:center;margin-left:8px;flex-shrink:0;transition:background 0.2s,transform 0.2s}
+.nav-cta:hover{background:var(--off);transform:scale(0.98)}
+.nav-secondary-row{display:none;gap:0;margin-left:auto}
+.nav-wrap.expanded .nav-secondary-row{display:flex}
+.nav-wrap.expanded .nav-links{display:none}
+.nav-secondary-row a{font-size:12px;font-weight:500;color:rgba(255,255,255,0.5);padding:6px 11px;border-radius:9999px;transition:color 0.2s,background 0.2s}
+.nav-secondary-row a:hover{color:#fff;background:rgba(255,255,255,0.07)}
+@media(max-width:700px){.nav-links,.nav-secondary-row{display:none!important}.nav-pill{width:100%;padding:0 6px 0 16px}}
+
+/* ── PAGE HEADER ── */
+.page-header{padding:140px 24px 64px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:9999px;padding:5px 13px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);margin-bottom:28px;font-family:ui-monospace,monospace;letter-spacing:0.275px}
+.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);display:inline-block;flex-shrink:0;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.35}}
+.page-header h1{font-size:clamp(48px,7vw,84px);font-weight:700;line-height:1.02;letter-spacing:-2.2px}
+.page-header h1 .dim{color:rgba(255,255,255,0.28)}
+.page-header h1 .hl{color:var(--orange)}
+.page-header p{font-size:17px;color:rgba(255,255,255,0.4);max-width:520px;margin:18px auto 0;line-height:1.63}
+
+/* ── FILTERS ── */
+.filters-row{display:flex;gap:8px;flex-wrap:wrap;padding:36px 24px;position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:1px solid rgba(255,255,255,0.05);backdrop-filter:blur(20px)}
+.filter-btn{
+  padding:8px 18px;border-radius:9999px;
+  font-size:13px;font-weight:500;
+  border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.5);
+  background:transparent;cursor:pointer;
+  transition:background 0.2s,color 0.2s,border-color 0.2s,transform 0.2s;
+}
+.filter-btn:hover{color:#fff;border-color:rgba(255,255,255,0.3);transform:translateY(-1px)}
+.filter-btn.active{background:#fff;color:var(--ink);border-color:#fff}
+.filter-count{margin-left:auto;font-size:13px;color:rgba(255,255,255,0.3);align-self:center;flex-shrink:0}
+
+/* ── PROJECT GRID ── */
+.projects-section{padding:48px 0 120px}
+.proj-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.proj-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  overflow:hidden;cursor:pointer;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),
+             border-color 0.25s,box-shadow 0.35s,opacity 0.3s;
+  display:flex;flex-direction:column;
+}
+.proj-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,255,255,0.18);
+  box-shadow:0 20px 48px rgba(0,0,0,0.5);
+}
+.proj-card.hidden{display:none}
+.proj-thumb{
+  width:100%;aspect-ratio:16/10;overflow:hidden;
+  position:relative;background:rgba(255,255,255,0.04);
+}
+.proj-thumb img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.proj-card:hover .proj-thumb img{transform:scale(1.06)}
+.proj-thumb-placeholder{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(255,255,255,0.03) 0%,rgba(232,100,60,0.06) 100%);
+  font-size:32px;opacity:0.4;
+}
+.proj-info{padding:20px;flex:1;display:flex;flex-direction:column}
+.proj-cat{
+  font-size:11px;font-weight:700;
+  color:var(--orange);letter-spacing:1.1px;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.proj-info h3{font-size:18px;font-weight:700;letter-spacing:-0.4px;color:#fff;line-height:1.2}
+.proj-info p{font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.6;flex:1}
+.proj-techs{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px}
+.proj-tech{
+  font-size:11px;font-weight:500;
+  border:1px solid rgba(255,255,255,0.1);
+  padding:3px 9px;color:rgba(255,255,255,0.35);
+}
+.proj-link{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:14px;font-size:12px;font-weight:600;
+  color:var(--orange);letter-spacing:0.2px;
+  transition:gap 0.2s;
+}
+.proj-card:hover .proj-link{gap:8px}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,0.78);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s cubic-bezier(0.16,1,0.3,1);
+  backdrop-filter:blur(8px);
+}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{
+  background:var(--ink2);
+  border:1px solid rgba(255,255,255,0.08);
+  width:min(760px,100%);
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  transform:translateY(32px) scale(0.96);
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;cursor:pointer;transition:background 0.2s,color 0.2s;
+  z-index:2;
+}
+.modal-close:hover{background:rgba(255,255,255,0.12);color:#fff}
+.modal-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:rgba(255,255,255,0.04)}
+.modal-img img{width:100%;height:100%;object-fit:cover}
+.modal-img-placeholder{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(255,255,255,0.03) 0%,rgba(232,100,60,0.08) 100%);
+  font-size:48px;opacity:0.3;
+}
+.modal-body{padding:32px}
+.modal-cat{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:1.1px;text-transform:uppercase;margin-bottom:10px}
+.modal-body h2{font-size:clamp(24px,3.5vw,34px);font-weight:700;letter-spacing:-0.8px;line-height:1.1;color:#fff}
+.modal-desc{color:rgba(255,255,255,0.5);font-size:15px;line-height:1.7;margin-top:16px}
+.modal-techs{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.modal-tech{font-size:12px;font-weight:500;border:1px solid rgba(255,255,255,0.12);padding:5px 12px;color:rgba(255,255,255,0.4)}
+.modal-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:28px;padding:14px 24px;
+  background:var(--orange);color:#fff;
+  border-radius:9999px;font-size:14px;font-weight:600;
+  transition:background 0.22s,transform 0.22s,box-shadow 0.22s;
+}
+.modal-cta:hover{background:#d05528;transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,100,60,0.35)}
+.modal-no-demo{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:28px;padding:14px 24px;
+  background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.35);
+  border-radius:9999px;font-size:14px;font-weight:600;
+}
+
+/* ── FOOTER ── */
+footer{background:var(--ink2);padding:36px 0;border-top:1px solid rgba(255,255,255,0.05)}
+.footer-inner{display:flex;justify-content:space-between;color:rgba(255,255,255,0.28);font-size:13px}
+.footer-inner strong{color:rgba(255,255,255,0.75);font-weight:700;letter-spacing:-0.35px}
+
+/* ── MOBILE ── */
+@media(max-width:850px){
+  .proj-grid{grid-template-columns:1fr 1fr}
+  .filters-row{padding:24px 20px}
+}
+@media(max-width:560px){
+  .proj-grid{grid-template-columns:1fr}
+  .modal-body{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING PILL NAV -->
+<div class="nav-wrap" id="navWrap">
+  <div class="nav-pill">
+    <a class="logo" href="index.html">BoonWare</a>
+    <div class="nav-links">
+      <a href="index.html#discovery">Solutions</a>
+      <a href="index.html#ai">AI</a>
+      <a href="index.html#stack">Stack</a>
+      <a href="projects.html" class="active">Work</a>
+    </div>
+    <div class="nav-secondary-row">
+      <a href="index.html#discovery">Find my solution</a>
+      <a href="index.html#ai">AI demos</a>
+      <a href="index.html#stack">Build stack</a>
+      <a href="projects.html">All projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="index.html#contact">Start a Project →</a>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>243+ projects delivered</div>
+  <h1>Our <span class="dim">work</span> speaks<br><span class="hl">for itself.</span></h1>
+  <p>Websites, AI systems, mobile apps, automation pipelines, and brand identities — built for businesses across India and beyond.</p>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-row" id="filtersRow">
+  <button class="filter-btn active" data-filter="all" onclick="filterProjects('all',this)">All</button>
+  <button class="filter-btn" data-filter="websites" onclick="filterProjects('websites',this)">Websites</button>
+  <button class="filter-btn" data-filter="ai" onclick="filterProjects('ai',this)">AI &amp; Automation</button>
+  <button class="filter-btn" data-filter="graphics" onclick="filterProjects('graphics',this)">Graphics &amp; Branding</button>
+  <button class="filter-btn" data-filter="mobile" onclick="filterProjects('mobile',this)">Mobile Apps</button>
+  <span class="filter-count" id="filterCount">40 projects</span>
+</div>
+
+<!-- PROJECT GRID -->
+<section class="projects-section">
+<div class="container">
+  <div class="proj-grid" id="projGrid">
+
+    <!-- WEBSITES -->
+    <div class="proj-card" data-cat="websites" data-title="Pokhraj Jewellers" data-desc="A premium jewellery e-commerce website built for one of Hyderabad's heritage jewellery brands. Features product catalog, filtering, enquiry forms, WhatsApp integration and a fully responsive mobile experience that drives in-store footfall through digital presence." data-techs="HTML,CSS,JavaScript,WhatsApp API" data-demo="https://pokhrajjewellers.com/" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&q=80" alt="Pokhraj Jewellers" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>💎</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>Pokhraj Jewellers</h3>
+        <p>Heritage jewellery brand — premium e-commerce with WhatsApp integration.</p>
+        <div class="proj-techs"><span class="proj-tech">HTML</span><span class="proj-tech">CSS</span><span class="proj-tech">WhatsApp API</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="Al Hayat Construction" data-desc="A modern construction company website for Al Hayat, a premium builder operating across India. Features project portfolio with before/after reveals, service pages, contact forms and a clean corporate aesthetic that communicates trust and expertise." data-techs="Next.js,Tailwind CSS,Framer Motion" data-demo="https://construction-site-indol.vercel.app/" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Al Hayat Construction" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🏗️</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>Al Hayat Construction</h3>
+        <p>Premium construction company site with portfolio and project showcase.</p>
+        <div class="proj-techs"><span class="proj-tech">Next.js</span><span class="proj-tech">Tailwind CSS</span><span class="proj-tech">Framer Motion</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="FirstLight Events" data-desc="An elegant event management website for FirstLight, a Hyderabad-based events company. Showcases weddings, corporate events and private parties with a gallery-first layout, vendor inquiry system and animated scroll experience that reflects the brand's premium positioning." data-techs="React,CSS Animations,EmailJS" data-demo="https://event-website-zeta.vercel.app/" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80" alt="FirstLight Events" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🎉</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>FirstLight Events</h3>
+        <p>Premium event management site — weddings, corporate, gallery showcase.</p>
+        <div class="proj-techs"><span class="proj-tech">React</span><span class="proj-tech">CSS Animations</span><span class="proj-tech">EmailJS</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="The Gilded Plate" data-desc="A fine dining restaurant website with an immersive visual experience. Features online reservations, menu showcase with food photography, location finder, and a booking system integrated with Google Calendar — built to convert browsing into bookings." data-techs="HTML,GSAP,CSS,Node.js" data-demo="https://resturant-website-coral.vercel.app/" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="The Gilded Plate Restaurant" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🍽️</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>The Gilded Plate</h3>
+        <p>Fine dining restaurant — reservations, menu showcase, Google Calendar.</p>
+        <div class="proj-techs"><span class="proj-tech">HTML</span><span class="proj-tech">GSAP</span><span class="proj-tech">Node.js</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="DonutHaven Bakery" data-desc="A playful and vibrant website for a specialty donut brand. Includes an interactive menu builder, loyalty programme teaser, social feed integration and a brand identity that perfectly balances fun and food-quality trust signals." data-techs="HTML,CSS,JavaScript,Adobe XD" data-demo="https://express.adobe.com/page/D3rEHMtVFfEKE/" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80" alt="DonutHaven Bakery" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🍩</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>DonutHaven Bakery</h3>
+        <p>Specialty donut brand — interactive menu, loyalty teaser, vibrant identity.</p>
+        <div class="proj-techs"><span class="proj-tech">HTML</span><span class="proj-tech">CSS</span><span class="proj-tech">JavaScript</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="Oakfield Real Estate" data-desc="A luxury real estate portal for Oakfield Properties. Features property listings with interactive filters, virtual tour integrations, mortgage calculator, lead capture forms and an agent directory — driving qualified enquiries for high-value residential properties." data-techs="React,Node.js,MongoDB,Mapbox" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Oakfield Real Estate" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🏡</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>Oakfield Real Estate</h3>
+        <p>Luxury property portal — listings, virtual tours, mortgage calculator.</p>
+        <div class="proj-techs"><span class="proj-tech">React</span><span class="proj-tech">Node.js</span><span class="proj-tech">MongoDB</span><span class="proj-tech">Mapbox</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="Veda Wellness Spa" data-desc="A serene wellness and spa website with online booking, treatment catalogue, membership tiers, and gift voucher system. Designed to convert site visitors into booked appointments through a calming, trust-first visual experience." data-techs="Webflow,JavaScript,Calendly API" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Veda Wellness Spa" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🧘</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>Veda Wellness Spa</h3>
+        <p>Spa & wellness — online booking, treatment catalogue, gift vouchers.</p>
+        <div class="proj-techs"><span class="proj-tech">Webflow</span><span class="proj-tech">JavaScript</span><span class="proj-tech">Calendly API</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="BlueHorizon Travel" data-desc="A destination travel agency website featuring curated holiday packages, real-time flight search integration, user reviews, blog content and an enquiry funnel optimised for high-value holiday bookings across luxury destinations." data-techs="Next.js,Tailwind,Skyscanner API" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" alt="BlueHorizon Travel" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>✈️</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>BlueHorizon Travel</h3>
+        <p>Luxury travel agency — holiday packages, flight search, review system.</p>
+        <div class="proj-techs"><span class="proj-tech">Next.js</span><span class="proj-tech">Tailwind</span><span class="proj-tech">Skyscanner API</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="Craft & Co. Furniture" data-desc="An e-commerce website for a bespoke furniture brand. Features a 3D product configurator, AR room visualizer, custom order flow, and delivery tracker — designed to justify premium pricing through an elevated digital buying experience." data-techs="Three.js,React,Shopify,AR Quick Look" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Craft & Co. Furniture" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🪑</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>Craft &amp; Co. Furniture</h3>
+        <p>Bespoke furniture — 3D configurator, AR visualizer, custom order flow.</p>
+        <div class="proj-techs"><span class="proj-tech">Three.js</span><span class="proj-tech">React</span><span class="proj-tech">Shopify</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="websites" data-title="PeakFit Gym" data-desc="A fitness studio website with class scheduling, trainer profiles, membership sign-up flow, and a progress tracker portal. Integrated with Stripe for subscription billing and push notifications for class reminders." data-techs="React,Node.js,Stripe,Firebase" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="PeakFit Gym" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>💪</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Websites</div>
+        <h3>PeakFit Gym</h3>
+        <p>Fitness studio — class scheduling, membership, Stripe subscriptions.</p>
+        <div class="proj-techs"><span class="proj-tech">React</span><span class="proj-tech">Node.js</span><span class="proj-tech">Stripe</span><span class="proj-tech">Firebase</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <!-- AI & AUTOMATION -->
+    <div class="proj-card" data-cat="ai" data-title="AI Calling Agent" data-desc="A fully autonomous AI voice calling agent that qualifies leads, books appointments and follows up — without a human on the line. Built with ElevenLabs voice synthesis, GPT-4 for natural conversation handling, and CRM integration for automatic lead updates. Demonstrated a 40% increase in qualified bookings for a real estate client." data-techs="Python,ElevenLabs,GPT-4,Twilio,CRM API" data-demo="https://youtube.com/shorts/Qi4V7wDKCr4?feature=share" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?w=600&q=80" alt="AI Calling Agent" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>📞</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>AI Calling Agent</h3>
+        <p>Autonomous voice agent — qualifies leads, books appointments, zero human needed.</p>
+        <div class="proj-techs"><span class="proj-tech">ElevenLabs</span><span class="proj-tech">GPT-4</span><span class="proj-tech">Twilio</span></div>
+        <div class="proj-link">See demo →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="WhatsApp Lead Nurture Bot" data-desc="An n8n-powered WhatsApp automation that captures new leads from website forms, instantly messages them with a personalised intro, qualifies them through a short conversation flow, scores them and routes hot leads to a sales rep — all without any manual work." data-techs="n8n,WhatsApp Business API,OpenAI,Airtable" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=600&q=80" alt="WhatsApp Lead Nurture Bot" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>💬</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>WhatsApp Lead Nurture Bot</h3>
+        <p>Auto-qualifies inbound leads via WhatsApp conversation — no human needed.</p>
+        <div class="proj-techs"><span class="proj-tech">n8n</span><span class="proj-tech">WhatsApp API</span><span class="proj-tech">OpenAI</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="AI SDR Agent" data-desc="A multi-agent sales development system that finds prospects on LinkedIn, writes hyper-personalised cold outreach, sends emails, tracks replies and hands off warm leads to human sales reps. Replaced 3 full-time SDRs for a B2B SaaS client, reducing cost-per-qualified-lead by 60%." data-techs="LangGraph,Python,Clay,LinkedIn API,GPT-4o" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="AI SDR Agent" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🤖</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>AI SDR Agent</h3>
+        <p>Autonomous sales outreach — LinkedIn prospecting, cold email, lead handoff.</p>
+        <div class="proj-techs"><span class="proj-tech">LangGraph</span><span class="proj-tech">Python</span><span class="proj-tech">Clay</span><span class="proj-tech">GPT-4o</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="Social Media Manager Agent" data-desc="A 6-agent AI system that generates posts for Instagram, LinkedIn, Twitter, Facebook and TikTok, schedules them via a content calendar, monitors engagement, and rewrites underperforming content. Includes a human approval workflow via WhatsApp before anything is published." data-techs="LangGraph,Claude API,n8n,Instagram API,Twitter API" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80" alt="Social Media Manager Agent" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>📱</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>Social Media Manager Agent</h3>
+        <p>6-agent AI system — generates, schedules and optimises content across 5 platforms.</p>
+        <div class="proj-techs"><span class="proj-tech">LangGraph</span><span class="proj-tech">Claude API</span><span class="proj-tech">n8n</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="AI Customer Support Agent" data-desc="A context-aware customer support chatbot trained on product documentation, FAQs and past tickets. Resolves 75% of enquiries without human escalation, integrates with Zendesk for ticket creation and escalates complex cases with a full conversation summary to the support team." data-techs="RAG,OpenAI,Zendesk API,Python,Pinecone" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80" alt="AI Customer Support" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🎧</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>AI Customer Support Agent</h3>
+        <p>RAG-powered support bot — resolves 75% of queries, escalates with context.</p>
+        <div class="proj-techs"><span class="proj-tech">RAG</span><span class="proj-tech">OpenAI</span><span class="proj-tech">Pinecone</span><span class="proj-tech">Zendesk</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="Invoice Processing Automation" data-desc="An AI pipeline that reads incoming invoices (PDFs, photos, emails), extracts line items, amounts and vendor details using GPT-4 Vision, validates against purchase orders, flags mismatches and posts approved invoices to accounting software automatically." data-techs="GPT-4 Vision,Python,Zapier,QuickBooks API" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80" alt="Invoice Processing Bot" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🧾</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>Invoice Processing Bot</h3>
+        <p>AI extracts invoice data, validates against POs, posts to accounting automatically.</p>
+        <div class="proj-techs"><span class="proj-tech">GPT-4 Vision</span><span class="proj-tech">Python</span><span class="proj-tech">QuickBooks</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="Meeting Research Agent" data-desc="An n8n workflow that automatically researches meeting participants before a call — pulls LinkedIn profiles, recent news, company data and mutual connections, then compiles a briefing document and sends it to the host 30 minutes before the meeting." data-techs="n8n,LinkedIn API,Perplexity,Google Calendar,OpenAI" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&q=80" alt="Meeting Research Agent" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🔍</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>Meeting Research Agent</h3>
+        <p>Auto-researches attendees pre-meeting — LinkedIn, news, company brief in 30 mins.</p>
+        <div class="proj-techs"><span class="proj-tech">n8n</span><span class="proj-tech">LinkedIn API</span><span class="proj-tech">OpenAI</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="Real Estate Chatbot" data-desc="A property recommendation chatbot embedded on a real estate website. Asks buyers about their budget, location and preferences, then surfaces matching listings from the database, books site visits and notifies agents — converting cold traffic into booked appointments." data-techs="OpenAI,Node.js,MongoDB,Twilio,WhatsApp API" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80" alt="Real Estate Chatbot" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🏠</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>Real Estate Chatbot</h3>
+        <p>Property recommendation bot — filters listings, books site visits automatically.</p>
+        <div class="proj-techs"><span class="proj-tech">OpenAI</span><span class="proj-tech">Node.js</span><span class="proj-tech">MongoDB</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="LinkedIn Post Scraper" data-desc="An automated pipeline that scrapes top-performing LinkedIn posts from competitor pages and industry accounts, analyses engagement patterns with AI, and generates a weekly content calendar with original post ideas calibrated to what performs best in the client's niche." data-techs="Playwright,Python,GPT-4,Airtable,n8n" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=80" alt="LinkedIn Post Scraper" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>📊</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>LinkedIn Post Scraper</h3>
+        <p>Scrapes top posts, analyses engagement, generates weekly content calendar.</p>
+        <div class="proj-techs"><span class="proj-tech">Playwright</span><span class="proj-tech">Python</span><span class="proj-tech">GPT-4</span><span class="proj-tech">n8n</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="ai" data-title="Hospitality AI Concierge" data-desc="An AI concierge for a boutique hotel that handles guest enquiries over WhatsApp and the website chat — answers questions about amenities, takes room service orders, books restaurant tables, arranges transport and escalates complaints with full context to the duty manager." data-techs="OpenAI,WhatsApp API,Node.js,PMS Integration" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80" alt="Hotel AI Concierge" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🏨</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">AI &amp; Automation</div>
+        <h3>Hospitality AI Concierge</h3>
+        <p>WhatsApp AI for hotels — room service, bookings, complaints, escalation.</p>
+        <div class="proj-techs"><span class="proj-tech">OpenAI</span><span class="proj-tech">WhatsApp API</span><span class="proj-tech">Node.js</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <!-- GRAPHICS & BRANDING -->
+    <div class="proj-card" data-cat="graphics" data-title="Luxury Beverage Branding" data-desc="Complete brand identity for a premium spirits label entering the Indian market. Includes brand strategy, naming, logo system, colour palette, typography, packaging design for 6 SKUs, and a brand guidelines document. The label won a regional design award in 2024." data-techs="Adobe Illustrator,Photoshop,InDesign,Brand Strategy" data-demo="https://www.behance.net/gallery/luxury-beverage-branding" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=600&q=80" alt="Luxury Beverage Branding" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🥂</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Graphics &amp; Branding</div>
+        <h3>Luxury Beverage Branding</h3>
+        <p>Full brand identity — naming, logo, packaging for 6 SKUs. Award-winning.</p>
+        <div class="proj-techs"><span class="proj-tech">Illustrator</span><span class="proj-tech">Photoshop</span><span class="proj-tech">Brand Strategy</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="graphics" data-title="Beeecho Marketing Platform" data-desc="Brand identity and UI/UX for Beeecho, a B2B marketing and advertising platform launching in India. Includes logo, brand system, colour palette, UI components, dashboard design, sales pitch deck and social media templates — all aligned to a bold, modern SaaS aesthetic." data-techs="Figma,Adobe Suite,Motion Graphics" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80" alt="Beeecho Marketing Platform" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🐝</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Graphics &amp; Branding</div>
+        <h3>Beeecho Marketing Platform</h3>
+        <p>Full brand + UI system for a B2B marketing SaaS launching in India.</p>
+        <div class="proj-techs"><span class="proj-tech">Figma</span><span class="proj-tech">Adobe Suite</span><span class="proj-tech">Motion Graphics</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="graphics" data-title="Herbal Skincare Packaging" data-desc="Packaging and brand identity for a natural skincare line with 12 products. Combines botanical illustration with clean typography for a brand that positions itself between premium Ayurveda and modern skincare. Includes physical mockups, dieline files and retail display design." data-techs="Adobe Illustrator,InDesign,Packaging Design" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80" alt="Herbal Skincare Packaging" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🌿</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Graphics &amp; Branding</div>
+        <h3>Herbal Skincare Packaging</h3>
+        <p>12-product natural skincare line — botanical illustrations, dielines, retail display.</p>
+        <div class="proj-techs"><span class="proj-tech">Illustrator</span><span class="proj-tech">InDesign</span><span class="proj-tech">Packaging Design</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="graphics" data-title="EdTech Brand System" data-desc="A complete visual identity for an online learning platform targeting Indian college students. Includes logo, icon set, brand voice, social media templates, app UI components, and a 48-page brand guidelines manual — enabling a consistent brand presence across 6 digital channels." data-techs="Figma,Adobe Suite,Brand Strategy,Motion Design" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80" alt="EdTech Brand System" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>📚</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Graphics &amp; Branding</div>
+        <h3>EdTech Brand System</h3>
+        <p>Full visual identity for an ed-tech platform — logo, icons, 48-page brand manual.</p>
+        <div class="proj-techs"><span class="proj-tech">Figma</span><span class="proj-tech">Adobe Suite</span><span class="proj-tech">Motion Design</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="graphics" data-title="Corporate Annual Report" data-desc="A data-driven annual report design for a Hyderabad-based infrastructure company. Features custom infographics, financial data visualisations, photography curation and a digital PDF version with interactive charts — produced in 10 days from brief to delivery." data-techs="InDesign,Illustrator,Data Visualization" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80" alt="Annual Report Design" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>📈</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Graphics &amp; Branding</div>
+        <h3>Corporate Annual Report</h3>
+        <p>Data-driven annual report — infographics, financial charts, 10-day delivery.</p>
+        <div class="proj-techs"><span class="proj-tech">InDesign</span><span class="proj-tech">Illustrator</span><span class="proj-tech">Data Visualization</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="graphics" data-title="Cloud Kitchen Branding" data-desc="Brand identity, packaging and social media system for a cloud kitchen delivering 5 cuisine concepts under one roof. Each concept has its own sub-brand while sharing a parent brand umbrella — delivered with print-ready files and a 30-template social media kit." data-techs="Adobe Suite,Figma,Print Design" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1565299715199-866c917206bb?w=600&q=80" alt="Cloud Kitchen Branding" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🍱</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Graphics &amp; Branding</div>
+        <h3>Cloud Kitchen Branding</h3>
+        <p>5-concept cloud kitchen — sub-brands, packaging, 30-template social kit.</p>
+        <div class="proj-techs"><span class="proj-tech">Adobe Suite</span><span class="proj-tech">Figma</span><span class="proj-tech">Print Design</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <!-- MOBILE APPS -->
+    <div class="proj-card" data-cat="mobile" data-title="GigConnect Freelance App" data-desc="A freelance marketplace mobile app connecting skilled workers with local businesses in Tier-2 Indian cities. Features profile creation, job listings, bidding system, in-app messaging, payment via UPI and Razorpay, and a ratings system — built with React Native for iOS and Android." data-techs="React Native,Node.js,MongoDB,Razorpay,Socket.io" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="GigConnect Freelance App" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>📲</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Mobile Apps</div>
+        <h3>GigConnect Freelance App</h3>
+        <p>Freelance marketplace for Tier-2 cities — bidding, chat, UPI payments.</p>
+        <div class="proj-techs"><span class="proj-tech">React Native</span><span class="proj-tech">Node.js</span><span class="proj-tech">Razorpay</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="mobile" data-title="FarmFresh Delivery App" data-desc="A hyperlocal grocery delivery app connecting urban consumers directly with local farms. Features farm profiles, seasonal product listings, subscription boxes, delivery scheduling and a driver app. Reduces farm-to-table supply chain to under 6 hours." data-techs="Flutter,Firebase,Google Maps,Stripe" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80" alt="FarmFresh Delivery App" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🥬</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Mobile Apps</div>
+        <h3>FarmFresh Delivery App</h3>
+        <p>Farm-to-table grocery app — farm profiles, subscriptions, driver app.</p>
+        <div class="proj-techs"><span class="proj-tech">Flutter</span><span class="proj-tech">Firebase</span><span class="proj-tech">Google Maps</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="mobile" data-title="MediTrack Health App" data-desc="A personal health management app with medication reminders, appointment booking, lab result tracking, and a symptom checker powered by AI. Integrates with major hospital HMIS systems in India for real-time appointment availability and digital prescription access." data-techs="React Native,Node.js,AI/ML,HL7 FHIR,PostgreSQL" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="MediTrack Health App" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>❤️</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Mobile Apps</div>
+        <h3>MediTrack Health App</h3>
+        <p>Personal health app — meds, appointments, AI symptom checker, HMIS integration.</p>
+        <div class="proj-techs"><span class="proj-tech">React Native</span><span class="proj-tech">AI/ML</span><span class="proj-tech">HL7 FHIR</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="mobile" data-title="PropMatch Real Estate App" data-desc="A property discovery app for buyers and renters in Hyderabad. Features AI-powered matching, 360-degree property tours, neighbourhood insights, EMI calculator and direct agent chat. Launched with 2,000 properties and 500 agent accounts in the first month." data-techs="React Native,Python,PostgreSQL,Mapbox,Twilio" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&q=80" alt="PropMatch Real Estate App" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🏘️</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Mobile Apps</div>
+        <h3>PropMatch Real Estate App</h3>
+        <p>AI property matching — 360° tours, neighbourhood data, agent chat.</p>
+        <div class="proj-techs"><span class="proj-tech">React Native</span><span class="proj-tech">Python</span><span class="proj-tech">Mapbox</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="mobile" data-title="QuickLearn Tutoring App" data-desc="A live tutoring app connecting students with verified tutors for 1-on-1 sessions in maths, science and coding. Includes a virtual whiteboard, session recording, progress tracking, and a performance dashboard for parents — built for low-latency performance on Indian mobile networks." data-techs="Flutter,WebRTC,Firebase,Agora,Node.js" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80" alt="QuickLearn Tutoring App" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>✏️</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Mobile Apps</div>
+        <h3>QuickLearn Tutoring App</h3>
+        <p>Live 1-on-1 tutoring — virtual whiteboard, recording, parent dashboard.</p>
+        <div class="proj-techs"><span class="proj-tech">Flutter</span><span class="proj-tech">WebRTC</span><span class="proj-tech">Agora</span><span class="proj-tech">Firebase</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-cat="mobile" data-title="EventNear Discovery App" data-desc="A location-based event discovery and ticketing app for India. Users browse events by city, category and date, buy tickets via UPI, and get venue navigation. Organisers get a dashboard to publish events, track sales, and send push notifications to attendees." data-techs="React Native,Node.js,Razorpay,Google Maps,Firebase" data-demo="" onclick="openModal(this)">
+      <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" alt="EventNear Discovery App" loading="lazy" onerror="this.parentNode.innerHTML='<div class=proj-thumb-placeholder>🎟️</div>'"></div>
+      <div class="proj-info">
+        <div class="proj-cat">Mobile Apps</div>
+        <h3>EventNear Discovery App</h3>
+        <p>Location-based event ticketing — UPI payments, organiser dashboard, push alerts.</p>
+        <div class="proj-techs"><span class="proj-tech">React Native</span><span class="proj-tech">Node.js</span><span class="proj-tech">Razorpay</span></div>
+        <div class="proj-link">View project →</div>
+      </div>
+    </div>
+
+  </div><!-- /proj-grid -->
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+  <div class="footer-inner">
+    <div>
+      <strong>BoonWare</strong>
+      <br>
+      <span>Build the technology your business needs.</span>
+    </div>
+    <div style="text-align:right">
+      <a href="index.html" style="color:rgba(255,255,255,0.4);transition:color 0.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">← Back to home</a>
+      <br>
+      <span>© 2024 BoonWare</span>
+    </div>
+  </div>
+</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img" id="modalImg"></div>
+    <div class="modal-body">
+      <div class="modal-cat" id="modalCat"></div>
+      <h2 id="modalTitle"></h2>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-techs" id="modalTechs"></div>
+      <div id="modalCta"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// NAV scroll behavior
+const navWrap = document.getElementById('navWrap');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  navWrap.classList.toggle('scrolled', y > 80);
+  navWrap.classList.toggle('expanded', y > 220);
+}, { passive: true });
+
+// Page header reveal
+gsap.from('.page-header .eyebrow', { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out', delay: 0.2 });
+gsap.from('.page-header h1', { opacity: 0, y: 40, duration: 0.9, ease: 'power4.out', delay: 0.35 });
+gsap.from('.page-header p', { opacity: 0, y: 24, duration: 0.7, ease: 'power3.out', delay: 0.55 });
+
+// Card stagger
+gsap.fromTo('#projGrid .proj-card',
+  { opacity: 0, y: 48 },
+  { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out', stagger: 0.06,
+    scrollTrigger: { trigger: '#projGrid', start: 'top 88%' }
+  }
+);
+
+// Filter logic
+function filterProjects(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  let visible = 0;
+  document.querySelectorAll('.proj-card').forEach(card => {
+    const show = cat === 'all' || card.dataset.cat === cat;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+
+  document.getElementById('filterCount').textContent = visible + ' project' + (visible !== 1 ? 's' : '');
+
+  // Reanimate visible cards
+  gsap.fromTo('#projGrid .proj-card:not(.hidden)',
+    { opacity: 0, y: 32 },
+    { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', stagger: 0.05 }
+  );
+}
+
+// Modal
+function openModal(card) {
+  const overlay = document.getElementById('modalOverlay');
+  const title = card.dataset.title;
+  const cat = card.dataset.cat;
+  const desc = card.dataset.desc;
+  const techs = card.dataset.techs ? card.dataset.techs.split(',') : [];
+  const demo = card.dataset.demo;
+  const imgEl = card.querySelector('.proj-thumb img');
+
+  document.getElementById('modalCat').textContent = cat.replace('ai', 'AI & Automation').replace('graphics', 'Graphics & Branding').replace('websites', 'Websites').replace('mobile', 'Mobile Apps');
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalDesc').textContent = desc;
+
+  const techsEl = document.getElementById('modalTechs');
+  techsEl.innerHTML = techs.map(t => `<span class="modal-tech">${t.trim()}</span>`).join('');
+
+  const modalImg = document.getElementById('modalImg');
+  if (imgEl && imgEl.complete && imgEl.naturalWidth > 0) {
+    modalImg.innerHTML = `<img src="${imgEl.src}" alt="${title}">`;
+  } else {
+    const ph = card.querySelector('.proj-thumb-placeholder');
+    modalImg.innerHTML = `<div class="modal-img-placeholder">${ph ? ph.textContent : '🔷'}</div>`;
+  }
+
+  const ctaEl = document.getElementById('modalCta');
+  if (demo) {
+    ctaEl.innerHTML = `<a class="modal-cta" href="${demo}" target="_blank" rel="noopener">View Live Demo →</a>`;
+  } else {
+    ctaEl.innerHTML = `<div class="modal-no-demo">Demo available on request</div>`;
+  }
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnBg(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Init count
+document.getElementById('filterCount').textContent =
+  document.querySelectorAll('.proj-card').length + ' projects';
+</script>
+</body>
+</html>

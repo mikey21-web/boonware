@@ -1,0 +1,362 @@
+[
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "",
+    "cls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "text": "What makes BoonWare different from other service providers?",
+    "parentCls": "space-y-4",
+    "html": "<div data-state=\"closed\" data-orientation=\"vertical\" class=\"bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm\"><h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r1:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r0:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&am"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "What makes BoonWare different from other service providers?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r1:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r0:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r0:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "What makes BoonWare different from other service providers?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r1:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r0:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r1:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r1:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r0:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "",
+    "cls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "text": "How long does it take to complete a typical project?",
+    "parentCls": "space-y-4",
+    "html": "<div data-state=\"closed\" data-orientation=\"vertical\" class=\"bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm\"><h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r3:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r2:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&am"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "How long does it take to complete a typical project?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r3:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r2:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r2:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "How long does it take to complete a typical project?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r3:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r2:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r3:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r3:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r2:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "",
+    "cls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "text": "Do you provide ongoing support after project completion?",
+    "parentCls": "space-y-4",
+    "html": "<div data-state=\"closed\" data-orientation=\"vertical\" class=\"bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm\"><h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r5:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r4:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&am"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "Do you provide ongoing support after project completion?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r5:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r4:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r4:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "Do you provide ongoing support after project completion?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r5:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r4:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r5:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r5:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r4:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "",
+    "cls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "text": "Can you customize the bundles for our specific needs?",
+    "parentCls": "space-y-4",
+    "html": "<div data-state=\"closed\" data-orientation=\"vertical\" class=\"bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm\"><h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r7:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r6:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&am"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "Can you customize the bundles for our specific needs?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r7:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r6:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r6:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "Can you customize the bundles for our specific needs?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r7:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r6:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r7:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r7:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r6:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "",
+    "cls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "text": "What technologies do you use?",
+    "parentCls": "space-y-4",
+    "html": "<div data-state=\"closed\" data-orientation=\"vertical\" class=\"bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm\"><h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r9:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r8:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&am"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "What technologies do you use?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r9:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r8:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r8:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "What technologies do you use?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r9:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r8:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r9:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r9:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r8:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "What makes BoonWare different from other service providers?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r1:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r0:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r0:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "What makes BoonWare different from other service providers?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r1:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r0:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r1:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r1:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r0:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r0:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "What makes BoonWare different from other service providers?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r1:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r0:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "How long does it take to complete a typical project?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r3:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r2:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r2:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "How long does it take to complete a typical project?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r3:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r2:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r3:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r3:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r2:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r2:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "How long does it take to complete a typical project?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r3:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r2:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "Do you provide ongoing support after project completion?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r5:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r4:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r4:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "Do you provide ongoing support after project completion?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r5:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r4:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r5:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r5:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r4:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r4:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "Do you provide ongoing support after project completion?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r5:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r4:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "Can you customize the bundles for our specific needs?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r7:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r6:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r6:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "Can you customize the bundles for our specific needs?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r7:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r6:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r7:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r7:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r6:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r6:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "Can you customize the bundles for our specific needs?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r7:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r6:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "H3",
+    "state": "closed",
+    "id": "",
+    "cls": "flex",
+    "text": "What technologies do you use?",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<h3 data-orientation=\"vertical\" data-state=\"closed\" class=\"flex\"><button type=\"button\" aria-controls=\"radix-:r9:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r8:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-cent"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r8:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "What technologies do you use?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r9:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r8:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  },
+  {
+    "tag": "DIV",
+    "state": "closed",
+    "id": "radix-:r9:",
+    "cls": "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:an",
+    "text": "",
+    "parentCls": "bg-white dark:bg-slate-800 border rounded-lg px-4 shadow-sm",
+    "html": "<div data-state=\"closed\" id=\"radix-:r9:\" hidden=\"\" role=\"region\" aria-labelledby=\"radix-:r8:\" data-orientation=\"vertical\" class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\" style=\"--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-wi"
+  },
+  {
+    "tag": "BUTTON",
+    "state": "closed",
+    "id": "radix-:r8:",
+    "cls": "flex flex-1 items-center justify-between font-medium transition-all [&[data-state=open]>svg]:rotate-",
+    "text": "What technologies do you use?",
+    "parentCls": "flex",
+    "html": "<button type=\"button\" aria-controls=\"radix-:r9:\" aria-expanded=\"false\" data-state=\"closed\" data-orientation=\"vertical\" id=\"radix-:r8:\" class=\"flex flex-1 items-center justify-between font-medium transition-all [&amp;[data-state=open]&gt;svg]:rotate-180 hover:no-underline py-4\" data-radix-collection-item=\"\"><div class=\"flex items-center gap-3 text-left\"><div class=\"w-1 h-6 bg-black dark:bg-white ro"
+  }
+]
