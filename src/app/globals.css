@@ -202,64 +202,49 @@
 }
 
 /* ── GLOBAL MOBILE RESPONSIVENESS ── */
+/* All breakpoints use real classNames — React inline styles can't be targeted with attribute selectors */
 
-/* About / Projects / Contact: 3-col → 1-col */
-.about-team-grid { grid-template-columns: repeat(3,1fr); }
-.val-grid        { grid-template-columns: repeat(4,1fr); }
-.proc-grid       { grid-template-columns: repeat(4,1fr); }
+body { overflow-x: hidden; }
 
-/* Stats 4-col */
-.stats-grid      { grid-template-columns: repeat(4,1fr); }
-
-/* Process 5-col */
-.steps-grid      { grid-template-columns: repeat(5,1fr); }
-
+/* Tablet: 768–900px */
 @media (max-width: 900px) {
-  .about-team-grid { grid-template-columns: repeat(2,1fr) !important; }
-  .val-grid        { grid-template-columns: repeat(2,1fr) !important; }
-  .proc-grid       { grid-template-columns: repeat(2,1fr) !important; }
-  .steps-grid      { grid-template-columns: repeat(3,1fr) !important; }
-  .stats-grid      { grid-template-columns: repeat(2,1fr) !important; }
+  /* Stats 4→2 */
+  .bw-stats-grid   { grid-template-columns: repeat(2, 1fr) !important; }
+  /* Service bundles 3→2 */
+  .bw-bundles-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  /* Projects 3→2 */
+  .bw-proj-grid    { grid-template-columns: repeat(2, 1fr) !important; }
+  /* Process steps 5→3 */
+  .bw-steps-grid   { grid-template-columns: repeat(3, 1fr) !important; }
+  /* About team 3→2 */
+  .about-team-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  /* About values 4→2 */
+  .val-grid        { grid-template-columns: repeat(2, 1fr) !important; }
+  /* About process 4→2 */
+  .proc-grid       { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
-@media (max-width: 768px) {
-  /* Force all multi-column grids to single column */
-  [style*="grid-template-columns: repeat(3"],
-  [style*="grid-template-columns: repeat(4"],
-  [style*="grid-template-columns: repeat(5"],
-  [style*="gridTemplateColumns: repeat(3"],
-  [style*="gridTemplateColumns: repeat(4"],
-  [style*="gridTemplateColumns: repeat(5"] {
-    grid-template-columns: 1fr !important;
-  }
-  [style*="grid-template-columns: 1.5fr 1fr"],
-  [style*="gridTemplateColumns: 1.5fr 1fr"],
-  [style*="grid-template-columns: 1fr 1fr"],
-  [style*="gridTemplateColumns: 1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-  }
-  .about-team-grid { grid-template-columns: 1fr !important; }
-  .val-grid        { grid-template-columns: repeat(2,1fr) !important; }
-  .proc-grid       { grid-template-columns: repeat(2,1fr) !important; }
-  .steps-grid      { grid-template-columns: repeat(2,1fr) !important; }
-  .stats-grid      { grid-template-columns: repeat(2,1fr) !important; }
-  /* Money grid — stack */
-  .money-grid { grid-template-columns: 1fr !important; }
+/* Mobile: ≤640px */
+@media (max-width: 640px) {
+  /* All grids → 1 column */
+  .bw-stats-grid,
+  .bw-bundles-grid,
+  .bw-proj-grid,
+  .bw-steps-grid,
+  .about-team-grid,
+  .val-grid,
+  .proc-grid,
+  .disc-grid       { grid-template-columns: 1fr !important; }
+
+  /* Work showcase grid */
+  .money-grid      { grid-template-columns: 1fr !important; }
   .money-grid .work-card:first-child { grid-row: auto !important; }
-  /* Prevent overflow */
-  body { overflow-x: hidden; }
-}
 
-@media (max-width: 500px) {
-  [style*="grid-template-columns: repeat(2"],
-  [style*="gridTemplateColumns: repeat(2"],
-  [style*="grid-template-columns: 1fr 2fr"],
-  [style*="gridTemplateColumns: 1fr 2fr"] {
-    grid-template-columns: 1fr !important;
-  }
-  .val-grid  { grid-template-columns: 1fr !important; }
-  .proc-grid { grid-template-columns: 1fr !important; }
-  .steps-grid { grid-template-columns: 1fr !important; }
+  /* Section padding: cut 104px to ~60px on mobile */
+  section { padding-top: clamp(56px, 12vw, 104px) !important; padding-bottom: clamp(56px, 12vw, 104px) !important; }
+
+  /* Ensure nothing clips off screen */
+  img, video { max-width: 100%; }
 }
 
 .text-gradient {

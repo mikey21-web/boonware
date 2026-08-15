@@ -102,7 +102,7 @@ export function TrustedBrands() {
           <span style={{ color: "#e8643c" }}>5 steps.</span>
         </h2>
 
-        <div style={{
+        <div className="bw-steps-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(5, 1fr)",
           gap: 10,

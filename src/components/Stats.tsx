@@ -58,7 +58,7 @@ export default function Stats() {
       {/* Horizontal divider line */}
       <div ref={dividerRef} style={{ height: 1, background: "rgba(255,255,255,0.08)", willChange: "transform" }} />
       <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
-        <div style={{
+        <div className="bw-stats-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
         }}>

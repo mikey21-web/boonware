@@ -188,7 +188,7 @@ export default function ProjectsPage() {
 
       {/* ── GRID ── */}
       <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "48px auto 120px" }}>
-        <div ref={gridRef} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+        <div ref={gridRef} className="bw-proj-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
           {visible.map((p, i) => (
             <div
               key={`${p.title}-${i}`}

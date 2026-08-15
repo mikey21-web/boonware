@@ -98,7 +98,7 @@ export function ServiceBundles() {
         </h2>
 
         {/* 3 equal white cards */}
-        <div style={{
+        <div className="bw-bundles-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: 16,
