@@ -1,8 +1,11 @@
 "use client";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import Link from "next/link";
+
+const CATEGORIES = ["All", "AI & Automation", "Marketing", "Business Tools", "Website Tools", "Analytics"];
 
 const PRODUCTS = [
   {
@@ -16,15 +19,55 @@ const PRODUCTS = [
   {
     name: "WhatsApp Bot Builder",
     tagline: "No-code WhatsApp automation flows for lead capture, FAQ handling, and appointment booking.",
-    category: "Automation",
+    category: "AI & Automation",
     badge: "Coming Soon",
     href: "#",
     bullets: ["Drag-and-drop flow builder", "Instant auto-replies 24/7", "CRM sync after each conversation", "Multi-agent handoff support"],
   },
   {
+    name: "BoonChat",
+    tagline: "AI-powered live chat widget for your website — answers instantly, captures leads, and escalates to WhatsApp.",
+    category: "AI & Automation",
+    badge: "Coming Soon",
+    href: "#",
+    bullets: ["Trained on your products & FAQs", "Instant lead capture & qualification", "Seamless WhatsApp handoff", "Plug-and-play embed on any website"],
+  },
+  {
+    name: "BoonCRM",
+    tagline: "Lightweight CRM built for small businesses — track leads, follow-ups, and deal stages without the bloat.",
+    category: "Business Tools",
+    badge: "Coming Soon",
+    href: "#",
+    bullets: ["Lead pipeline with drag-and-drop stages", "Auto-reminders & follow-up tasks", "WhatsApp & email activity log", "Team assignment & notes"],
+  },
+  {
+    name: "BoonSchedule",
+    tagline: "Smart appointment booking widget — embed it on your site and let clients self-book in 30 seconds.",
+    category: "Business Tools",
+    badge: "Coming Soon",
+    href: "#",
+    bullets: ["Real-time calendar availability", "Automated SMS & email confirmations", "Google & Outlook calendar sync", "Multi-staff & multi-service support"],
+  },
+  {
+    name: "BoonForms",
+    tagline: "High-converting lead capture forms with instant CRM sync, WhatsApp notifications, and analytics.",
+    category: "Marketing",
+    badge: "Coming Soon",
+    href: "#",
+    bullets: ["Drag-and-drop form builder", "Conditional logic & multi-step forms", "Instant WhatsApp/email notifications", "Spam protection & analytics built-in"],
+  },
+  {
+    name: "BoonReviews",
+    tagline: "Automated review collection tool — request, capture, and showcase Google & social reviews on autopilot.",
+    category: "Marketing",
+    badge: "Coming Soon",
+    href: "#",
+    bullets: ["Automated post-purchase review requests", "WhatsApp & SMS review collection", "Embeddable review wall for websites", "Google Business Profile integration"],
+  },
+  {
     name: "BoonSEO",
     tagline: "AI-powered SEO audit and content planning tool built for growing businesses.",
-    category: "Digital Marketing",
+    category: "Marketing",
     badge: "Coming Soon",
     href: "#",
     bullets: ["Automated technical SEO audits", "Keyword gap & opportunity finder", "AI content brief generation", "Rank tracking dashboard"],
@@ -37,9 +80,36 @@ const PRODUCTS = [
     href: "#",
     bullets: ["Cross-channel performance view", "ROI & ROAS attribution", "Automated weekly reports", "WhatsApp delivery of insights"],
   },
+  {
+    name: "BoonPages",
+    tagline: "Launch high-converting landing pages in minutes — no developer, no code, no waiting.",
+    category: "Website Tools",
+    badge: "Coming Soon",
+    href: "#",
+    bullets: ["50+ conversion-optimised templates", "Drag-and-drop section builder", "Built-in A/B testing", "One-click custom domain connect"],
+  },
+  {
+    name: "BoonInvoice",
+    tagline: "Professional invoicing for freelancers and agencies — create, send, and get paid faster.",
+    category: "Business Tools",
+    badge: "Coming Soon",
+    href: "#",
+    bullets: ["GST & international invoice generation", "Automated payment reminders", "Online payment links (Razorpay, Stripe)", "Client portal for invoice history"],
+  },
+  {
+    name: "BoonContent",
+    tagline: "AI social media content engine — generate a month of posts, captions, and graphics in one click.",
+    category: "Marketing",
+    badge: "Coming Soon",
+    href: "#",
+    bullets: ["Brand-voice trained AI copy", "Auto-schedule across Instagram, LinkedIn, Facebook", "Hashtag & trend recommendations", "Performance analytics per post"],
+  },
 ];
 
 export default function ProductsPage() {
+  const [active, setActive] = useState("All");
+  const filtered = active === "All" ? PRODUCTS : PRODUCTS.filter(p => p.category === active);
+
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#ffffff", fontFamily: "'Inter', sans-serif" }}>
       <Navbar />
@@ -61,8 +131,21 @@ export default function ProductsPage() {
 
       {/* Products grid */}
       <section style={{ padding: "clamp(60px,8vw,100px) clamp(20px,5vw,80px)", background: "#f7f8f4" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px,1fr))", gap: 24 }}>
-          {PRODUCTS.map(p => (
+        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+          {/* Category filter */}
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 40 }}>
+            {CATEGORIES.map(cat => (
+              <button key={cat} onClick={() => setActive(cat)} style={{
+                padding: "8px 18px", borderRadius: 9999, fontSize: 13, fontWeight: 600, cursor: "pointer", border: "1px solid",
+                borderColor: active === cat ? "#00897B" : "#e4e4e7",
+                background: active === cat ? "#00897B" : "#ffffff",
+                color: active === cat ? "#ffffff" : "#17171c",
+                transition: "all 0.2s",
+              }}>{cat}</button>
+            ))}
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px,1fr))", gap: 24 }}>
+          {filtered.map(p => (
             <div key={p.name} style={{ background: "#ffffff", border: "1px solid #e4e4e7", borderRadius: 20, padding: "32px 28px", display: "flex", flexDirection: "column", gap: 0, transition: "box-shadow 0.25s, transform 0.25s" }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
@@ -95,6 +178,7 @@ export default function ProductsPage() {
               )}
             </div>
           ))}
+          </div>
         </div>
       </section>
 
