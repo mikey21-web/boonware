@@ -82,7 +82,7 @@ export function ServiceBundles() {
     >
       <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
         <span style={{
-          display: "block", fontSize: 11, fontWeight: 700, color: "#e8643c",
+          display: "block", fontSize: 11, fontWeight: 700, color: "#00897B",
           letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14,
         }}>
           Service bundles
@@ -132,7 +132,7 @@ export function ServiceBundles() {
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 5,
                 fontSize: 11, fontWeight: 700, letterSpacing: "1.1px",
-                textTransform: "uppercase", color: "#e8643c", marginBottom: 20,
+                textTransform: "uppercase", color: "#00897B", marginBottom: 20,
               }}>
                 {b.tag}
               </div>
@@ -155,7 +155,7 @@ export function ServiceBundles() {
                   textDecoration: "none", alignSelf: "flex-start",
                   transition: "background 0.22s, transform 0.22s",
                 }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#e8643c"; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#00897B"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "#17171c"; }}
               >
                 View services →
@@ -188,7 +188,7 @@ export function ServiceBundles() {
               transition: "background 0.22s, transform 0.22s",
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = "#e8643c";
+              (e.currentTarget as HTMLElement).style.background = "#00897B";
               (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
             }}
             onMouseLeave={e => {

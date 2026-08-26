@@ -10,62 +10,78 @@ import Image from "next/image";
 
 const OUTCOMES = [
   {
-    key: "BUILD",
-    label: "BUILD",
-    title: "Build from zero to live.",
-    copy: "Full-stack websites, mobile apps, admin dashboards — designed to convert, engineered to last. Fixed scope. Fixed price. Source code yours.",
-    tags: ["Websites", "Web Apps", "Mobile Apps", "APIs", "Admin Panels"],
+    key: "WEB",
+    label: "WEB DEV",
+    slug: "web-development",
+    title: "Engineered to Convert. Built to Scale.",
+    copy: "Full-stack websites — landing pages, corporate sites, LMS, real estate, healthcare, e-commerce — designed to convert and engineered to last.",
+    capabilities: ["Landing Pages & Lead Funnels", "Corporate & Portfolio Sites", "E-Commerce Stores (Shopify / Custom)", "Full-Stack Web Apps & Portals", "CMS Integration & Admin Dashboards", "API Integrations & Third-Party Hooks"],
     flow: ["Discovery", "Design", "Development", "Testing", "Launch"],
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
   {
-    key: "AUTOMATE",
-    label: "AUTOMATE",
-    title: "Kill the manual work.",
-    copy: "n8n workflows, AI chatbots, WhatsApp automation, LangChain agents. We replace hours of salary-work with logic that runs while you sleep.",
-    tags: ["n8n Workflows", "AI Agents", "WhatsApp Bots", "CRM Sync", "Lead Routing"],
+    key: "APP",
+    label: "APP DEV",
+    slug: "app-development",
+    title: "From concept to the App Store.",
+    copy: "iOS and Android apps built on a single React Native codebase. E-commerce, on-demand, FinTech, healthcare, SaaS — shipped to both stores in 6 weeks.",
+    capabilities: ["iOS & Android (React Native)", "E-Commerce & Marketplace Apps", "On-Demand Delivery Apps", "FinTech & Wallet Apps", "Healthcare & Telemedicine Apps", "SaaS & B2B Enterprise Apps"],
+    flow: ["Wireframes", "UI Design", "Development", "QA", "Store Submit"],
+  },
+  {
+    key: "MARKETING",
+    label: "DIGITAL MARKETING",
+    slug: "digital-marketing",
+    title: "Scale from clicks to predictable revenue.",
+    copy: "SEO, Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, social media management, email marketing — the complete stack to grow your business every month.",
+    capabilities: ["SEO & Content Marketing", "Google Ads & PPC Campaigns", "Meta & Instagram Ads", "TikTok & YouTube Ads", "Social Media Management", "Email Marketing & Automation"],
+    flow: ["Audit", "Strategy", "Setup", "Launch", "Optimize"],
+  },
+  {
+    key: "DESIGN",
+    label: "GRAPHIC DESIGN",
+    slug: "graphic-design",
+    title: "Design that demands attention. Brands that lead.",
+    copy: "Logo, brand identity, social media kits, ad creatives, pitch decks, packaging, motion graphics — everything your brand needs to look world-class.",
+    capabilities: ["Logo Design & Brand Identity", "Social Media Kits & Templates", "Ad Creatives & Banners", "Pitch Decks & Presentations", "Packaging Design", "Motion Graphics & Animation"],
+    flow: ["Brief", "Concepts", "Refine", "Finalize", "Rollout"],
+  },
+  {
+    key: "VIDEO",
+    label: "VIDEO EDITING",
+    slug: "video-editing",
+    title: "From raw footage to scroll-stopping video.",
+    copy: "Reels, YouTube videos, video ads, corporate films, color grading, VFX — edited and delivered in 48–72 hours. Optimized for every platform.",
+    capabilities: ["Reels & Short-Form Content", "YouTube Long-Form Videos", "Video Ads & Commercials", "Corporate & Brand Films", "Color Grading & Sound Design", "VFX, Subtitles & Motion Text"],
+    flow: ["Brief", "Rough Cut", "Revisions", "Color & Sound", "Delivery"],
+  },
+  {
+    key: "PRODUCTION",
+    label: "PRODUCTION",
+    slug: "production-shooting",
+    title: "From script to cinema-grade production.",
+    copy: "Product photography, brand shoots, corporate films, events, drone footage — full production team operating across India and Dubai UAE.",
+    capabilities: ["Product Photography", "Brand & Lifestyle Shoots", "Corporate & Event Films", "Drone & Aerial Footage", "Commercial Ad Production", "Behind-the-Scenes & Reels"],
+    flow: ["Brief", "Pre-production", "Shoot Day", "Edit", "Delivery"],
+  },
+  {
+    key: "AI",
+    label: "AI / AUTOMATION",
+    slug: "ai-automation",
+    title: "Put your business operations on autopilot.",
+    copy: "n8n workflows, AI chatbots, voice AI, WhatsApp automation, LangChain agents, RPA. We replace hours of manual work with logic that runs 24/7.",
+    capabilities: ["AI Chatbots & Virtual Assistants", "n8n & Zapier Workflow Automation", "Voice AI & Calling Agents", "WhatsApp & CRM Automation", "Document & Invoice Processing", "LangChain Agents & Custom AI Apps"],
     flow: ["Audit", "Blueprint", "Build", "Test", "Deploy"],
-    img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-  },
-  {
-    key: "SELL",
-    label: "SELL",
-    title: "Sell more. Sell faster.",
-    copy: "E-commerce stores, multi-vendor marketplaces, AI-powered sales agents. Everything wired to turn visitors into paying customers from day one.",
-    tags: ["Shopify Builds", "Marketplaces", "Payment Gateways", "AI SDR", "Upsell Flows"],
-    flow: ["Store Design", "Catalog Setup", "Payment Wiring", "Launch", "Optimise"],
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-  },
-  {
-    key: "CONNECT",
-    label: "CONNECT",
-    title: "Turn strangers into regulars.",
-    copy: "WhatsApp marketing, QR ordering, loyalty programs, automated follow-ups. The technology that keeps your customers coming back — automatically.",
-    tags: ["WhatsApp Broadcast", "QR Menus", "Loyalty Programs", "Auto Follow-up", "Email Sequences"],
-    flow: ["Map Touchpoints", "Build Flows", "Integrate", "Go Live", "Optimise"],
-    img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80",
-  },
-  {
-    key: "GROW",
-    label: "GROW",
-    title: "Make your brand impossible to ignore.",
-    copy: "Logo, brand kit, social content, Google & Meta ads, SEO. A complete growth stack so you outrank and out-brand every competitor in your market.",
-    tags: ["Brand Identity", "Social Content", "Google Ads", "Meta Ads", "SEO"],
-    flow: ["Brand Audit", "Identity", "Content", "Ads", "Track & Scale"],
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
   },
 ];
 
 const SERVICES = [
-  { num: "01", slug: "website-development", title: "Website & App Development", sub: "From landing pages to full-stack platforms", detail: "React, Next.js, Node.js — delivered in 2-4 weeks with fixed scope and fixed price. Every project ships with source code, documentation, and a 30-day support window.", chips: ["Landing Pages", "SaaS Apps", "Admin Dashboards", "Custom CMS", "APIs"], from: "₹49,999", outcome: "BUILD" },
-  { num: "02", slug: "ai-automation", title: "AI & Automation", sub: "Replace manual work with intelligent systems", detail: "n8n pipelines, LangChain agents, WhatsApp bots, AI calling agents. We audit your current workflows, identify the highest-ROI automations, and build them in under 3 weeks.", chips: ["n8n Pipelines", "LangChain Agents", "WhatsApp Automation", "AI Calling", "CRM Sync"], from: "₹75,000", outcome: "AUTOMATE" },
-  { num: "03", slug: "restaurant-technology", title: "Restaurant Technology", sub: "Complete digitization for F&B businesses", detail: "QR ordering, live kitchen display, WhatsApp menu, POS integration. Typically pays for itself within 90 days through order volume increase and labour cost reduction.", chips: ["QR Menu", "Kitchen Display", "Online Ordering", "POS Integration", "Loyalty"], from: "₹1,20,000", outcome: "CONNECT" },
-  { num: "04", slug: "ecommerce-marketplaces", title: "E-Commerce & Marketplaces", sub: "Shopify stores and multi-vendor platforms", detail: "Full buyer/seller/admin dashboards, payment gateways, seller onboarding, and analytics. Built to scale from 10 to 10,000 transactions with zero re-architecture.", chips: ["Shopify", "Multi-vendor", "Payment Gateway", "Seller Dashboard", "Analytics"], from: "₹80,000", outcome: "SELL" },
-  { num: "05", slug: "branding-marketing", title: "Branding & Marketing", sub: "Logo to paid ads — the full brand stack", detail: "Brand identity, social media content, Google/Meta ad management, and monthly performance reports. Everything to make you the obvious choice in your market.", chips: ["Logo & Brand Kit", "Social Content", "Google Ads", "Meta Ads", "SEO"], from: "₹25,000", outcome: "GROW" },
-  { num: "06", slug: "mobile-apps", title: "Mobile Applications", sub: "iOS & Android — one codebase, both platforms", detail: "React Native cross-platform apps with push notifications, offline mode, App Store submission, and backend APIs. A fraction of the cost of two native builds.", chips: ["iOS & Android", "Push Notifications", "Offline Mode", "App Store Submit", "Backend APIs"], from: "₹1,50,000", outcome: "BUILD" },
-  { num: "07", slug: "whatsapp-automation", title: "WhatsApp Automation", sub: "Your best salesperson — on 24/7", detail: "Lead capture, qualification, follow-up, appointment booking — all on WhatsApp. Integrates with your CRM and sends you a summary every morning.", chips: ["Lead Capture", "Qualification", "Follow-up", "Booking", "CRM Sync"], from: "₹45,000", outcome: "CONNECT" },
-  { num: "08", slug: "ai-calling-agent", title: "AI Calling Agent", sub: "Outbound calls, handled by AI", detail: "Human-sounding voice AI that calls leads, qualifies them, and books meetings in your calendar. Works across English, Hindi, and regional languages.", chips: ["Voice AI", "Lead Qualification", "Calendar Booking", "Multi-language", "CRM Logging"], from: "₹1,00,000", outcome: "AUTOMATE" },
-  { num: "09", slug: "analytics-dashboards", title: "Analytics & Dashboards", sub: "See everything. Decide faster.", detail: "Custom analytics dashboards that pull from your website, CRM, ads, and social media into a single view. Built in React, updated in real-time.", chips: ["Real-time Data", "Custom KPIs", "Multi-source", "Alerts", "Export"], from: "₹60,000", outcome: "GROW" },
+  { num: "01", slug: "web-development", title: "Web Development", sub: "From landing pages to full-stack platforms", detail: "React, Next.js, Node.js — 20 types of websites delivered in 2–4 weeks with fixed scope and fixed price. Source code, documentation, and 30-day support included.", chips: ["Landing Pages", "Corporate Sites", "E-Commerce", "LMS", "Web Apps"], from: "₹49,999" },
+  { num: "02", slug: "app-development", title: "App Development", sub: "iOS & Android — one codebase, both platforms", detail: "React Native cross-platform apps covering 20 app types — e-commerce, on-demand, FinTech, healthcare, SaaS, and more. App Store and Play Store submission included.", chips: ["iOS & Android", "React Native", "E-Commerce", "SaaS", "On-Demand"], from: "₹1,50,000" },
+  { num: "03", slug: "digital-marketing", title: "Digital Marketing", sub: "SEO to paid ads — the complete growth stack", detail: "SEO, Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, social media management, lead generation, email marketing. Everything to grow your business month over month.", chips: ["SEO", "Google Ads", "Meta Ads", "TikTok Ads", "Email Marketing"], from: "₹25,000/mo" },
+  { num: "04", slug: "graphic-design", title: "Graphic Design", sub: "Logo to motion graphics — your brand made world-class", detail: "20 design services: logo, brand identity, UI/UX, social media kits, ad creatives, pitch decks, packaging, infographics, motion graphics, and more. Source files always included.", chips: ["Logo Design", "Brand Identity", "Ad Creatives", "Pitch Decks", "Motion Graphics"], from: "₹15,000" },
+  { num: "05", slug: "video-editing", title: "Video Editing", sub: "Content that stops the scroll", detail: "20 video types — Reels, YouTube, video ads, corporate films, color grading, VFX, podcasts, and more. Delivered in 48–72 hours. Optimized for every platform.", chips: ["Reels & Shorts", "YouTube", "Video Ads", "Color Grading", "VFX"], from: "₹5,000/video" },
+  { num: "06", slug: "production-shooting", title: "Production Shooting", sub: "Professional photography & video — India & Dubai", detail: "Product photography, brand shoots, corporate films, events, drone footage, and more. Full production team in India and Dubai. Full commercial usage rights included.", chips: ["Product Photography", "Brand Shoots", "Events", "Drone", "Commercial Ads"], from: "₹25,000" },
+  { num: "07", slug: "ai-automation", title: "AI & Automation", sub: "Replace manual work with intelligent systems", detail: "20 automation types: AI chatbots, voice AI, n8n pipelines, WhatsApp bots, RPA, document processing, CRM automation, and more. Built in under 3 weeks.", chips: ["n8n Pipelines", "Voice AI", "WhatsApp Bot", "Document AI", "RPA"], from: "₹75,000" },
 ];
 
 const PROOFS = [
@@ -246,7 +262,7 @@ export default function ServicesPage() {
               lineHeight: 1.0,
               transform: "translateY(110%)",
               willChange: "transform",
-              background: "linear-gradient(90deg, #e8643c 0%, #ff9a6c 100%)",
+              background: "linear-gradient(90deg, #00897B 0%, #ff9a6c 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}>
@@ -297,7 +313,7 @@ export default function ServicesPage() {
                   padding: "14px 28px",
                   borderRadius: 9999,
                   border: activeOutcome === i ? "none" : "1px solid rgba(255,255,255,0.12)",
-                  background: activeOutcome === i ? "#e8643c" : "transparent",
+                  background: activeOutcome === i ? "#00897B" : "transparent",
                   color: activeOutcome === i ? "#ffffff" : "rgba(255,255,255,0.45)",
                   cursor: "pointer",
                   transition: "all 0.22s ease",
@@ -328,47 +344,37 @@ export default function ServicesPage() {
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
-              gap: "clamp(32px, 5vw, 80px)",
-              alignItems: "center",
+              gap: "clamp(32px, 5vw, 64px)",
+              alignItems: "start",
               animation: "fadeSlideIn 0.45s ease both",
             }}
           >
+            {/* Left: heading + copy + flow */}
             <div>
               <h2 style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: "clamp(28px, 3.5vw, 52px)",
+                fontSize: "clamp(24px, 3vw, 44px)",
                 fontWeight: 700,
                 color: "#ffffff",
                 letterSpacing: "-0.03em",
                 lineHeight: 1.15,
-                margin: "0 0 20px",
+                margin: "0 0 16px",
               }}>
                 {active.title}
               </h2>
               <p style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: "clamp(15px, 1.5vw, 18px)",
-                color: "rgba(255,255,255,0.55)",
+                fontSize: "clamp(14px, 1.4vw, 17px)",
+                color: "rgba(255,255,255,0.5)",
                 lineHeight: 1.75,
-                margin: "0 0 32px",
+                margin: "0 0 28px",
               }}>
                 {active.copy}
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
-                {active.tags.map(t => (
-                  <span key={t} style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 13,
-                    color: "#e8643c",
-                    border: "1px solid rgba(232,100,60,0.35)",
-                    borderRadius: 9999,
-                    padding: "5px 14px",
-                  }}>{t}</span>
-                ))}
-              </div>
 
-              {/* Flow steps */}
-              <div style={{ display: "flex", alignItems: "center", gap: 0, flexWrap: "wrap" }}>
+              {/* Execution Flow */}
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>Execution Flow</p>
+              <div style={{ display: "flex", alignItems: "center", gap: 0, flexWrap: "wrap", marginBottom: 32 }}>
                 {active.flow.map((step, i) => (
                   <div key={step} style={{ display: "flex", alignItems: "center" }}>
                     <span style={{
@@ -382,49 +388,56 @@ export default function ServicesPage() {
                       letterSpacing: "0.04em",
                     }}>{step}</span>
                     {i < active.flow.length - 1 && (
-                      <span style={{ color: "#e8643c", fontSize: 16, margin: "0 4px" }}>→</span>
+                      <span style={{ color: "#00897B", fontSize: 16, margin: "0 4px" }}>→</span>
                     )}
                   </div>
                 ))}
               </div>
 
-              <a
-                href="https://wa.me/919076269629"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  marginTop: 36,
-                  background: "#e8643c",
-                  color: "#fff",
-                  borderRadius: 9999,
-                  padding: "14px 32px",
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 15,
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  transition: "opacity 0.2s",
-                }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.88"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
-              >
-                Start this project →
-              </a>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <Link
+                  href={`/services/${active.slug}`}
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                    background: "#00897B", color: "#fff",
+                    borderRadius: 9999, padding: "13px 28px",
+                    fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 600,
+                    textDecoration: "none", transition: "opacity 0.2s",
+                  }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.88"}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
+                >
+                  See full service →
+                </Link>
+                <a
+                  href="https://wa.me/919076269629"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                    background: "transparent", color: "rgba(255,255,255,0.6)",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                    borderRadius: 9999, padding: "13px 28px",
+                    fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 600,
+                    textDecoration: "none", transition: "border-color 0.2s, color 0.2s",
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.4)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.6)"; }}
+                >
+                  Get a quote →
+                </a>
+              </div>
             </div>
 
-            {/* Image side */}
-            <div style={{ position: "relative", borderRadius: 20, overflow: "hidden", aspectRatio: "4/3" }}>
-              <Image
-                src={active.img}
-                alt={active.title}
-                fill
-                unoptimized
-                style={{ objectFit: "cover" }}
-              />
-              <div style={{
-                position: "absolute", inset: 0,
-                background: "linear-gradient(135deg, rgba(232,100,60,0.15) 0%, transparent 60%)",
-              }} />
+            {/* Right: Capabilities */}
+            <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "28px 28px 24px" }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 20 }}>Capabilities</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {active.capabilities.map((cap) => (
+                  <div key={cap} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#00897B", flexShrink: 0 }} />
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>{cap}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -528,7 +541,7 @@ export default function ServicesPage() {
                   <Image src={card.img} alt={card.title} fill unoptimized style={{ objectFit: "cover" }} />
                   <div style={{
                     position: "absolute", bottom: 12, left: 12,
-                    background: "#e8643c",
+                    background: "#00897B",
                     color: "#fff",
                     fontSize: 12,
                     fontWeight: 600,
@@ -595,7 +608,7 @@ export default function ServicesPage() {
                 lineHeight: 1.15,
                 margin: "0 0 24px",
               }}>
-                Nine services.<br />One partner.
+                Seven services.<br />One partner.
               </h2>
               <p style={{
                 fontFamily: "'Inter', sans-serif",
@@ -622,7 +635,7 @@ export default function ServicesPage() {
                   textDecoration: "none",
                   transition: "background 0.2s",
                 }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#e8643c"}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#00897B"}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#17171c"}
               >
                 Get a quote
@@ -696,7 +709,7 @@ export default function ServicesPage() {
                         alignItems: "center",
                         justifyContent: "center",
                         fontSize: 16,
-                        color: openService === i ? "#e8643c" : "rgba(0,0,0,0.4)",
+                        color: openService === i ? "#00897B" : "rgba(0,0,0,0.4)",
                         transition: "transform 0.25s ease, color 0.2s",
                         transform: openService === i ? "rotate(45deg)" : "none",
                         flexShrink: 0,
@@ -726,7 +739,7 @@ export default function ServicesPage() {
                         {svc.chips.map(c => (
                           <span key={c} style={{
                             fontSize: 12,
-                            color: "#e8643c",
+                            color: "#00897B",
                             border: "1px solid rgba(232,100,60,0.3)",
                             borderRadius: 9999,
                             padding: "4px 12px",
@@ -744,7 +757,7 @@ export default function ServicesPage() {
                             fontFamily: "'Inter', sans-serif",
                             fontSize: 14,
                             fontWeight: 600,
-                            background: "#e8643c",
+                            background: "#00897B",
                             color: "#fff",
                             textDecoration: "none",
                             borderRadius: 9999,
@@ -833,7 +846,7 @@ export default function ServicesPage() {
                       fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: 22,
                       fontWeight: 700,
-                      color: "#e8643c",
+                      color: "#00897B",
                       letterSpacing: "-0.02em",
                       marginBottom: 4,
                     }}>{p.result}</div>
@@ -867,7 +880,7 @@ export default function ServicesPage() {
           }}>
             <div style={{
               fontSize: 48,
-              color: "#e8643c",
+              color: "#00897B",
               lineHeight: 1,
               marginBottom: 24,
               fontFamily: "Georgia, serif",
@@ -896,7 +909,7 @@ export default function ServicesPage() {
 
       {/* ── STATS BAR ── */}
       <section style={{
-        background: "#e8643c",
+        background: "#00897B",
         padding: "clamp(40px, 5vw, 60px) clamp(24px, 6vw, 100px)",
       }}>
         <div style={{
@@ -908,9 +921,9 @@ export default function ServicesPage() {
           textAlign: "center",
         }}>
           {[
-            { val: "243+", label: "Projects Delivered" },
+            { val: "265+", label: "Projects Delivered" },
             { val: "100+", label: "Businesses Served" },
-            { val: "5", label: "Countries" },
+            { val: "9", label: "Countries" },
             { val: "30d", label: "Avg. Delivery" },
           ].map(s => (
             <div key={s.label}>
@@ -976,7 +989,7 @@ export default function ServicesPage() {
             margin: "0 auto 16px",
           }}>
             Tell us what needs
-            <span style={{ color: "#e8643c" }}> to change.</span>
+            <span style={{ color: "#00897B" }}> to change.</span>
           </h2>
           <p style={{
             fontFamily: "'Inter', sans-serif",
@@ -986,7 +999,7 @@ export default function ServicesPage() {
             margin: "0 auto 48px",
             lineHeight: 1.7,
           }}>
-            Fixed price. Source code yours. Done right the first time.
+            Tell us your goal. We'll scope it, price it, and build it.
           </p>
 
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
@@ -996,7 +1009,7 @@ export default function ServicesPage() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 8,
-                background: "#e8643c",
+                background: "#00897B",
                 color: "#fff",
                 borderRadius: 9999,
                 padding: "16px 36px",

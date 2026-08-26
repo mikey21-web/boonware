@@ -101,7 +101,7 @@ export function Hero() {
             width: 7,
             height: 7,
             borderRadius: "50%",
-            background: "#e8643c",
+            background: "#00897B",
             display: "inline-block",
             flexShrink: 0,
             animation: "blink 2s ease-in-out infinite",
@@ -130,7 +130,7 @@ export function Hero() {
               transform: "translateY(110%)",
             }}
           >
-            Build the technology
+            Smarter Technology.
           </span>
         </span>
         <span style={{ overflow: "hidden", display: "block" }}>
@@ -138,11 +138,11 @@ export function Hero() {
             ref={line2}
             style={{
               display: "block",
-              color: "#71717a",
+              color: "#00897B",
               transform: "translateY(110%)",
             }}
           >
-            your business actually
+            Stronger Operation.
           </span>
         </span>
         <span style={{ overflow: "hidden", display: "block" }}>
@@ -150,11 +150,11 @@ export function Hero() {
             ref={line3}
             style={{
               display: "block",
-              color: "#e8643c",
+              color: "#00897B",
               transform: "translateY(110%)",
             }}
           >
-            needs.
+            Faster Growth.
           </span>
         </span>
       </h1>
@@ -173,12 +173,13 @@ export function Hero() {
           willChange: "transform",
         }}
       >
-        BoonWare helps startups and growing businesses{" "}
-        <strong style={{ color: "#17171c", fontWeight: 600 }}>
-          build, automate and improve
-        </strong>{" "}
-        the technology behind their operations — AI assistants, calling agents,
-        software, mobile apps and e-commerce.
+        We help startup and growing businesses{" "}
+        <strong style={{ color: "#17171c", fontWeight: 600 }}>automate</strong>{" "}
+        what slows them down,{" "}
+        <strong style={{ color: "#17171c", fontWeight: 600 }}>build</strong>{" "}
+        what they need, and{" "}
+        <strong style={{ color: "#17171c", fontWeight: 600 }}>scale</strong>{" "}
+        with confidence.
       </p>
 
       {/* CTAs */}
@@ -216,7 +217,7 @@ export function Hero() {
           Find My Solution →
         </Link>
         <Link
-          href="/projects"
+          href="/contact"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -240,7 +241,7 @@ export function Hero() {
             (e.currentTarget as HTMLElement).style.borderColor = "#e4e4e7";
           }}
         >
-          See Our Work
+          Contact Us
         </Link>
       </div>
 

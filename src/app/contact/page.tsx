@@ -292,7 +292,7 @@ export default function ContactPage() {
                   fontFamily: "'Inter', sans-serif",
                   transition: "color 0.2s",
                 }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#e8643c"}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00897B"}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#ddd"}
                 >info@boonware.in</a>
               </div>
@@ -308,7 +308,7 @@ export default function ContactPage() {
                   fontFamily: "'Inter', sans-serif",
                   transition: "color 0.2s",
                 }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#e8643c"}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00897B"}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#ddd"}
                 >+91 9076269629</a>
                 <a href="tel:+918291393581" style={{
@@ -320,7 +320,7 @@ export default function ContactPage() {
                   fontFamily: "'Inter', sans-serif",
                   transition: "color 0.2s",
                 }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#e8643c"}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00897B"}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#ddd"}
                 >+91 8291393581</a>
               </div>
@@ -339,7 +339,7 @@ export default function ContactPage() {
                     width: 64,
                     height: 64,
                     borderRadius: "50%",
-                    background: "#e8643c",
+                    background: "#00897B",
                     color: "#fff",
                     display: "flex",
                     alignItems: "center",
@@ -369,7 +369,7 @@ export default function ContactPage() {
                     display: "inline-flex",
                     alignItems: "center",
                     marginTop: 28,
-                    background: "#e8643c",
+                    background: "#00897B",
                     color: "#fff",
                     borderRadius: 9999,
                     padding: "13px 28px",
@@ -406,7 +406,7 @@ export default function ContactPage() {
                     <div style={{
                       width: `${pct}%`,
                       height: 2,
-                      background: "#e8643c",
+                      background: "#00897B",
                       transition: "width 0.55s cubic-bezier(0.16,1,0.3,1)",
                     }} />
                   </div>
@@ -438,8 +438,8 @@ export default function ContactPage() {
                               type="button"
                               onClick={() => setPick1(i)}
                               style={{
-                                background: pick1 === i ? "#e8643c" : "#161616",
-                                border: pick1 === i ? "1px solid #e8643c" : "1px solid #333",
+                                background: pick1 === i ? "#00897B" : "#161616",
+                                border: pick1 === i ? "1px solid #00897B" : "1px solid #333",
                                 color: pick1 === i ? "#fff" : "#ccc",
                                 textAlign: "left",
                                 padding: "17px",
@@ -492,8 +492,8 @@ export default function ContactPage() {
                               type="button"
                               onClick={() => setPick2(i)}
                               style={{
-                                background: pick2 === i ? "#e8643c" : "#161616",
-                                border: pick2 === i ? "1px solid #e8643c" : "1px solid #333",
+                                background: pick2 === i ? "#00897B" : "#161616",
+                                border: pick2 === i ? "1px solid #00897B" : "1px solid #333",
                                 color: pick2 === i ? "#fff" : "#ccc",
                                 textAlign: "left",
                                 padding: "17px",
@@ -660,7 +660,7 @@ export default function ContactPage() {
                           type="button"
                           onClick={() => setStep(s => Math.min(TOTAL, s + 1))}
                           style={{
-                            background: "#e8643c",
+                            background: "#00897B",
                             border: "none",
                             color: "#fff",
                             borderRadius: 9999,
@@ -678,7 +678,7 @@ export default function ContactPage() {
                         <button
                           type="submit"
                           style={{
-                            background: "#e8643c",
+                            background: "#00897B",
                             border: "none",
                             color: "#fff",
                             borderRadius: 9999,
@@ -937,7 +937,7 @@ export default function ContactPage() {
       <section
         ref={ctaRef}
         style={{
-          background: "#e8643c",
+          background: "#00897B",
           padding: "clamp(100px, 13vw, 125px) clamp(24px, 6vw, 100px)",
           textAlign: "center",
         }}

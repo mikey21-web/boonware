@@ -67,17 +67,16 @@ const PROJECTS: Project[] = [
 
 const FILTERS = [
   { id: "all",      label: "All" },
-  { id: "websites", label: "Websites" },
-  { id: "ai",       label: "AI & Automation" },
-  { id: "graphics", label: "Graphics & Branding" },
-  { id: "mobile",   label: "Mobile Apps" },
+  { id: "websites", label: "Website" },
+  { id: "mobile",   label: "Mobile App" },
+  { id: "ai",       label: "AI / Automation" },
 ] as const;
 
 const CAT_LABELS: Record<string, string> = {
-  websites: "Websites",
-  ai: "AI & Automation",
-  graphics: "Graphics & Branding",
-  mobile: "Mobile Apps",
+  websites: "Website",
+  ai: "AI / Automation",
+  graphics: "Design",
+  mobile: "Mobile App",
 };
 
 export default function ProjectsPage() {
@@ -132,7 +131,7 @@ export default function ProjectsPage() {
           marginBottom: 28, fontFamily: "ui-monospace, monospace",
         }}>
           <span style={{
-            width: 7, height: 7, borderRadius: "50%", background: "#e8643c",
+            width: 7, height: 7, borderRadius: "50%", background: "#00897B",
             display: "inline-block", animation: "blink 2s ease-in-out infinite",
           }} />
           {PROJECTS.length}+ projects delivered
@@ -144,7 +143,7 @@ export default function ProjectsPage() {
           margin: 0,
         }}>
           Our work speaks{" "}
-          <span style={{ color: "#e8643c" }}>for itself.</span>
+          <span style={{ color: "#00897B" }}>for itself.</span>
         </h1>
         <p style={{
           fontSize: 17, color: "#71717a",
@@ -224,7 +223,7 @@ export default function ProjectsPage() {
                 />
               </div>
               <div style={{ padding: 20, flex: 1, display: "flex", flexDirection: "column" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#e8643c", letterSpacing: "1.1px", textTransform: "uppercase", marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "1.1px", textTransform: "uppercase", marginBottom: 8 }}>
                   {CAT_LABELS[p.cat]}
                 </div>
                 <h3 style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c", lineHeight: 1.2, margin: 0 }}>
@@ -240,7 +239,7 @@ export default function ProjectsPage() {
                     </span>
                   ))}
                 </div>
-                <div style={{ display: "inline-flex", alignItems: "center", gap: 5, marginTop: 12, fontSize: 12, fontWeight: 600, color: "#e8643c" }}>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 5, marginTop: 12, fontSize: 12, fontWeight: 600, color: "#00897B" }}>
                   {p.demo ? "View live demo →" : "View project →"}
                 </div>
               </div>
@@ -260,7 +259,7 @@ export default function ProjectsPage() {
         </h2>
         <Link href="/contact" style={{
           display: "inline-flex", alignItems: "center", marginTop: 24,
-          padding: "14px 32px", background: "#e8643c", color: "#fff",
+          padding: "14px 32px", background: "#00897B", color: "#fff",
           borderRadius: 9999, fontSize: 15, fontWeight: 600, textDecoration: "none",
           transition: "transform 0.2s, background 0.2s",
         }}
@@ -314,7 +313,7 @@ export default function ProjectsPage() {
             </div>
 
             <div style={{ padding: 32 }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "#e8643c", letterSpacing: "1.1px", textTransform: "uppercase", marginBottom: 10 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "1.1px", textTransform: "uppercase", marginBottom: 10 }}>
                 {CAT_LABELS[modal.cat]}
               </div>
               <h2 style={{ fontSize: "clamp(22px, 3vw, 30px)", fontWeight: 700, letterSpacing: "-0.6px", color: "#17171c", margin: 0 }}>
@@ -333,12 +332,12 @@ export default function ProjectsPage() {
               {modal.demo ? (
                 <Link href={modal.demo} target="_blank" rel="noopener noreferrer" style={{
                   display: "inline-flex", alignItems: "center", gap: 8, marginTop: 24,
-                  padding: "13px 22px", background: "#e8643c", color: "#fff",
+                  padding: "13px 22px", background: "#00897B", color: "#fff",
                   borderRadius: 9999, fontSize: 14, fontWeight: 600, textDecoration: "none",
                   transition: "background 0.2s, transform 0.2s",
                 }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#d05528"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "#e8643c"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "#00897B"; }}
                 >
                   View Live Demo →
                 </Link>

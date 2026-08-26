@@ -5,32 +5,37 @@ const STEPS = [
   {
     n: "01",
     num: 1,
-    title: "Discovery call",
-    desc: "We learn your business, your goals, and what you need built. 30 minutes. No sales pitch.",
+    title: "Discover",
+    subtitle: "Understand your goals.",
+    desc: "We learn about your business, challenges, audience, and objectives to identify exactly what needs to be improved, built, or automated.",
   },
   {
     n: "02",
     num: 2,
-    title: "Proposal & scope",
-    desc: "Fixed price. Fixed timeline. Exact deliverables. No surprises.",
+    title: "Strategize",
+    subtitle: "Build the right roadmap.",
+    desc: "We recommend the right combination of technology, design, AI, automation, or digital marketing — with a clear scope, timeline, and investment.",
   },
   {
     n: "03",
     num: 3,
-    title: "Design & build",
-    desc: "We design in Figma, build in code, and update you every step of the way.",
+    title: "Build & Launch",
+    subtitle: "Turn the strategy into reality.",
+    desc: "Our team designs, develops, integrates, and implements your solution while keeping you updated throughout the process.",
   },
   {
     n: "04",
     num: 4,
-    title: "Review & refine",
-    desc: "You get unlimited revisions on the agreed scope until it's exactly right.",
+    title: "Test & Optimize",
+    subtitle: "Refine everything that matters.",
+    desc: "We test, review, measure, and improve the solution to make sure it performs smoothly and delivers against your goals.",
   },
   {
     n: "05",
     num: 5,
-    title: "Launch & hand off",
-    desc: "We deploy, train your team, and hand you the full source code.",
+    title: "Scale & Support",
+    subtitle: "Launch with confidence.",
+    desc: "We deploy your solution, help your team get started, and provide ongoing support so your technology can grow with your business.",
   },
 ];
 
@@ -89,7 +94,7 @@ export function TrustedBrands() {
     >
       <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
         <span style={{
-          display: "block", fontSize: 11, fontWeight: 700, color: "#e8643c",
+          display: "block", fontSize: 11, fontWeight: 700, color: "#00897B",
           letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14,
         }}>
           How it works
@@ -98,8 +103,8 @@ export function TrustedBrands() {
           fontSize: "clamp(36px, 4.5vw, 60px)", fontWeight: 700,
           letterSpacing: "-1.44px", lineHeight: 1.05, color: "#17171c",
         }}>
-          From idea to live in<br />
-          <span style={{ color: "#e8643c" }}>5 steps.</span>
+          From your goal to real results in{" "}
+          <span style={{ color: "#16a34a" }}>5 steps.</span>
         </h2>
 
         <div className="bw-steps-grid" style={{
@@ -119,7 +124,7 @@ export function TrustedBrands() {
                 transition: "border-color 0.25s",
                 willChange: "transform",
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#e8643c"; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#00897B"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#17171c"; }}
             >
               <span
@@ -128,12 +133,12 @@ export function TrustedBrands() {
               >
                 {s.n}
               </span>
-              <h3 style={{
-                fontSize: 18, fontWeight: 700, letterSpacing: "-0.4px",
-                marginTop: 24, color: "#17171c",
-              }}>
+              <h3 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.4px", marginTop: 24, color: "#17171c" }}>
                 {s.title}
               </h3>
+              <p style={{ fontSize: 13, fontWeight: 600, color: "#16a34a", marginTop: 4 }}>
+                {s.subtitle}
+              </p>
               <p style={{ color: "#71717a", fontSize: 13, marginTop: 6, lineHeight: 1.63 }}>
                 {s.desc}
               </p>

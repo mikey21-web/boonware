@@ -1,12 +1,106 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams, notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
-import { getServiceBySlug, SERVICES_DETAIL } from "@/lib/services-data";
+import { getServiceBySlug, SERVICES_DETAIL, SubService } from "@/lib/services-data";
 import Image from "next/image";
 import Link from "next/link";
+
+const FEATURED_WEB_PROJECTS = [
+  {
+    name: "Pokhraj Jewellers",
+    category: "Jewellery E-Commerce",
+    img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+    result: "Luxury jewellery store with product catalog, WhatsApp inquiry, and heritage storytelling. 40% lift in online inquiries within 30 days of launch.",
+  },
+  {
+    name: "Trippy Tour",
+    category: "Travel & Tourism",
+    img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
+    result: "Tour package booking platform with custom itineraries, real-time availability, and destination guides. 3× increase in qualified booking leads.",
+  },
+  {
+    name: "Al Hayat Constructions",
+    category: "Real Estate & Construction",
+    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
+    result: "Corporate real estate portal with project showcases, team profiles, and inquiry funnels. Launched across Dubai and Mumbai markets.",
+  },
+];
+
+const TESTIMONIALS = [
+  {
+    name: "Rohit K.",
+    role: "Founder, Pokhraj Jewellers",
+    text: "BoonWare built our online store exactly as we envisioned. The website is fast, looks premium, and has genuinely increased our WhatsApp inquiries. Our customers love the experience.",
+    rating: 5,
+  },
+  {
+    name: "Aisha M.",
+    role: "Director, Al Hayat Constructions",
+    text: "We needed a corporate website that matched our brand. BoonWare delivered in 3 weeks — clean, professional, and mobile-perfect. The team was responsive and thorough throughout.",
+    rating: 5,
+  },
+  {
+    name: "Siddharth R.",
+    role: "CEO, Quantraz",
+    text: "From design to deployment, BoonWare handled everything seamlessly. We got full source code ownership, it runs fast, and the post-launch support has been solid.",
+    rating: 5,
+  },
+];
+
+function StarIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>
+  );
+}
+
+function SubServiceCard({ sub }: { sub: SubService }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      style={{ background: "#ffffff", border: "1px solid #e4e4e7", borderRadius: 16, padding: "24px", display: "flex", flexDirection: "column", transition: "box-shadow 0.25s, transform 0.25s" }}
+      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
+      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+    >
+      <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(0,137,123,0.1)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16, flexShrink: 0 }}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00897B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 16, fontWeight: 700, color: "#17171c", margin: "0 0 8px", letterSpacing: "-0.02em", lineHeight: 1.3 }}>{sub.title}</h3>
+      {sub.tagline && <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#71717a", lineHeight: 1.65, margin: "0 0 16px", flex: 1 }}>{sub.tagline}</p>}
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "none", border: "none", borderTop: "1px solid #f0f0f0", padding: "12px 0 0", cursor: "pointer", width: "100%", fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: "#17171c", marginBottom: open ? 12 : 16 }}
+      >
+        <span>View Details</span>
+        <span style={{ fontSize: 14, transition: "transform 0.2s", display: "inline-block", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
+      </button>
+      {open && (
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10 }}>What we offer:</div>
+          <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+            {sub.bullets.map((b, i) => (
+              <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#17171c", lineHeight: 1.55, marginBottom: 6 }}>
+                <span style={{ color: "#00897B", flexShrink: 0, marginTop: 1 }}>→</span>{b}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <a
+        href="https://wa.me/919076269629"
+        style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "#00897B", color: "#fff", borderRadius: 9999, padding: "10px 18px", fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, textDecoration: "none", transition: "opacity 0.2s", marginTop: "auto" }}
+        onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.85"}
+        onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
+      >Book Appointment →</a>
+    </div>
+  );
+}
 
 export default function ServiceDetailPage() {
   const params = useParams();
@@ -115,7 +209,7 @@ export default function ServiceDetailPage() {
               <p style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 11,
-                color: "#e8643c",
+                color: "#00897B",
                 textTransform: "uppercase",
                 letterSpacing: "0.12em",
                 marginBottom: 20,
@@ -125,15 +219,18 @@ export default function ServiceDetailPage() {
               <div style={{ overflow: "hidden", marginBottom: 4 }}>
                 <h1 className="hd-line" style={{
                   fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: "clamp(36px, 5.5vw, 72px)",
+                  fontSize: "clamp(30px, 4.5vw, 60px)",
                   fontWeight: 700,
                   color: "#ffffff",
-                  letterSpacing: "-0.04em",
-                  lineHeight: 1.05,
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1.1,
                   margin: 0,
                   transform: "translateY(110%)",
                   display: "block",
-                }}>{svc.title}</h1>
+                }}>
+                  {svc.ready.before}
+                  <span style={{ color: "#00897B" }}>{svc.ready.green}</span>
+                </h1>
               </div>
 
               <p className="hd-sub" style={{
@@ -148,7 +245,7 @@ export default function ServiceDetailPage() {
               <div className="hd-sub" style={{ display: "flex", gap: 10, flexWrap: "wrap", opacity: 0 }}>
                 <a href="https://wa.me/919076269629" style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "#e8643c", color: "#fff",
+                  background: "#00897B", color: "#fff",
                   borderRadius: 9999, padding: "14px 30px",
                   fontFamily: "'Inter', sans-serif", fontSize: 15, fontWeight: 600,
                   textDecoration: "none", transition: "opacity 0.2s",
@@ -189,7 +286,7 @@ export default function ServiceDetailPage() {
 
       {/* ── PRICE PILL ── */}
       <div style={{
-        background: "#e8643c",
+        background: "#00897B",
         padding: "20px clamp(20px, 5vw, 80px)",
         display: "flex",
         alignItems: "center",
@@ -242,7 +339,7 @@ export default function ServiceDetailPage() {
               <p style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 11,
-                color: "#e8643c",
+                color: "#00897B",
                 textTransform: "uppercase",
                 letterSpacing: "0.12em",
                 marginBottom: 16,
@@ -288,7 +385,7 @@ export default function ServiceDetailPage() {
                     marginTop: 2,
                   }}>
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="#e8643c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M1 4L3.5 6.5L9 1" stroke="#00897B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <span style={{
@@ -313,7 +410,7 @@ export default function ServiceDetailPage() {
           <p style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: 11,
-            color: "#e8643c",
+            color: "#00897B",
             textTransform: "uppercase",
             letterSpacing: "0.12em",
             marginBottom: 16,
@@ -353,7 +450,7 @@ export default function ServiceDetailPage() {
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: 11,
                   fontWeight: 700,
-                  color: "#e8643c",
+                  color: "#00897B",
                   letterSpacing: "0.06em",
                   marginBottom: 28,
                 }}>{step.n}</div>
@@ -376,7 +473,7 @@ export default function ServiceDetailPage() {
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 11,
                   fontWeight: 600,
-                  color: "#e8643c",
+                  color: "#00897B",
                   background: "rgba(232,100,60,0.08)",
                   display: "inline-block",
                   padding: "3px 10px",
@@ -390,7 +487,7 @@ export default function ServiceDetailPage() {
                     transform: "translateY(-50%)",
                     width: 18,
                     height: 18,
-                    background: "#e8643c",
+                    background: "#00897B",
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
@@ -406,6 +503,205 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
+      {/* ── WHAT WE OFFER (Sub-service cards) ── */}
+      <section style={{
+        padding: "clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px)",
+        background: "#f7f8f4",
+      }}>
+        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 11,
+            color: "#00897B",
+            textTransform: "uppercase",
+            letterSpacing: "0.12em",
+            marginBottom: 16,
+            fontWeight: 600,
+          }}>Everything we do</p>
+          <h2 style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            fontSize: "clamp(26px, 3.5vw, 44px)",
+            fontWeight: 700,
+            color: "#17171c",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.15,
+            margin: "0 0 48px",
+          }}>
+            Complete digital firepower.<br />
+            <span style={{ color: "#00897B" }}>One trusted team.</span>
+          </h2>
+
+          {/* Location cards — only for Production Shooting */}
+          {svc.locations && (
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+              gap: 16,
+              marginBottom: 40,
+            }}>
+              {svc.locations.map(loc => (
+                <div key={loc.country} style={{
+                  background: "linear-gradient(135deg, #00897B 0%, #006b61 100%)",
+                  borderRadius: 16,
+                  padding: "32px 28px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 16,
+                }}>
+                  <span style={{ fontSize: 40 }}>{loc.flag}</span>
+                  <div>
+                    <div style={{
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontSize: 22,
+                      fontWeight: 700,
+                      color: "#fff",
+                      letterSpacing: "-0.03em",
+                    }}>{loc.country}</div>
+                    <div style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: 13,
+                      color: "rgba(255,255,255,0.7)",
+                      marginTop: 2,
+                    }}>{loc.city}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Sub-service cards grid */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: 16,
+          }}>
+            {svc.subServices.map((sub) => (
+              <SubServiceCard key={sub.title} sub={sub} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── REAL WORK (web-development only) ── */}
+      {slug === "web-development" && (
+        <section style={{
+          padding: "clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px)",
+          background: "#ffffff",
+        }}>
+          <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: 11,
+              color: "#00897B",
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              marginBottom: 16,
+              fontWeight: 600,
+            }}>Our Work</p>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 40, flexWrap: "wrap", gap: 16 }}>
+              <h2 style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: "clamp(26px, 3.5vw, 44px)",
+                fontWeight: 700,
+                color: "#17171c",
+                letterSpacing: "-0.03em",
+                lineHeight: 1.15,
+                margin: 0,
+              }}>Real work. Real results.</h2>
+              <Link href="/projects" style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 14,
+                color: "#17171c",
+                textDecoration: "none",
+                borderBottom: "1px solid rgba(0,0,0,0.2)",
+                paddingBottom: 2,
+              }}>See all projects →</Link>
+            </div>
+            <div className="three-col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+              {FEATURED_WEB_PROJECTS.map(p => (
+                <div key={p.name}
+                  style={{ border: "1px solid #e4e4e7", borderRadius: 16, overflow: "hidden", transition: "box-shadow 0.25s, transform 0.25s" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+                >
+                  <div style={{ height: 200, overflow: "hidden" }}>
+                    <img src={p.img} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.4s" }}
+                      onMouseEnter={e => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)"}
+                      onMouseLeave={e => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"}
+                    />
+                  </div>
+                  <div style={{ padding: "20px 24px" }}>
+                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 8 }}>{p.category}</div>
+                    <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 20, fontWeight: 700, color: "#17171c", letterSpacing: "-0.02em", margin: "0 0 10px" }}>{p.name}</h3>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#71717a", lineHeight: 1.65, margin: 0 }}>{p.result}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── TESTIMONIALS (web-development only) ── */}
+      {slug === "web-development" && (
+        <section style={{
+          padding: "clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px)",
+          background: "#17171c",
+        }}>
+          <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: 11,
+              color: "#00897B",
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              marginBottom: 16,
+              fontWeight: 600,
+            }}>Client Stories</p>
+            <h2 style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: "clamp(26px, 3.5vw, 44px)",
+              fontWeight: 700,
+              color: "#ffffff",
+              letterSpacing: "-0.03em",
+              lineHeight: 1.15,
+              margin: "0 0 48px",
+            }}>
+              What our clients say.
+            </h2>
+            <div className="three-col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+              {TESTIMONIALS.map((t, i) => (
+                <div key={i} style={{
+                  background: "#111116",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  borderRadius: 16,
+                  padding: "28px 24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 16,
+                }}>
+                  <div style={{ display: "flex", gap: 4 }}>
+                    {Array.from({ length: t.rating }).map((_, si) => <StarIcon key={si} />)}
+                  </div>
+                  <p style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: 15,
+                    color: "rgba(255,255,255,0.75)",
+                    lineHeight: 1.75,
+                    margin: 0,
+                    flex: 1,
+                  }}>&ldquo;{t.text}&rdquo;</p>
+                  <div>
+                    <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 15, fontWeight: 700, color: "#ffffff", letterSpacing: "-0.02em" }}>{t.name}</div>
+                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 3 }}>{t.role}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── ROI / HOW IT MAKES MONEY ── */}
       <section
         ref={roiRef}
@@ -420,7 +716,7 @@ export default function ServiceDetailPage() {
               <p style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 11,
-                color: "#e8643c",
+                color: "#00897B",
                 textTransform: "uppercase",
                 letterSpacing: "0.12em",
                 marginBottom: 16,
@@ -453,7 +749,7 @@ export default function ServiceDetailPage() {
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 11,
-                  color: "#e8643c",
+                  color: "#00897B",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   marginBottom: 10,
@@ -487,7 +783,7 @@ export default function ServiceDetailPage() {
                     fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "clamp(32px, 4vw, 48px)",
                     fontWeight: 700,
-                    color: "#e8643c",
+                    color: "#00897B",
                     letterSpacing: "-0.03em",
                     lineHeight: 1,
                     marginBottom: 8,
@@ -513,7 +809,7 @@ export default function ServiceDetailPage() {
           <p style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: 11,
-            color: "#e8643c",
+            color: "#00897B",
             textTransform: "uppercase",
             letterSpacing: "0.12em",
             marginBottom: 16,
@@ -578,7 +874,7 @@ export default function ServiceDetailPage() {
                     borderBottom: i < svc.price.includes.length - 1 ? "1px solid #f5f5f5" : "none",
                   }}>
                     <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
-                      <path d="M1.5 5.5L5 9L12.5 1.5" stroke="#e8643c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M1.5 5.5L5 9L12.5 1.5" stroke="#00897B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#17171c" }}>{item}</span>
                   </div>
@@ -611,7 +907,7 @@ export default function ServiceDetailPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 <a href="https://wa.me/919076269629" style={{
                   display: "inline-flex", alignItems: "center", justifyContent: "center",
-                  background: "#e8643c", color: "#fff",
+                  background: "#00897B", color: "#fff",
                   borderRadius: 9999, padding: "16px 32px",
                   fontFamily: "'Inter', sans-serif", fontSize: 15, fontWeight: 700,
                   textDecoration: "none", transition: "opacity 0.2s",
@@ -645,7 +941,7 @@ export default function ServiceDetailPage() {
           <p style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: 11,
-            color: "#e8643c",
+            color: "#00897B",
             textTransform: "uppercase",
             letterSpacing: "0.12em",
             marginBottom: 16,

@@ -60,7 +60,7 @@ export function QuickContactModal({ open, onClose }: Props) {
 
         {!sent ? (
           <>
-            <span style={{ fontSize: 11, fontWeight: 700, color: "#e8643c", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+            <span style={{ fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.12em", textTransform: "uppercase" }}>
               Quick inquiry
             </span>
             <h2 style={{ fontSize: 26, fontWeight: 700, letterSpacing: "-0.6px", color: "#17171c", margin: "10px 0 6px" }}>
@@ -109,7 +109,7 @@ export function QuickContactModal({ open, onClose }: Props) {
                 transition: "background 0.2s",
                 fontFamily: "inherit",
               }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#e8643c")}
+                onMouseEnter={e => (e.currentTarget.style.background = "#00897B")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#17171c")}
               >
                 Send via WhatsApp →

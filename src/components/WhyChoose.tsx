@@ -19,8 +19,8 @@ const GOALS = [
   {
     id: "build",
     q: "How do I launch my app idea?",
-    solution: "Full-stack web app or mobile app, fixed price",
-    desc: "From MVP to full product — we design, build and launch your app with clean code, fixed price, and source code that's yours to keep.",
+    solution: "Full-stack web app or mobile app",
+    desc: "From MVP to full product — we design, build and launch your app with clean code and ship it fast.",
     tags: ["Web App", "Mobile App", "API", "Dashboard"],
   },
   {
@@ -88,14 +88,14 @@ export default function WhyChoose() {
     <section ref={sectionRef} style={{ background: "#ffffff", borderTop: "1px solid #e4e4e7", borderBottom: "1px solid #e4e4e7", padding: "96px 0", fontFamily: "'Inter', sans-serif" }}>
       <div style={{ width: "min(1180px, calc(100% - 40px))", margin: "0 auto" }}>
 
-        <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#e8643c", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
+        <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
           Start with your goal
         </span>
         <h2 style={{ fontSize: "clamp(28px, 4.5vw, 56px)", fontWeight: 700, letterSpacing: "-1.2px", lineHeight: 1.07, color: "#17171c", maxWidth: 600 }}>
-          What are you trying to <span style={{ color: "#e8643c" }}>fix?</span>
+          What do you want to <span style={{ color: "#00897B" }}>achieve?</span>
         </h2>
         <p style={{ color: "#71717a", fontSize: 16, lineHeight: 1.65, maxWidth: 500, marginTop: 14 }}>
-          Pick your goal — we'll show you exactly what to build.
+          Tell us your goal — We'll show you the technology to get there.
         </p>
 
         <div className="disc-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12, marginTop: 44 }}>

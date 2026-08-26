@@ -2,10 +2,10 @@
 import { useEffect, useRef } from "react";
 
 const STATS = [
-  { target: 243, suffix: "+", label: "Projects delivered" },
-  { target: 100, suffix: "+", label: "Businesses powered" },
-  { target: 10,  suffix: "+", label: "Industries served" },
-  { target: 5,   suffix: "",  label: "Countries active" },
+  { target: 265, suffix: "+", label: "Projects", labelHighlight: "Completed" },
+  { target: 100, suffix: "+", label: "Businesses powered", labelHighlight: "" },
+  { target: 15,  suffix: "+", label: "Industries served", labelHighlight: "" },
+  { target: 9,   suffix: "",  label: "Countries", labelHighlight: "" },
 ];
 
 export default function Stats() {
@@ -87,7 +87,9 @@ export default function Stats() {
                 marginTop: 4,
                 fontWeight: 500,
               }}>
-                {s.label}
+                {s.label}{s.labelHighlight && (
+                  <strong style={{ color: "#4ade80", fontWeight: 700 }}> {s.labelHighlight}</strong>
+                )}
               </div>
             </div>
           ))}
