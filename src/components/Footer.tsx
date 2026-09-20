@@ -132,6 +132,7 @@ export function Footer() {
           userSelect: "none",
           lineHeight: 1,
           overflow: "hidden",
+          textAlign: "center",
         }}>
           BOONWARE
         </div>
