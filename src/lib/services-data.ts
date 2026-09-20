@@ -248,6 +248,21 @@ export const SERVICES_DETAIL: ServiceDetail[] = [
     ],
     subServices: [
       {
+        title: "Native iOS App Development",
+        tagline: "Premium Swift-built iPhone and iPad apps crafted for unmatched performance, fluid animations, and App Store approval.",
+        bullets: ["Swift & SwiftUI for native iOS performance and modern UI", "Full App Store submission, screenshots, and metadata handling", "Deep iOS integrations: Face ID, Siri, Apple Pay, HealthKit, ARKit", "Push notifications, background sync, and offline-first architecture", "iPhone, iPad, and Apple Watch multi-device support", "Complete source code ownership with documented handover"],
+      },
+      {
+        title: "Native Android App Development",
+        tagline: "Kotlin-powered Android apps built for the full diversity of Android devices — fast, stable, and Google Play ready.",
+        bullets: ["Kotlin & Jetpack Compose for modern, declarative Android UI", "Google Play Store submission with full listing optimization", "Deep Android integrations: biometrics, NFC, Google Pay, Firebase", "Material Design 3 compliance for consistent, polished UX", "Multi-screen size support across phones, tablets, and foldables", "ProGuard obfuscation and secure APK/AAB delivery"],
+      },
+      {
+        title: "Cross-Platform App Development",
+        tagline: "One React Native codebase delivering native-quality apps on both iOS and Android — half the cost, both platforms.",
+        bullets: ["Single codebase deployed simultaneously to App Store and Play Store", "Near-native performance with React Native's bridge architecture", "Shared business logic, APIs, and UI components across platforms", "Platform-specific UI polish respecting iOS and Android design conventions", "Over-the-air (OTA) updates via Expo without App Store re-submission", "60%+ cost saving vs building two separate native apps"],
+      },
+      {
         title: "E-Commerce & M-Commerce Apps",
         tagline: "Conversion-focused mobile storefronts designed to drive recurring mobile purchases and increase average order value.",
         bullets: ["Frictionless 1-tap checkout (Apple Pay, Google Pay, Cards, Wallets)", "Real-time inventory syncing with Shopify, WooCommerce, or custom backends", "Push notifications for flash sales, order tracking, and abandoned carts", "Personalized product recommendations and visual search", "Wishlists, customer loyalty points, and coupon redemption systems", "Integrated barcode/QR scanners for in-store and delivery workflows"],
