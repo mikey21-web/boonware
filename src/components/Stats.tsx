@@ -11,7 +11,6 @@ const STATS = [
 export default function Stats() {
   const refs = useRef<(HTMLDivElement | null)[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const dividerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const run = async () => {
@@ -33,58 +32,48 @@ export default function Stats() {
           scrollTrigger: { trigger: el, start: "top 85%", once: true },
         });
       });
-
-      // Horizontal divider line grows from 0 to 100%
-      if (dividerRef.current) {
-        gsap.fromTo(dividerRef.current,
-          { scaleX: 0, transformOrigin: "left center" },
-          {
-            scaleX: 1, duration: 1.2, ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 85%", once: true },
-          }
-        );
-      }
     };
     run();
   }, []);
 
   return (
     <div ref={sectionRef} style={{
-      background: "#1d1916",
+      background: "#000000",
       color: "#fff",
-      padding: "28px 0",
+      padding: "36px 0",
       fontFamily: "'Inter', sans-serif",
     }}>
-      {/* Horizontal divider line */}
-      <div ref={dividerRef} style={{ height: 1, background: "rgba(255,255,255,0.08)", willChange: "transform" }} />
-      <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
+      <div style={{ width: "min(1300px, 94%)", margin: "0 auto" }}>
         <div className="bw-stats-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "24px 16px",
+          alignItems: "center",
         }}>
           {STATS.map((s, i) => (
             <div
               key={i}
               style={{
-                borderLeft: i === 0 ? "none" : "1px solid rgba(255,255,255,0.07)",
-                paddingLeft: i === 0 ? 0 : 28,
+                textAlign: "center",
+                padding: "0 12px",
               }}
             >
               <div
                 ref={el => { refs.current[i] = el; }}
                 style={{
-                  fontSize: 38,
-                  fontWeight: 700,
+                  fontSize: 42,
+                  fontWeight: 800,
                   letterSpacing: "-1px",
                   lineHeight: 1,
+                  color: "#ffffff",
                 }}
               >
                 0{s.suffix}
               </div>
               <div style={{
-                fontSize: 12,
-                color: "rgba(255,255,255,0.35)",
-                marginTop: 4,
+                fontSize: 14,
+                color: "rgba(255,255,255,0.6)",
+                marginTop: 6,
                 fontWeight: 500,
               }}>
                 {s.label}{s.labelHighlight && (
@@ -98,3 +87,4 @@ export default function Stats() {
     </div>
   );
 }
+
