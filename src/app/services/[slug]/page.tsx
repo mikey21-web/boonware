@@ -270,49 +270,8 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
-      {/* ── PRICE PILL ── */}
-      <div style={{
-        background: "#00897B",
-        padding: "20px clamp(20px, 5vw, 80px)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        gap: 16,
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <span style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 13,
-            color: "rgba(255,255,255,0.75)",
-            fontWeight: 500,
-          }}>Starting from</span>
-          <span style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: "clamp(28px, 4vw, 44px)",
-            fontWeight: 700,
-            color: "#ffffff",
-            letterSpacing: "-0.03em",
-            lineHeight: 1,
-          }}>{svc.price.from}</span>
-          <span style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 13,
-            color: "rgba(255,255,255,0.65)",
-          }}>{svc.price.note}</span>
-        </div>
-        <a href="https://wa.me/919076269629" style={{
-          display: "inline-flex", alignItems: "center",
-          background: "#fff", color: "#17171c",
-          borderRadius: 9999, padding: "12px 28px",
-          fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700,
-          textDecoration: "none", whiteSpace: "nowrap" as const,
-          transition: "opacity 0.2s",
-        }}
-          onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.88"}
-          onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
-        >Start this project →</a>
-      </div>
+
+
 
       {/* ── WHAT WE BUILD ── */}
       <section style={{
