@@ -5,7 +5,7 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer style={{ background: "#e8f5f0", fontFamily: "'Inter', sans-serif", borderTop: "1px solid rgba(0,137,123,0.2)" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "clamp(28px, 3.5vw, 48px) clamp(24px, 4vw, 56px)" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(28px, 3.5vw, 48px) clamp(16px, 3vw, 32px)" }}>
 
         {/* Top 3-column grid: Left (BoonWare), Middle (Links), Right (More Resources) */}
         <div className="footer-grid" style={{
@@ -16,17 +16,14 @@ export function Footer() {
           alignItems: "flex-start",
         }}>
 
-          {/* Left Section: BoonWare branding, contact, subscribe, socials */}
+          {/* Left Section: BoonWare branding, subscribe, socials */}
           <div style={{ justifySelf: "start" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
               <Image src="/assets/icon_logo-CTOVYnVL.png" alt="BoonWare" width={32} height={32} style={{ display: "block" }} />
               <span style={{ fontSize: 24, fontWeight: 800, color: "#17171c", letterSpacing: "-0.03em" }}>BoonWare</span>
             </div>
 
-            <div style={{ fontSize: 13, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700, marginBottom: 6 }}>Contact us at</div>
-            <a href="mailto:info@boonware.in" style={{ fontSize: 17, color: "#17171c", textDecoration: "none", fontWeight: 600, display: "inline-block", marginBottom: 16 }}>info@boonware.in</a>
-
-            <form action="mailto:info@boonware.in" method="post" style={{ display: "flex", gap: 8, marginBottom: 18, flexWrap: "wrap" }}>
+            <form action="mailto:info@boonware.in" method="post" style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
               <input
                 type="email" name="email" required placeholder="Enter your email address"
                 style={{
