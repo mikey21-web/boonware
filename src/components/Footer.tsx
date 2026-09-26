@@ -7,17 +7,17 @@ export function Footer() {
     <footer style={{ background: "#e8f5f0", fontFamily: "'Inter', sans-serif", borderTop: "1px solid rgba(0,137,123,0.2)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(28px, 3.5vw, 48px) clamp(20px, 3.5vw, 48px)" }}>
 
-        {/* Top 3-column grid with aligned column starting points */}
+        {/* Top 3-column layout: Left corner (BoonWare), Centre (Links), Right corner (More Resources) */}
         <div className="footer-grid" style={{
           display: "grid",
-          gridTemplateColumns: "1.3fr 1fr 1fr",
-          gap: "0 48px",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          gap: "0 24px",
           marginBottom: 32,
           alignItems: "flex-start",
         }}>
 
-          {/* Left Section: BoonWare branding, subscribe, socials */}
-          <div style={{ textAlign: "left" }}>
+          {/* Left Corner: BoonWare branding, subscribe, socials */}
+          <div style={{ justifySelf: "start" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
               <Image src="/assets/icon_logo-CTOVYnVL.png" alt="BoonWare" width={32} height={32} style={{ display: "block" }} />
               <span style={{ fontSize: 24, fontWeight: 800, color: "#17171c", letterSpacing: "-0.03em" }}>BoonWare</span>
@@ -60,8 +60,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Middle Section: Links */}
-          <div style={{ textAlign: "left" }}>
+          {/* Centre: Links */}
+          <div style={{ justifySelf: "center" }}>
             <div style={{ fontSize: 14, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700, marginBottom: 14 }}>Links</div>
             {[["Home", "/"], ["About Us", "/about"], ["Services", "/services"], ["Our Work", "/projects"], ["Products", "/products"]].map(([l, href]) => (
               <Link key={l} href={href} style={{ display: "block", color: "#333", fontSize: 15, fontWeight: 500, textDecoration: "none", marginBottom: 10, transition: "color 0.2s" }}
@@ -71,8 +71,8 @@ export function Footer() {
             ))}
           </div>
 
-          {/* Right Section: More Resources */}
-          <div style={{ textAlign: "left" }}>
+          {/* Right Corner: More Resources */}
+          <div style={{ justifySelf: "end" }}>
             <div style={{ fontSize: 14, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700, marginBottom: 14 }}>More Resources</div>
             {[["Blogs", "/blogs"], ["Terms & Conditions", "/terms-and-conditions"], ["Privacy Policy", "/privacy-policy"], ["Refund Policy", "/refund-policy"]].map(([l, href]) => (
               <Link key={l} href={href} style={{ display: "block", color: "#333", fontSize: 15, fontWeight: 500, textDecoration: "none", marginBottom: 10, transition: "color 0.2s" }}
