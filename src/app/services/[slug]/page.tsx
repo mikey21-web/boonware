@@ -190,20 +190,7 @@ export default function ServiceDetailPage() {
         }} />
 
         <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-            <Link href="/services" style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 13,
-              color: "#71717a",
-              textDecoration: "none",
-              transition: "color 0.2s",
-            }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#17171c"}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#71717a"}
-            >← All services</Link>
-            <span style={{ color: "#d4d4d8", fontSize: 13 }}>/</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#17171c", fontWeight: 600 }}>{svc.title}</span>
-          </div>
+
 
           <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 6vw, 80px)", alignItems: "center" }}>
             <div>
