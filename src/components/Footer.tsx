@@ -46,6 +46,14 @@ export function Footer() {
               >Subscribe</button>
             </form>
 
+            <div style={{ marginBottom: 16 }}>
+              <div style={{ fontSize: 13, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700, marginBottom: 4 }}>Contact Us</div>
+              <a href="mailto:info@boonware.in" style={{ fontSize: 15, color: "#17171c", fontWeight: 600, textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#00897B")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#17171c")}
+              >info@boonware.in</a>
+            </div>
+
             <div>
               <div style={{ fontSize: 13, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700, marginBottom: 8 }}>Follow us</div>
               <div style={{ display: "flex", gap: 16 }}>
