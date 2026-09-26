@@ -91,7 +91,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav links */}
-          <div className="bw-nav-links" style={{ display: "flex", gap: 2, marginLeft: 16, alignItems: "center" }}>
+          <div className="bw-nav-links" style={{ display: "flex", flex: 1, justifyContent: "space-evenly", alignItems: "center", margin: "0 16px" }}>
             {NAV_LINKS.map(({ href, label, dropdown }) =>
               dropdown ? (
                 <div key={href} ref={dropdownRef} style={{ position: "relative" }}>
@@ -131,7 +131,7 @@ export default function Navbar() {
 
           {/* CTA */}
           <button onClick={() => setModalOpen(true)} className="bw-cta-btn"
-            style={{ background: "#e8643c", color: "#fff", padding: "0 16px", borderRadius: 9999, fontSize: 13, fontWeight: 600, height: 38, display: "inline-flex", alignItems: "center", marginLeft: "auto", flexShrink: 0, border: "none", cursor: "pointer", transition: "background 0.2s", whiteSpace: "nowrap", fontFamily: "inherit" }}
+            style={{ background: "#e8643c", color: "#fff", padding: "0 16px", borderRadius: 9999, fontSize: 13, fontWeight: 600, height: 38, display: "inline-flex", alignItems: "center", flexShrink: 0, border: "none", cursor: "pointer", transition: "background 0.2s", whiteSpace: "nowrap", fontFamily: "inherit" }}
             onMouseEnter={e => { e.currentTarget.style.background = "#17171c"; }}
             onMouseLeave={e => { e.currentTarget.style.background = "#e8643c"; }}>
             Get Started →
