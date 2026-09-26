@@ -48,54 +48,7 @@ export function WhatsAppFloat() {
         </svg>
       </a>
 
-      {/* Left side — Email */}
-      <a
-        href="mailto:info@boonware.in"
-        aria-label="Send an email"
-        style={{
-          position: "fixed",
-          bottom: 28,
-          left: 24,
-          zIndex: 500,
-          width: 68,
-          height: 68,
-          borderRadius: "50%",
-          background: "#EA4335",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 4px 20px rgba(234,67,53,0.45)",
-          transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s",
-          textDecoration: "none",
-        }}
-        onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.transform = "scale(1.12)";
-          (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 28px rgba(234,67,53,0.65)";
-        }}
-        onMouseLeave={e => {
-          (e.currentTarget as HTMLElement).style.transform = "scale(1)";
-          (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(234,67,53,0.45)";
-        }}
-      >
-        {/* Pulse ring */}
-        <span style={{
-          position: "absolute",
-          inset: 0,
-          borderRadius: "50%",
-          background: "rgba(234,67,53,0.35)",
-          animation: "float-pulse 2.2s ease-out infinite 0.5s",
-          pointerEvents: "none",
-        }} />
-        <svg width="32" height="27" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Envelope body */}
-          <rect x="0.5" y="0.5" width="23" height="19" rx="1.5" fill="none" stroke="#fff" strokeWidth="1.4"/>
-          {/* Flap V */}
-          <polyline points="0.5,0.5 12,11 23.5,0.5" fill="none" stroke="#fff" strokeWidth="1.4" strokeLinejoin="round"/>
-          {/* Bottom corners */}
-          <line x1="0.5" y1="19.5" x2="8" y2="12" stroke="#fff" strokeWidth="1.4"/>
-          <line x1="23.5" y1="19.5" x2="16" y2="12" stroke="#fff" strokeWidth="1.4"/>
-        </svg>
-      </a>
+
 
       <style>{`
         @keyframes float-pulse {
