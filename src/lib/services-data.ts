@@ -931,5 +931,9 @@ export const SERVICES_DETAIL: ServiceDetail[] = [
 ];
 
 export function getServiceBySlug(slug: string): ServiceDetail | undefined {
+  if (slug === "automation-ai-agents" || slug === "ai-agents" || slug === "automation") {
+    return SERVICES_DETAIL.find(s => s.slug === "ai-automation");
+  }
   return SERVICES_DETAIL.find(s => s.slug === slug);
 }
+
