@@ -152,38 +152,6 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      {/* ── FILTERS ── */}
-      <div style={{
-        position: "sticky", top: 0, zIndex: 100,
-        background: "rgba(255,255,255,0.95)",
-        backdropFilter: "blur(20px)",
-        borderBottom: "1px solid #e4e4e7",
-        padding: "20px 24px",
-      }}>
-        <div style={{ width: "min(1180px, calc(100% - 0px))", margin: "0 auto", display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-          {FILTERS.map(f => (
-            <button
-              key={f.id}
-              onClick={() => setFilter(f.id)}
-              style={{
-                padding: "8px 18px", borderRadius: 9999,
-                fontSize: 13, fontWeight: 500, cursor: "pointer",
-                border: "1px solid",
-                borderColor: filter === f.id ? "#17171c" : "#e4e4e7",
-                background: filter === f.id ? "#17171c" : "transparent",
-                color: filter === f.id ? "#fff" : "#71717a",
-                transition: "all 0.2s",
-              }}
-            >
-              {f.label}
-            </button>
-          ))}
-          <span style={{ marginLeft: "auto", fontSize: 13, color: "#71717a" }}>
-            265+ projects
-          </span>
-        </div>
-      </div>
-
       {/* ── GRID ── */}
       <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "48px auto 120px" }}>
         <div ref={gridRef} className="bw-proj-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
