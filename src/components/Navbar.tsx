@@ -68,15 +68,15 @@ export default function Navbar() {
     <>
       <div style={{ position: "fixed", top: 16, left: 0, right: 0, zIndex: 300, display: "flex", justifyContent: "center", padding: "0 16px" }}>
         <div style={{
-          background: scrolled ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.92)",
+          background: scrolled ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.94)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           borderRadius: 9999,
-          padding: scrolled ? "0 12px 0 24px" : "0 8px 0 20px",
+          padding: "0 16px 0 24px",
           display: "flex",
           alignItems: "center",
-          height: 60,
-          width: scrolled ? "min(1240px, 96%)" : "min(760px, 92%)",
+          height: 62,
+          width: scrolled ? "min(1260px, 96%)" : "min(880px, 94%)",
           boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,0.12)" : "0 4px 20px rgba(0,0,0,0.06)",
           border: "1px solid rgba(0,0,0,0.08)",
           transition: "width 0.45s cubic-bezier(0.16, 1, 0.3, 1), padding 0.45s ease, box-shadow 0.45s ease, background 0.45s ease",
@@ -131,8 +131,8 @@ export default function Navbar() {
 
           {/* CTA */}
           <button onClick={() => setModalOpen(true)} className="bw-cta-btn"
-            style={{ background: "#e8643c", color: "#fff", padding: "0 16px", borderRadius: 9999, fontSize: 13, fontWeight: 600, height: 38, display: "inline-flex", alignItems: "center", flexShrink: 0, border: "none", cursor: "pointer", transition: "background 0.2s", whiteSpace: "nowrap", fontFamily: "inherit" }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#17171c"; }}
+            style={{ background: "#e8643c", color: "#fff", padding: "0 18px", borderRadius: 9999, fontSize: 13, fontWeight: 600, height: 40, display: "inline-flex", alignItems: "center", flexShrink: 0, border: "none", cursor: "pointer", transition: "background 0.2s", whiteSpace: "nowrap", fontFamily: "inherit" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#00897B"; }}
             onMouseLeave={e => { e.currentTarget.style.background = "#e8643c"; }}>
             Get Started →
           </button>
