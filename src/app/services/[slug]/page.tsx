@@ -135,10 +135,20 @@ export default function ServiceDetailPage() {
         });
       });
 
-      /* steps */
-      gsap.fromTo(".step-card", { opacity: 0, x: -20 }, {
-        opacity: 1, x: 0, duration: 0.5, stagger: 0.08, ease: "power3.out",
-        scrollTrigger: { trigger: ".steps-wrap", start: "top 80%", once: true },
+      /* steps heading & cards */
+      gsap.fromTo(".how-label, .how-title", { opacity: 0, y: 24 }, {
+        opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out",
+        scrollTrigger: { trigger: ".how-section", start: "top 85%", once: true },
+      });
+
+      gsap.fromTo(".step-card", { opacity: 0, y: 35, scale: 0.95 }, {
+        opacity: 1, y: 0, scale: 1, duration: 0.65, stagger: 0.1, ease: "power3.out",
+        scrollTrigger: { trigger: ".steps-wrap", start: "top 82%", once: true },
+      });
+
+      gsap.fromTo(".step-arrow-badge", { opacity: 0, scale: 0 }, {
+        opacity: 1, scale: 1, duration: 0.45, stagger: 0.1, delay: 0.35, ease: "back.out(2)",
+        scrollTrigger: { trigger: ".steps-wrap", start: "top 82%", once: true },
       });
 
       /* bullets */
@@ -163,6 +173,21 @@ export default function ServiceDetailPage() {
       <Navbar />
 
       <style>{`
+        @keyframes arrowFloat {
+          0%, 100% { transform: translateY(-50%) translateX(0); }
+          50% { transform: translateY(-50%) translateX(3px); }
+        }
+        .step-arrow-badge {
+          animation: arrowFloat 2s ease-in-out infinite;
+        }
+        .step-card {
+          transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease !important;
+        }
+        .step-card:hover {
+          transform: translateY(-6px) !important;
+          box-shadow: 0 16px 32px rgba(0, 137, 123, 0.12), 0 2px 6px rgba(0,0,0,0.04) !important;
+          border-color: #00897B !important;
+        }
         @media (max-width: 768px) {
           .hero-grid { grid-template-columns: 1fr !important; }
           .two-col { grid-template-columns: 1fr !important; }
@@ -347,12 +372,12 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── HOW WE DO IT ── */}
-      <section style={{
+      <section className="how-section" style={{
         padding: "clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px)",
         background: "#f7f8f4",
       }}>
         <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-          <p style={{
+          <p className="how-label" style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: 11,
             color: "#00897B",
@@ -361,7 +386,7 @@ export default function ServiceDetailPage() {
             marginBottom: 16,
             fontWeight: 600,
           }}>How we do it</p>
-          <h2 style={{
+          <h2 className="how-title" style={{
             fontFamily: "'Space Grotesk', sans-serif",
             fontSize: "clamp(26px, 3.5vw, 44px)",
             fontWeight: 700,
@@ -380,17 +405,7 @@ export default function ServiceDetailPage() {
                 borderRadius: 12,
                 position: "relative",
                 opacity: 0,
-                transition: "box-shadow 0.25s, transform 0.25s",
-              }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)";
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                }}
-              >
+              }}>
                 <div style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: 11,
@@ -419,19 +434,19 @@ export default function ServiceDetailPage() {
                   fontSize: 11,
                   fontWeight: 600,
                   color: "#00897B",
-                  background: "rgba(232,100,60,0.08)",
+                  background: "rgba(0,137,123,0.08)",
                   display: "inline-block",
                   padding: "3px 10px",
                   borderRadius: 9999,
                 }}>{step.time}</div>
                 {i < svc.how.steps.length - 1 && (
-                  <div style={{
+                  <div className="step-arrow-badge" style={{
                     position: "absolute",
                     right: -9,
                     top: "50%",
                     transform: "translateY(-50%)",
-                    width: 18,
-                    height: 18,
+                    width: 20,
+                    height: 20,
                     background: "#00897B",
                     borderRadius: "50%",
                     display: "flex",
@@ -440,6 +455,7 @@ export default function ServiceDetailPage() {
                     zIndex: 1,
                     fontSize: 10,
                     color: "#fff",
+                    boxShadow: "0 2px 8px rgba(0,137,123,0.3)",
                   }}>→</div>
                 )}
               </div>
@@ -754,137 +770,7 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
-      {/* ── PRICING ── */}
-      <section style={{
-        padding: "clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px)",
-        background: "#ffffff",
-      }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-          <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 11,
-            color: "#00897B",
-            textTransform: "uppercase",
-            letterSpacing: "0.12em",
-            marginBottom: 16,
-            fontWeight: 600,
-          }}>Pricing</p>
 
-          <div className="price-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 5vw, 60px)", alignItems: "start" }}>
-            {/* Price card */}
-            <div style={{
-              border: "2px solid #17171c",
-              borderRadius: 20,
-              padding: "clamp(28px, 4vw, 48px)",
-              position: "relative",
-              overflow: "hidden",
-            }}>
-              <div style={{
-                position: "absolute",
-                top: 0, right: 0,
-                width: 120,
-                height: 120,
-                background: "radial-gradient(circle at top right, rgba(232,100,60,0.12) 0%, transparent 70%)",
-              }} />
-
-              <div style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 13,
-                color: "#71717a",
-                marginBottom: 8,
-              }}>Starting from</div>
-              <div style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: "clamp(40px, 6vw, 72px)",
-                fontWeight: 700,
-                color: "#17171c",
-                letterSpacing: "-0.04em",
-                lineHeight: 1,
-                marginBottom: 12,
-              }}>{svc.price.from}</div>
-              <div style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 14,
-                color: "#71717a",
-                marginBottom: 32,
-              }}>{svc.price.note}</div>
-
-              <div style={{ borderTop: "1px solid #e4e4e7", paddingTop: 28 }}>
-                <div style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: "#71717a",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                  marginBottom: 16,
-                }}>What's included</div>
-                {svc.price.includes.map((item, i) => (
-                  <div key={i} style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 10,
-                    padding: "8px 0",
-                    borderBottom: i < svc.price.includes.length - 1 ? "1px solid #f5f5f5" : "none",
-                  }}>
-                    <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
-                      <path d="M1.5 5.5L5 9L12.5 1.5" stroke="#00897B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#17171c" }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* CTA side */}
-            <div>
-              <h3 style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: "clamp(24px, 3vw, 36px)",
-                fontWeight: 700,
-                color: "#17171c",
-                letterSpacing: "-0.03em",
-                lineHeight: 1.2,
-                margin: "0 0 20px",
-              }}>
-                Fixed price.<br />No surprises.<br />Source code yours.
-              </h3>
-              <p style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 15,
-                color: "#71717a",
-                lineHeight: 1.75,
-                margin: "0 0 36px",
-              }}>
-                We scope every project before taking a rupee. You know exactly what you&apos;re getting, when you&apos;re getting it, and what it costs — before we start.
-              </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <a href="https://wa.me/919076269629" style={{
-                  display: "inline-flex", alignItems: "center", justifyContent: "center",
-                  background: "#00897B", color: "#fff",
-                  borderRadius: 9999, padding: "16px 32px",
-                  fontFamily: "'Inter', sans-serif", fontSize: 15, fontWeight: 700,
-                  textDecoration: "none", transition: "opacity 0.2s",
-                }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.85"}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
-                >Start this project on WhatsApp →</a>
-                <a href="mailto:info@boonware.in" style={{
-                  display: "inline-flex", alignItems: "center", justifyContent: "center",
-                  background: "transparent", color: "#17171c",
-                  border: "1px solid #e4e4e7",
-                  borderRadius: 9999, padding: "16px 32px",
-                  fontFamily: "'Inter', sans-serif", fontSize: 15, fontWeight: 500,
-                  textDecoration: "none", transition: "border-color 0.2s",
-                }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = "#17171c"}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = "#e4e4e7"}
-                >Send an email instead</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── FAQ ── */}
       <section style={{
