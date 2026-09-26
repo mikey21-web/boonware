@@ -176,15 +176,16 @@ export default function ServiceDetailPage() {
       <section
         ref={heroRef}
         style={{
-          background: "#17171c",
+          background: "#fafafa",
           padding: "clamp(120px, 16vw, 180px) clamp(20px, 5vw, 80px) clamp(60px, 8vw, 100px)",
           overflow: "hidden",
           position: "relative",
+          borderBottom: "1px solid #e4e4e7",
         }}
       >
         <div style={{
           position: "absolute", inset: 0, opacity: 0.04,
-          backgroundImage: "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(0,0,0,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.5) 1px, transparent 1px)",
           backgroundSize: "60px 60px", pointerEvents: "none",
         }} />
 
@@ -193,15 +194,15 @@ export default function ServiceDetailPage() {
             <Link href="/services" style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: 13,
-              color: "rgba(255,255,255,0.4)",
+              color: "#71717a",
               textDecoration: "none",
               transition: "color 0.2s",
             }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#fff"}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.4)"}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#17171c"}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#71717a"}
             >← All services</Link>
-            <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 13 }}>/</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.5)" }}>{svc.title}</span>
+            <span style={{ color: "#d4d4d8", fontSize: 13 }}>/</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#17171c", fontWeight: 600 }}>{svc.title}</span>
           </div>
 
           <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 6vw, 80px)", alignItems: "center" }}>
@@ -221,7 +222,7 @@ export default function ServiceDetailPage() {
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: "clamp(30px, 4.5vw, 60px)",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "#17171c",
                   letterSpacing: "-0.03em",
                   lineHeight: 1.1,
                   margin: 0,
@@ -236,7 +237,7 @@ export default function ServiceDetailPage() {
               <p className="hd-sub" style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: "clamp(16px, 1.8vw, 20px)",
-                color: "rgba(255,255,255,0.5)",
+                color: "#52525b",
                 lineHeight: 1.65,
                 margin: "20px 0 36px",
                 opacity: 0,
@@ -255,29 +256,27 @@ export default function ServiceDetailPage() {
                 >Get a quote →</a>
                 <a href="https://wa.me/919076269629" style={{
                   display: "inline-flex", alignItems: "center",
-                  border: "1px solid rgba(255,255,255,0.15)",
-                  color: "rgba(255,255,255,0.6)", borderRadius: 9999,
+                  border: "1px solid #d4d4d8",
+                  color: "#17171c", borderRadius: 9999,
                   padding: "14px 30px",
                   fontFamily: "'Inter', sans-serif", fontSize: 15, fontWeight: 500,
                   textDecoration: "none", transition: "color 0.2s, border-color 0.2s",
                 }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLElement).style.color = "#fff";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.4)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "#17171c";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.6)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "#d4d4d8";
                   }}
                 >WhatsApp us</a>
               </div>
             </div>
 
-            <div className="hd-sub" style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "4/3", position: "relative", opacity: 0 }}>
+            <div className="hd-sub" style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "4/3", position: "relative", opacity: 0, boxShadow: "0 12px 32px rgba(0,0,0,0.08)" }}>
               <Image src={svc.heroImg} alt={svc.title} fill unoptimized style={{ objectFit: "cover" }} />
               <div style={{
                 position: "absolute", inset: 0,
-                background: "linear-gradient(135deg, rgba(232,100,60,0.18) 0%, transparent 60%)",
+                background: "linear-gradient(135deg, rgba(0,137,123,0.12) 0%, transparent 60%)",
               }} />
             </div>
           </div>
@@ -647,7 +646,7 @@ export default function ServiceDetailPage() {
       {slug === "web-development" && (
         <section style={{
           padding: "clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px)",
-          background: "#17171c",
+          background: "#f7f8f4",
         }}>
           <div style={{ maxWidth: 1240, margin: "0 auto" }}>
             <p style={{
@@ -663,7 +662,7 @@ export default function ServiceDetailPage() {
               fontFamily: "'Space Grotesk', sans-serif",
               fontSize: "clamp(26px, 3.5vw, 44px)",
               fontWeight: 700,
-              color: "#ffffff",
+              color: "#17171c",
               letterSpacing: "-0.03em",
               lineHeight: 1.15,
               margin: "0 0 48px",
@@ -673,13 +672,14 @@ export default function ServiceDetailPage() {
             <div className="three-col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
               {TESTIMONIALS.map((t, i) => (
                 <div key={i} style={{
-                  background: "#111116",
-                  border: "1px solid rgba(255,255,255,0.07)",
+                  background: "#ffffff",
+                  border: "1px solid #e4e4e7",
                   borderRadius: 16,
                   padding: "28px 24px",
                   display: "flex",
                   flexDirection: "column",
                   gap: 16,
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
                 }}>
                   <div style={{ display: "flex", gap: 4 }}>
                     {Array.from({ length: t.rating }).map((_, si) => <StarIcon key={si} />)}
@@ -687,14 +687,14 @@ export default function ServiceDetailPage() {
                   <p style={{
                     fontFamily: "'Inter', sans-serif",
                     fontSize: 15,
-                    color: "rgba(255,255,255,0.75)",
+                    color: "#3f3f46",
                     lineHeight: 1.75,
                     margin: 0,
                     flex: 1,
                   }}>&ldquo;{t.text}&rdquo;</p>
                   <div>
-                    <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 15, fontWeight: 700, color: "#ffffff", letterSpacing: "-0.02em" }}>{t.name}</div>
-                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 3 }}>{t.role}</div>
+                    <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 15, fontWeight: 700, color: "#17171c", letterSpacing: "-0.02em" }}>{t.name}</div>
+                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#71717a", marginTop: 3 }}>{t.role}</div>
                   </div>
                 </div>
               ))}
@@ -708,7 +708,8 @@ export default function ServiceDetailPage() {
         ref={roiRef}
         style={{
           padding: "clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px)",
-          background: "#17171c",
+          background: "#ffffff",
+          borderTop: "1px solid #e4e4e7",
         }}
       >
         <div style={{ maxWidth: 1240, margin: "0 auto" }}>
@@ -727,7 +728,7 @@ export default function ServiceDetailPage() {
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "clamp(26px, 3.5vw, 44px)",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "#17171c",
                 letterSpacing: "-0.03em",
                 lineHeight: 1.15,
                 margin: "0 0 24px",
@@ -735,15 +736,15 @@ export default function ServiceDetailPage() {
               <p style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 16,
-                color: "rgba(255,255,255,0.6)",
+                color: "#52525b",
                 lineHeight: 1.75,
                 margin: "0 0 32px",
               }}>{svc.roi.body}</p>
 
               {/* Case study */}
               <div style={{
-                background: "rgba(232,100,60,0.08)",
-                border: "1px solid rgba(232,100,60,0.2)",
+                background: "rgba(0,137,123,0.06)",
+                border: "1px solid rgba(0,137,123,0.18)",
                 borderRadius: 12,
                 padding: "20px 24px",
               }}>
@@ -759,7 +760,7 @@ export default function ServiceDetailPage() {
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 14,
-                  color: "rgba(255,255,255,0.75)",
+                  color: "#3f3f46",
                   lineHeight: 1.7,
                   margin: 0,
                 }}>{svc.roi.example}</p>
@@ -770,15 +771,21 @@ export default function ServiceDetailPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               {svc.roi.metrics.map((m, i) => (
                 <div key={i} className="metric-val" style={{
-                  background: "#111116",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "#f7f8f4",
+                  border: "1px solid #e4e4e7",
                   borderRadius: 16,
                   padding: "28px 32px",
                   opacity: 0,
-                  transition: "transform 0.25s",
+                  transition: "transform 0.25s, box-shadow 0.25s",
                 }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateX(4px)"}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateX(0)"}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.transform = "translateX(4px)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(0,0,0,0.04)";
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.transform = "translateX(0)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                  }}
                 >
                   <div style={{
                     fontFamily: "'Space Grotesk', sans-serif",
@@ -792,7 +799,7 @@ export default function ServiceDetailPage() {
                   <div style={{
                     fontFamily: "'Inter', sans-serif",
                     fontSize: 14,
-                    color: "rgba(255,255,255,0.5)",
+                    color: "#71717a",
                   }}>{m.label}</div>
                 </div>
               ))}
