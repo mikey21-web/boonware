@@ -42,7 +42,8 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    onScroll(); // initial check
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -65,20 +66,20 @@ export default function Navbar() {
 
   return (
     <>
-      <div style={{ position: "fixed", top: 16, left: 0, right: 0, zIndex: 300, display: "flex", justifyContent: "center", padding: "0 24px" }}>
+      <div style={{ position: "fixed", top: 16, left: 0, right: 0, zIndex: 300, display: "flex", justifyContent: "center", padding: "0 16px" }}>
         <div style={{
-          background: "rgba(255,255,255,0.96)",
+          background: scrolled ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.92)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           borderRadius: 9999,
-          padding: "0 8px 0 20px",
+          padding: scrolled ? "0 12px 0 24px" : "0 8px 0 20px",
           display: "flex",
           alignItems: "center",
           height: 60,
-          width: "min(1000px, 100%)",
-          boxShadow: scrolled ? "0 4px 28px rgba(0,0,0,0.14)" : "0 2px 24px rgba(0,0,0,0.10)",
+          width: scrolled ? "min(1240px, 96%)" : "min(760px, 92%)",
+          boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,0.12)" : "0 4px 20px rgba(0,0,0,0.06)",
           border: "1px solid rgba(0,0,0,0.08)",
-          transition: "box-shadow 0.4s ease",
+          transition: "width 0.45s cubic-bezier(0.16, 1, 0.3, 1), padding 0.45s ease, box-shadow 0.45s ease, background 0.45s ease",
           overflow: "visible",
           fontFamily: "'Inter', sans-serif",
           gap: 4,
