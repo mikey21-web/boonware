@@ -5,20 +5,20 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer style={{ background: "#e8f5f0", fontFamily: "'Inter', sans-serif", borderTop: "1px solid rgba(0,137,123,0.2)" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(28px, 3.5vw, 48px) clamp(16px, 3vw, 32px)" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(28px, 3.5vw, 48px) clamp(20px, 3.5vw, 48px)" }}>
 
-        {/* Top 3-column grid: Left (BoonWare), Middle (Links), Right (More Resources) */}
+        {/* Top 3-column grid with aligned column starting points */}
         <div className="footer-grid" style={{
           display: "grid",
-          gridTemplateColumns: "1.2fr 1fr 1fr",
-          gap: "0 40px",
+          gridTemplateColumns: "1.3fr 1fr 1fr",
+          gap: "0 48px",
           marginBottom: 32,
           alignItems: "flex-start",
         }}>
 
           {/* Left Section: BoonWare branding, subscribe, socials */}
-          <div style={{ justifySelf: "start" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
+          <div style={{ textAlign: "left" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
               <Image src="/assets/icon_logo-CTOVYnVL.png" alt="BoonWare" width={32} height={32} style={{ display: "block" }} />
               <span style={{ fontSize: 24, fontWeight: 800, color: "#17171c", letterSpacing: "-0.03em" }}>BoonWare</span>
             </div>
@@ -61,7 +61,7 @@ export function Footer() {
           </div>
 
           {/* Middle Section: Links */}
-          <div style={{ justifySelf: "center" }}>
+          <div style={{ textAlign: "left" }}>
             <div style={{ fontSize: 14, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700, marginBottom: 14 }}>Links</div>
             {[["Home", "/"], ["About Us", "/about"], ["Services", "/services"], ["Our Work", "/projects"], ["Products", "/products"]].map(([l, href]) => (
               <Link key={l} href={href} style={{ display: "block", color: "#333", fontSize: 15, fontWeight: 500, textDecoration: "none", marginBottom: 10, transition: "color 0.2s" }}
@@ -72,7 +72,7 @@ export function Footer() {
           </div>
 
           {/* Right Section: More Resources */}
-          <div style={{ justifySelf: "end" }}>
+          <div style={{ textAlign: "left" }}>
             <div style={{ fontSize: 14, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700, marginBottom: 14 }}>More Resources</div>
             {[["Blogs", "/blogs"], ["Terms & Conditions", "/terms-and-conditions"], ["Privacy Policy", "/privacy-policy"], ["Refund Policy", "/refund-policy"]].map(([l, href]) => (
               <Link key={l} href={href} style={{ display: "block", color: "#333", fontSize: 15, fontWeight: 500, textDecoration: "none", marginBottom: 10, transition: "color 0.2s" }}
@@ -103,7 +103,6 @@ export function Footer() {
         <style>{`
           @media (max-width: 800px) {
             .footer-grid { grid-template-columns: 1fr !important; gap: 32px 0 !important; }
-            .footer-grid > div { justify-self: start !important; }
           }
         `}</style>
       </div>
