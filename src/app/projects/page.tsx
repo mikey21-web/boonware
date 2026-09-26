@@ -69,7 +69,6 @@ const FILTERS = [
   { id: "all",      label: "All" },
   { id: "websites", label: "Website" },
   { id: "mobile",   label: "Mobile App" },
-  { id: "ai",       label: "AI / Automation" },
 ] as const;
 
 const CAT_LABELS: Record<string, string> = {
@@ -134,7 +133,7 @@ export default function ProjectsPage() {
             width: 7, height: 7, borderRadius: "50%", background: "#00897B",
             display: "inline-block", animation: "blink 2s ease-in-out infinite",
           }} />
-          {PROJECTS.length}+ projects delivered
+          265+ projects delivered
         </div>
 
         <h1 style={{
@@ -180,7 +179,7 @@ export default function ProjectsPage() {
             </button>
           ))}
           <span style={{ marginLeft: "auto", fontSize: 13, color: "#71717a" }}>
-            {visible.length} project{visible.length !== 1 ? "s" : ""}
+            265+ projects
           </span>
         </div>
       </div>
