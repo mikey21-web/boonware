@@ -574,6 +574,7 @@ export default function ServiceDetailPage() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
             gap: 16,
+            alignItems: "start",
           }}>
             {svc.subServices.map((sub) => (
               <SubServiceCard key={sub.title} sub={sub} />
