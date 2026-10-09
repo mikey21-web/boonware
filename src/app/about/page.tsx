@@ -65,11 +65,11 @@ function PeopleSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section style={{ padding: "104px 24px", borderBottom: "1px solid #e4e4e7" }}>
+    <section className="about-people-section" style={{ padding: "32px 24px 64px", borderBottom: "1px solid #e4e4e7" }}>
       <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
 
         {/* Our People & Approach */}
-        <h2 style={{ fontSize: "clamp(28px, 3.5vw, 44px)", fontWeight: 700, letterSpacing: "-1px", color: "#17171c", margin: "0 0 20px" }}>
+        <h2 style={{ fontSize: "clamp(28px, 3.5vw, 44px)", fontWeight: 700, letterSpacing: "-1px", lineHeight: 1.12, color: "#17171c", margin: "0 0 20px" }}>
           Our People &amp; Approach
         </h2>
         <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, maxWidth: 780, margin: 0 }}>
@@ -211,11 +211,16 @@ export default function AboutPage() {
     <div style={{ background: "#ffffff", fontFamily: "'Inter', sans-serif" }}>
       <style>{`
         @media (max-width: 768px) {
+          .about-values-section { padding-top:48px!important; padding-bottom:24px!important; }
+          .about-people-section { padding-top:24px!important; padding-bottom:48px!important; }
           .about-story-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
           .about-team-grid { grid-template-columns: 1fr !important; }
           .about-val-grid { grid-template-columns: 1fr 1fr !important; }
           .about-proc-grid { grid-template-columns: 1fr 1fr !important; }
           .about-cta-row { flex-direction: column !important; align-items: flex-start !important; }
+        }
+        @media (max-width: 900px) {
+          .about-hero-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
         }
         @media (max-width: 480px) {
           .about-val-grid { grid-template-columns: 1fr !important; }
@@ -225,24 +230,26 @@ export default function AboutPage() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section ref={heroRef} style={{ padding: "clamp(96px, 16vw, 140px) 24px clamp(72px, 10vw, 100px)", borderBottom: "1px solid #e4e4e7", overflow: "hidden" }}>
+      <section ref={heroRef} style={{ padding: "clamp(88px, 12vw, 120px) 24px clamp(44px, 5vw, 64px)", borderBottom: "1px solid #e4e4e7", overflow: "hidden" }}>
         <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
           <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }} className="hero-line">
             About BoonWare
           </span>
-          <h1 style={{ fontSize: "clamp(48px, 6.5vw, 88px)", fontWeight: 700, letterSpacing: "-2px", lineHeight: 1.02, color: "#17171c", margin: 0 }} className="hero-line">
-            We build the technology<br />
-            your business{" "}
-            <span style={{ color: "#16a34a", fontWeight: 700 }}>needs to grow.</span>
-          </h1>
-          <p style={{ fontSize: 18, color: "#71717a", maxWidth: 620, lineHeight: 1.7, marginTop: 28 }} className="hero-line">
-            Build it right. Automate the rest. Grow without limits. BoonWare brings together full-suite web development, next-gen AI workflows, and data-driven marketing to take your business from launch to market leader.
-          </p>
+          <div className="about-hero-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.6fr) minmax(0, 1fr)", gap: 48, alignItems: "end" }}>
+            <h1 style={{ fontSize: "clamp(48px, 6.5vw, 88px)", fontWeight: 700, letterSpacing: "-2px", lineHeight: 1.02, color: "#17171c", margin: 0 }} className="hero-line">
+              We build the technology<br />
+              your business{" "}
+              <span style={{ color: "#16a34a", fontWeight: 700 }}>needs to grow.</span>
+            </h1>
+            <p style={{ fontSize: 18, color: "#71717a", lineHeight: 1.7, margin: 0, paddingBottom: 6 }} className="hero-line">
+              Build it right. Automate the rest. Grow without limits. BoonWare brings together full-suite web development, next-gen AI workflows, and data-driven marketing to take your business from launch to market leader.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* ── STORY ── */}
-      <section style={{ padding: "104px 24px", borderBottom: "1px solid #e4e4e7" }}>
+      <section style={{ padding: "72px 24px", borderBottom: "1px solid #e4e4e7" }}>
         <div ref={storyRef} className="about-story-grid" style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
           <div className="story-left" style={{ willChange: "transform" }}>
             <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
@@ -257,11 +264,11 @@ export default function AboutPage() {
               BoonWare began as a shared vision between three passionate technologists — not just to build products, but to build the future. From our very first project, we knew we wanted to be more than a software studio.
             </p>
             <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, marginTop: 20 }}>
-              We founded BoonWare to bridge the gap between innovative AI and the everyday business. In a world flooded with generic tools, we focus on crafting intelligent, adaptive solutions that evolve with our clients' needs.
+              We founded BoonWare to bridge the gap between innovative AI and the everyday business. In a world flooded with generic tools, we focus on crafting intelligent, adaptive solutions that evolve with our clients&apos; needs.
             </p>
             <blockquote style={{ borderLeft: "3px solid #00897B", paddingLeft: 20, marginTop: 28 }}>
               <p style={{ fontSize: 17, fontWeight: 600, color: "#17171c", lineHeight: 1.55, margin: 0, letterSpacing: "-0.2px" }}>
-                "Technology should be an extension of purpose — enhancing how people work, connect, and grow. We build with empathy, intelligence, and intent."
+                &ldquo;Technology should be an extension of purpose — enhancing how people work, connect, and grow. We build with empathy, intelligence, and intent.&rdquo;
               </p>
             </blockquote>
             <div style={{ display: "flex", gap: 32, marginTop: 36, paddingTop: 32, borderTop: "1px solid #e4e4e7" }}>
@@ -334,89 +341,90 @@ export default function AboutPage() {
       </section>
 
       {/* ── TEAM ── */}
-      <section style={{ padding: "104px 24px", borderBottom: "1px solid #e4e4e7", background: "#00897B" }}>
-        <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 700, letterSpacing: "-1px", color: "#fff", margin: "0 0 48px" }}>
-            Our Founder
-          </h2>
-
-          <div ref={teamRef} className="about-team-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24, maxWidth: 760, margin: "0 auto" }}>
-            {TEAM.map(member => (
-              <div
-                key={member.name}
-                className="team-card"
-                style={{
-                  background: "#ffffff",
-                  borderRadius: 16,
-                  padding: "40px 32px 32px",
-                  textAlign: "center",
-                  width: "100%",
-                  opacity: 0,
-                  transition: "transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 48px rgba(0,0,0,0.15)";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                }}
-              >
-                {/* Circular photo */}
-                <div style={{ width: 170, height: 170, borderRadius: "50%", overflow: "hidden", margin: "0 auto 24px", border: "4px solid #00897B", position: "relative", background: "#f4f4f5" }}>
-                  <Image
-                    src={member.img} alt={member.name} fill
-                    style={{ objectFit: "cover", objectPosition: "top" }}
-                    unoptimized
-                    sizes="140px"
-                  />
+      <section className="founders-section" aria-labelledby="founders-title">
+        <div className="founders-inner">
+          <div className="founders-heading">
+            <div>
+              <span className="founders-eyebrow">THE PEOPLE BEHIND BOONWARE</span>
+              <h2 id="founders-title">Two perspectives.<br /><span>One shared ambition.</span></h2>
+            </div>
+            <p>Meet our co-founders. Bringing business vision and thoughtful execution together to build what comes next.</p>
+          </div>
+          <div ref={teamRef} className="founders-grid">
+            {TEAM.map((member, i) => (
+              <article key={member.name} className="team-card founder-card">
+                <div className="founder-portrait">
+                  <Image src={member.img} alt={member.name} fill sizes="(max-width: 700px) 90vw, (max-width: 1100px) 44vw, 540px" style={{ objectFit: "cover", objectPosition: "center 28%" }} unoptimized />
+                  <span className="founder-number">0{i + 1} / CO-FOUNDER</span>
+                  <div className="founder-photo-caption">{i === 0 ? "The vision." : "The execution."}</div>
                 </div>
-                <h3 style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.3px", color: "#17171c", margin: 0 }}>
-                  {member.name}
-                </h3>
-                <p style={{ fontSize: 13, color: "#00897B", fontWeight: 600, marginTop: 4 }}>
-                  {member.role}
-                </p>
-                <div style={{ display: "flex", gap: 10, marginTop: 16, justifyContent: "center" }}>
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
-                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 34, borderRadius: "50%", background: "#f4f4f5", color: "#0a66c2", textDecoration: "none", transition: "background 0.2s" }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "#0a66c2"; (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#fff"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "#f4f4f5"; (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#0a66c2"; }}
-                    aria-label="LinkedIn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  </a>
-                  <a href={member.instagram} target="_blank" rel="noopener noreferrer"
-                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 34, borderRadius: "50%", background: "#f4f4f5", color: "#e1306c", textDecoration: "none", transition: "background 0.2s" }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "#e1306c"; (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#fff"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "#f4f4f5"; (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#e1306c"; }}
-                    aria-label="Instagram">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                  </a>
+                <div className="founder-info">
+                  <span className="founder-role">{member.role}</span>
+                  <h3>{member.name}</h3>
+                  <p>{member.bio}</p>
+                  <div className="founder-links">
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on LinkedIn`}>LinkedIn <span aria-hidden="true">↗</span></a>
+                    <a href={member.instagram} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on Instagram`}>Instagram <span aria-hidden="true">↗</span></a>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
+          <div className="founders-bottom"><span>VISION × EXECUTION</span><p>Different strengths. A shared commitment to your growth.</p><Link href="/contact">Let’s build together <span aria-hidden="true">↗</span></Link></div>
         </div>
+        <style>{`
+          .founders-section { padding:88px 24px 56px; background:#063e37; color:#fff; position:relative; overflow:hidden; }
+          .founders-section::before { content:""; position:absolute; width:620px; height:620px; border:1px solid #ffffff0d; border-radius:50%; top:-310px; right:-180px; pointer-events:none; box-shadow:0 0 0 80px #ffffff03,0 0 0 160px #ffffff02; }
+          .founders-inner { max-width:1120px; margin:auto; position:relative; }
+          .founders-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:48px; margin-bottom:40px; }
+          .founders-eyebrow { display:block; color:#afdbc5; font-size:11px; font-weight:600; letter-spacing:2px; margin-bottom:20px; }
+          .founders-heading h2 { margin:0; font-size:clamp(34px,4.1vw,58px); line-height:1.08; letter-spacing:-2px; font-weight:600; }
+          .founders-heading h2 span { color:#c0e9c9; }
+          .founders-heading > p { max-width:295px; margin:0 0 4px; color:#c2d6d0; font-size:14px; line-height:1.8; }
+          .founders-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
+          .founder-card { min-width:0; background:#f7f8f2; color:#153d35; border-radius:18px; overflow:hidden; transition:box-shadow .3s; }
+          .founder-card:hover { box-shadow:0 20px 50px #001e2440; }
+          .founder-portrait { position:relative; height:320px; overflow:hidden; background:#cbd7cc; }
+          .founder-portrait img { transition:transform .7s; }
+          .founder-card:hover .founder-portrait img { transform:scale(1.035); }
+          .founder-portrait::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,#00291c20 0%,transparent 40%,#00291caa 100%); pointer-events:none; }
+          .founder-number { position:absolute; z-index:1; top:20px; left:22px; padding:8px 12px; border-radius:99px; background:#063e37e6; color:#fff; font-size:10px; letter-spacing:1.3px; }
+          .founder-photo-caption { position:absolute; bottom:22px; left:28px; z-index:1; color:#fff; font-size:34px; letter-spacing:-1px; font-weight:500; }
+          .founder-info { padding:28px 30px; }
+          .founder-role { color:#006c59; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+          .founder-info h3 { margin:8px 0 12px; font-size:28px; letter-spacing:-.8px; line-height:1.2; font-weight:600; }
+          .founder-info > p { margin:0; color:#576760; font-size:14px; line-height:1.75; min-height:74px; max-width:420px; }
+          .founder-links { display:flex; gap:24px; margin-top:22px; padding-top:18px; border-top:1px solid #dbe2d7; }
+          .founder-links a { display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:44px; color:#174c3f; text-decoration:none; font-size:12px; font-weight:600; }
+          .founder-links a:hover { color:#00897b; }
+          .founder-links a:focus-visible,.founders-bottom a:focus-visible { outline:2px solid #30bca0; outline-offset:5px; }
+          .founders-bottom { display:flex; align-items:center; gap:32px; border-top:1px solid #ffffff25; padding-top:26px; margin-top:40px; }
+          .founders-bottom > span { color:#b4d5be; font-size:10px; letter-spacing:1.7px; white-space:nowrap; }
+          .founders-bottom p { color:#c2d6d0; font-size:13px; margin:0; flex:1; }
+          .founders-bottom a { color:#fff; text-decoration:none; font-size:13px; padding:12px 0; white-space:nowrap; }
+          .founders-bottom a span { margin-left:16px; }
+          @media(max-width:700px) { .founders-section { padding:56px 20px 32px; } .founders-heading { display:block; margin-bottom:28px; } .founders-heading > p { margin-top:22px; max-width:380px; } .founders-heading h2 { letter-spacing:-1.3px; } .founders-grid { grid-template-columns:1fr; gap:24px; } .founder-portrait { height:320px; } .founder-info { padding:24px; } .founders-bottom { flex-wrap:wrap; gap:14px; margin-top:28px; } .founders-bottom p { flex-basis:100%; order:2; } }
+          @media(prefers-reduced-motion:reduce) { .founder-card,.founder-portrait img { transition:none; } .founders-section .team-card { opacity:1!important; transform:none!important; } }
+        `}</style>
       </section>
 
       {/* ── VALUES ── */}
-      <section style={{ padding: "104px 24px", borderBottom: "1px solid #e4e4e7" }}>
+      <section className="about-values-section" style={{ padding: "64px 24px 32px", borderBottom: "1px solid #e4e4e7" }}>
         <div style={{ width: "min(1180px, calc(100% - 48px))", margin: "0 auto" }}>
           <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
             What we stand for
           </span>
-          <h2 style={{ fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, letterSpacing: "-1.2px", lineHeight: 1.05, color: "#17171c", margin: "0 0 48px" }}>
+          <h2 style={{ fontSize: "clamp(28px, 3.5vw, 44px)", fontWeight: 700, letterSpacing: "-1px", lineHeight: 1.12, color: "#17171c", margin: "0 0 28px" }}>
             Our values.
           </h2>
-          <div className="val-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8 }}>
+          <div className="val-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
             {VALUES.map((v, i) => (
               <div
                 key={v.title}
                 className="val-card"
                 style={{
                   background: "#f7f8f4", border: "1px solid #e4e4e7",
-                  padding: 28, opacity: 0,
+                  padding: 24, opacity: 0,
                   transition: "border-color 0.22s, transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s",
                 }}
                 onMouseEnter={e => {
@@ -433,10 +441,10 @@ export default function AboutPage() {
                 <span style={{ fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "1px" }}>
                   0{i + 1}
                 </span>
-                <h3 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c", marginTop: 32 }}>
+                <h3 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.4px", color: "#17171c", margin: "20px 0 8px" }}>
                   {v.title}
                 </h3>
-                <p style={{ fontSize: 13, color: "#71717a", marginTop: 8, lineHeight: 1.63 }}>
+                <p style={{ fontSize: 13, color: "#71717a", margin: 0, lineHeight: 1.63 }}>
                   {v.desc}
                 </p>
               </div>
@@ -485,7 +493,7 @@ export default function AboutPage() {
             Ready to work with us?
           </h2>
           <p style={{ fontSize: 17, color: "#71717a", marginTop: 16, lineHeight: 1.63 }}>
-            Tell us what you need. We'll scope it, price it, and build it.
+            Tell us what you need. We&apos;ll scope it, price it, and build it.
           </p>
           <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap", marginTop: 28 }}>
             <Link href="/contact" style={{

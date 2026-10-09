@@ -54,14 +54,11 @@ export function FAQ() {
     <section ref={ref} style={{ background: "#ffffff", borderBottom: "1px solid #e4e4e7", padding: "96px 0", fontFamily: "'Inter', sans-serif" }}>
       <div className="faq-wrap" style={{ width: "min(1180px, calc(100% - 40px))", margin: "0 auto", display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 56, alignItems: "start" }}>
         <div>
-          <span style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#00897B", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
-            FAQ
-          </span>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 700, letterSpacing: "-1.2px", lineHeight: 1.08, color: "#17171c", margin: 0 }}>
-            Questions, <span style={{ color: "#00897B" }}>answered.</span>
+            FAQ
           </h2>
           <p style={{ color: "#71717a", fontSize: 15, lineHeight: 1.7, marginTop: 16 }}>
-            Still unsure about something? Message us on WhatsApp and we'll answer within the hour.
+            Still unsure about something? Message us on WhatsApp and we&apos;ll answer within the hour.
           </p>
         </div>
 
