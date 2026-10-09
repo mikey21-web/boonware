@@ -4,7 +4,7 @@ import { useParams, notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
-import { getServiceBySlug, SERVICES_DETAIL, SubService } from "@/lib/services-data";
+import { getServiceBySlug, SubService } from "@/lib/services-data";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -169,10 +169,13 @@ export default function ServiceDetailPage() {
   if (!svc) return notFound();
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#ffffff" }}>
+    <div className={svc.slug === "web-development" ? "web-service-compact" : undefined} style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#ffffff" }}>
       <Navbar />
 
       <style>{`
+        .web-service-compact > section:not(:first-of-type) { padding-top:32px!important; padding-bottom:32px!important; }
+        .web-service-compact > section:not(:first-of-type) h2 { margin-bottom:32px!important; }
+        @media(max-width:768px) { .web-service-compact > section:not(:first-of-type) { padding-top:24px!important; padding-bottom:24px!important; } }
         @keyframes arrowFloat {
           0%, 100% { transform: translateY(-50%) translateX(0); }
           50% { transform: translateY(-50%) translateX(3px); }
@@ -822,58 +825,6 @@ export default function ServiceDetailPage() {
                   margin: 0,
                 }}>{item.a}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── OTHER SERVICES ── */}
-      <section style={{
-        padding: "clamp(60px, 6vw, 80px) clamp(20px, 5vw, 80px)",
-        background: "#ffffff",
-        borderTop: "1px solid #e4e4e7",
-      }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32, flexWrap: "wrap", gap: 16 }}>
-            <h3 style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: "clamp(20px, 2.5vw, 28px)",
-              fontWeight: 700,
-              color: "#17171c",
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}>Other services</h3>
-            <Link href="/services" style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 14,
-              color: "#17171c",
-              textDecoration: "none",
-              borderBottom: "1px solid rgba(0,0,0,0.2)",
-              paddingBottom: 2,
-            }}>See all →</Link>
-          </div>
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            {SERVICES_DETAIL.filter(s => s.slug !== slug).slice(0, 4).map(s => (
-              <Link key={s.slug} href={`/services/${s.slug}`} style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 14,
-                fontWeight: 500,
-                color: "#17171c",
-                textDecoration: "none",
-                border: "1px solid #e4e4e7",
-                borderRadius: 9999,
-                padding: "10px 20px",
-                transition: "background 0.2s, border-color 0.2s",
-              }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.background = "#17171c";
-                  (e.currentTarget as HTMLElement).style.color = "#fff";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.background = "transparent";
-                  (e.currentTarget as HTMLElement).style.color = "#17171c";
-                }}
-              >{s.title} →</Link>
             ))}
           </div>
         </div>
