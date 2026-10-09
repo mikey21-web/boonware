@@ -72,10 +72,10 @@ function PeopleSection() {
         <h2 style={{ fontSize: "clamp(28px, 3.5vw, 44px)", fontWeight: 700, letterSpacing: "-1px", lineHeight: 1.12, color: "#17171c", margin: "0 0 20px" }}>
           Our People &amp; Approach
         </h2>
-        <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, maxWidth: 780, margin: 0 }}>
+        <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, margin: 0 }}>
           BoonWare is powered by a specialized collective of software engineers, AI architects, creative designers, and performance marketers united by a passion for scalable tech and measurable growth. We blend clean engineering, data-backed insights, and continuous optimization to turn ambitious ideas into high-performing digital assets.
         </p>
-        <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, maxWidth: 780, marginTop: 16 }}>
+        <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, marginTop: 16 }}>
           Since 2021, we have partnered with forward-thinking startups and growing enterprises, earning trust through agile execution, transparent collaboration, and dependable end-to-end support.
         </p>
 
@@ -94,10 +94,10 @@ function PeopleSection() {
           How We Create{" "}
           <span style={{ color: "#00897B" }}>Impact</span>
         </h2>
-        <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, maxWidth: 780, margin: 0 }}>
+        <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, margin: 0 }}>
           In a fast-paced digital ecosystem, <strong style={{ color: "#17171c" }}>sustainable growth</strong> requires aligning <strong style={{ color: "#17171c" }}>powerful technology</strong> with <strong style={{ color: "#17171c" }}>precision-targeted marketing</strong>. At <strong style={{ color: "#17171c" }}>BoonWare</strong>, we help brands uncover <strong style={{ color: "#17171c" }}>high-yield opportunities</strong>, <strong style={{ color: "#17171c" }}>automate key workflows</strong>, and transform web and mobile platforms into <strong style={{ color: "#17171c" }}>scalable revenue engines</strong>.
         </p>
-        <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, maxWidth: 780, marginTop: 16 }}>
+        <p style={{ fontSize: 16, color: "#71717a", lineHeight: 1.75, marginTop: 16 }}>
           We focus on building <strong style={{ color: "#17171c" }}>lasting value</strong> and engineering <strong style={{ color: "#17171c" }}>scalable systems</strong>—not chasing temporary vanity metrics.
         </p>
 
@@ -346,7 +346,7 @@ export default function AboutPage() {
           <div className="founders-heading">
             <div>
               <span className="founders-eyebrow">THE PEOPLE BEHIND BOONWARE</span>
-              <h2 id="founders-title">Two perspectives.<br /><span>One shared ambition.</span></h2>
+              <h2 id="founders-title">Our <span>Founders</span></h2>
             </div>
             <p>Meet our co-founders. Bringing business vision and thoughtful execution together to build what comes next.</p>
           </div>
@@ -375,22 +375,24 @@ export default function AboutPage() {
         <style>{`
           .founders-section { padding:88px 24px 56px; background:#063e37; color:#fff; position:relative; overflow:hidden; }
           .founders-section::before { content:""; position:absolute; width:620px; height:620px; border:1px solid #ffffff0d; border-radius:50%; top:-310px; right:-180px; pointer-events:none; box-shadow:0 0 0 80px #ffffff03,0 0 0 160px #ffffff02; }
-          .founders-inner { max-width:1120px; margin:auto; position:relative; }
-          .founders-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:48px; margin-bottom:40px; }
+          .founders-inner { max-width:1240px; margin:auto; position:relative; }
+          .founders-heading { text-align:center; margin-bottom:48px; }
           .founders-eyebrow { display:block; color:#afdbc5; font-size:11px; font-weight:600; letter-spacing:2px; margin-bottom:20px; }
           .founders-heading h2 { margin:0; font-size:clamp(34px,4.1vw,58px); line-height:1.08; letter-spacing:-2px; font-weight:600; }
           .founders-heading h2 span { color:#c0e9c9; }
-          .founders-heading > p { max-width:295px; margin:0 0 4px; color:#c2d6d0; font-size:14px; line-height:1.8; }
-          .founders-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
-          .founder-card { min-width:0; background:#f7f8f2; color:#153d35; border-radius:18px; overflow:hidden; transition:box-shadow .3s; }
-          .founder-card:hover { box-shadow:0 20px 50px #001e2440; }
-          .founder-portrait { position:relative; height:320px; overflow:hidden; background:#cbd7cc; }
+          .founders-heading > p { max-width:520px; margin:20px auto 0; color:#c2d6d0; font-size:14px; line-height:1.8; }
+          .founders-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; }
+          .founder-card { min-width:0; background:#f7f8f2; color:#153d35; border-radius:18px; overflow:hidden; transition:box-shadow .3s; animation:founder-float 6s ease-in-out infinite; }
+          .founder-card:nth-child(2) { animation-delay:-3s; }
+          @keyframes founder-float { 0%,100% { translate:0 0; } 50% { translate:0 -8px; } }
+          .founder-card:hover { animation-play-state:paused; box-shadow:0 24px 60px #001e2460; }
+          .founder-portrait { position:relative; height:400px; overflow:hidden; background:#cbd7cc; }
           .founder-portrait img { transition:transform .7s; }
           .founder-card:hover .founder-portrait img { transform:scale(1.035); }
           .founder-portrait::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,#00291c20 0%,transparent 40%,#00291caa 100%); pointer-events:none; }
           .founder-number { position:absolute; z-index:1; top:20px; left:22px; padding:8px 12px; border-radius:99px; background:#063e37e6; color:#fff; font-size:10px; letter-spacing:1.3px; }
           .founder-photo-caption { position:absolute; bottom:22px; left:28px; z-index:1; color:#fff; font-size:34px; letter-spacing:-1px; font-weight:500; }
-          .founder-info { padding:28px 30px; }
+          .founder-info { padding:32px 34px; }
           .founder-role { color:#006c59; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; }
           .founder-info h3 { margin:8px 0 12px; font-size:28px; letter-spacing:-.8px; line-height:1.2; font-weight:600; }
           .founder-info > p { margin:0; color:#576760; font-size:14px; line-height:1.75; min-height:74px; max-width:420px; }
@@ -403,8 +405,8 @@ export default function AboutPage() {
           .founders-bottom p { color:#c2d6d0; font-size:13px; margin:0; flex:1; }
           .founders-bottom a { color:#fff; text-decoration:none; font-size:13px; padding:12px 0; white-space:nowrap; }
           .founders-bottom a span { margin-left:16px; }
-          @media(max-width:700px) { .founders-section { padding:56px 20px 32px; } .founders-heading { display:block; margin-bottom:28px; } .founders-heading > p { margin-top:22px; max-width:380px; } .founders-heading h2 { letter-spacing:-1.3px; } .founders-grid { grid-template-columns:1fr; gap:24px; } .founder-portrait { height:320px; } .founder-info { padding:24px; } .founders-bottom { flex-wrap:wrap; gap:14px; margin-top:28px; } .founders-bottom p { flex-basis:100%; order:2; } }
-          @media(prefers-reduced-motion:reduce) { .founder-card,.founder-portrait img { transition:none; } .founders-section .team-card { opacity:1!important; transform:none!important; } }
+          @media(max-width:700px) { .founders-section { padding:56px 20px 32px; } .founders-heading { display:block; margin-bottom:28px; } .founders-heading > p { margin:20px auto 0; max-width:380px; } .founders-heading h2 { letter-spacing:-1.3px; } .founders-grid { grid-template-columns:1fr; gap:24px; } .founder-portrait { height:320px; } .founder-info { padding:24px; } .founders-bottom { flex-wrap:wrap; gap:14px; margin-top:28px; } .founders-bottom p { flex-basis:100%; order:2; } }
+          @media(prefers-reduced-motion:reduce) { .founder-card,.founder-portrait img { transition:none; animation:none; translate:none; } .founders-section .team-card { opacity:1!important; transform:none!important; } }
         `}</style>
       </section>
 
